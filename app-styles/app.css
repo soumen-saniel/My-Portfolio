@@ -112,7 +112,7 @@ HERO SECTION
 ********************************************************************/
 .hero {
 	z-index: 1;
-	background: url("../img/landing.png") no-repeat;
+	background: url("../img/landing.jpg") no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	height: 100vh; }	
