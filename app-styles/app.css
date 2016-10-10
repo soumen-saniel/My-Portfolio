@@ -7,11 +7,13 @@ GENERAL
 }
 @media (min-width:768px) {
 	.row{
-		overflow: hidden;
 		max-width: 90vw;
 	}
 }
 /*******************************************************************/
+.hr-light{
+	border-bottom: 2px solid #ffffff;
+}
 .wrapper{
 	position: absolute;
 	z-index: 2;
@@ -43,6 +45,7 @@ GENERAL
 	color : #000;
 }
 .row-padding{
+	height: auto;
 	padding-top: 3%;
 	padding-bottom: 3%;
 }
@@ -166,6 +169,8 @@ HERO SECTION
 @media (max-width: 720px) {
   .hero {      
     background: url("../img/mobile/landing.jpg") no-repeat;
+    background-size: cover;
+	background-attachment: fixed;
   }
   .landing-text{
   	margin-top: 80%;
@@ -214,8 +219,6 @@ PORTFOLIO
 .grid {
 	position: relative;
 	margin: 0 auto;
-	/*padding: 1em 0 4em;
-	max-width: 1000px;*/
 	list-style: none;
 	text-align: center;
 }
@@ -264,8 +267,6 @@ PORTFOLIO
 	height: 100%;
 }
 
-/* Anchor will cover the whole item by default */
-/* For some effects it will show as a button */
 .grid figure figcaption > a {
 	z-index: 1000;
 	text-indent: 200%;
@@ -293,118 +294,148 @@ PORTFOLIO
 	font-size: 68.5%;
 	opacity: 0;
 }
-/*---------------*/
-/***** Ruby *****/
-/*---------------*/
-
 /************************************************************/
-figure.effect-ruby {
-	background-color: #17819c;
+
+figure.effect-bubba {
+	background: #9e5406;
 }
 
-figure.effect-ruby img {
+figure.effect-bubba img {
 	opacity: 0.7;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: scale(1.15);
-	transform: scale(1.15);
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
 }
 
-figure.effect-ruby:hover img {
+figure.effect-bubba:hover img {
 	opacity: 0.5;
 	-webkit-transform: scale(1);
-	transform: scale(1);
+	transform: scale(1.2);
 }
 
-figure.effect-layla figcaption {
-	padding: 3em;
-}
-
-figure.effect-layla figcaption::before,
-figure.effect-layla figcaption::after {
+figure.effect-bubba figcaption::before,
+figure.effect-bubba figcaption::after {
 	position: absolute;
+	top: 30px;
+	right: 30px;
+	bottom: 30px;
+	left: 30px;
 	content: '';
 	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
 }
 
-figure.effect-ruby figcaption::before {
-	top: 50px;
-	right: 30px;
-	bottom: 50px;
-	left: 30px;
+figure.effect-bubba figcaption::before {
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #fff;
 	-webkit-transform: scale(0,1);
 	transform: scale(0,1);
-	-webkit-transform-origin: 0 0;
-	transform-origin: 0 0;
 }
 
-figure.effect-ruby figcaption::after {
-	top: 30px;
-	right: 50px;
-	bottom: 30px;
-	left: 50px;
+figure.effect-bubba figcaption::after {
 	border-right: 1px solid #fff;
 	border-left: 1px solid #fff;
 	-webkit-transform: scale(1,0);
 	transform: scale(1,0);
-	-webkit-transform-origin: 100% 0;
-	transform-origin: 100% 0;
 }
 
-figure.effect-ruby h2 {
-	padding-top: 26%;
+figure.effect-bubba h2 {
+	padding-top: 20%;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,-20px,0);
+	transform: translate3d(0,-20px,0);
 }
 
-figure.effect-layla p {
-	padding: 0.5em 2em;
-	text-transform: none;
+figure.effect-bubba p{
+	padding: 10px 1.5em;
 	opacity: 0;
-	-webkit-transform: translate3d(0,-10px,0);
-	transform: translate3d(0,-10px,0);
-}
-
-figure.effect-ruby h2 {
-	-webkit-transform: translate3d(0,-30px,0);
-	transform: translate3d(0,-30px,0);
-}
-
-figure.effect-ruby figcaption::before,
-figure.effect-ruby figcaption::after,
-figure.effect-ruby p {
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,20px,0);
+	transform: translate3d(0,20px,0);
 }
 
-figure.effect-ruby:hover figcaption::before,
-figure.effect-ruby:hover figcaption::after {
+figure.effect-bubba:hover figcaption::before,
+figure.effect-bubba:hover figcaption::after {
 	opacity: 1;
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
 
-figure.effect-ruby:hover h2,
-figure.effect-ruby:hover p {
+figure.effect-bubba:hover h2,
+figure.effect-bubba:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+/***************************************/
+
+figure.effect-bubba a {
+	margin: 0 10px;
+	color: #ffffff;
+	font-size: 170%;
+}
+
+figure.effect-bubba a:hover,
+figure.effect-bubba a:focus {
+	color: #cc6055;
+}
+
+figure.effect-bubba p a i {
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,50px,0);
+	transform: translate3d(0,50px,0);
+}
+figure.effect-bubba:hover p i {
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
 
-figure.effect-ruby:hover figcaption::after,
-figure.effect-ruby:hover h2,
-figure.effect-ruby:hover p{
+figure.effect-bubba:hover p a:nth-child(3) i {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+figure.effect-bubba:hover p a:nth-child(2) i {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.effect-bubba:hover p a:first-child i {
 	-webkit-transition-delay: 0.15s;
 	transition-delay: 0.15s;
 }
+@media (max-width: 720px) {
+	figure.effect-bubba h2 {
+		padding-top : 10%;
+	}
+}
 
 /********************************************************************
-GENERAL
+SKILLS
 ********************************************************************/
-
-
+.pie_progress {
+  width: 160px;
+  margin: 10px auto;
+}
+.pie_progress__number {
+	color : #ff0000;
+}
+@media (max-width: 720px) {
+	.pie_progress {
+		width: 25vw;
+    	margin: 10px auto;
+	}
+	.pie_progress__number {
+	    font-size: inherit;
+	}
+}
 
 
 

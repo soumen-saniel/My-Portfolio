@@ -1,25 +1,7 @@
 (function(){
-	// var ua = navigator.userAgent,
-	// isMobileWebkit = /WebKit/.test(ua) && /Mobile/.test(ua);
-
-	// $(function(){
-	// 	var iScrollInstance;
-
-	// 	if (isMobileWebkit) {
-	// 		iScrollInstance = new iScroll('scroller');
-
-	// 		$('#scroller').stellar({
-	// 			scrollProperty: 'transform',
-	// 			positionProperty: 'transform',
-	// 			horizontalScrolling: false
-	// 		});
-	// 	} else {
-			$(window).stellar({
-				horizontalScrolling: false,
-			});
-	// 	}
-	// });
+	
 	$(document).ready(function(){
+		$(document).foundation();
 		var windowHeight = $(window).height();
 		$(".fullHeight").css({"height" : windowHeight});
 		$(".halfHeight").css({"height" : (windowHeight/2)});
@@ -31,7 +13,12 @@
 
 		setTimeout(function(){
 			$(".landing-text").removeClass("slide-in-text");
-		}, 1000);
+		}, 500);
+
+		$('.pie_progress').asPieProgress({
+	        namespace: 'pie_progress'
+		});
+		$('.pie_progress').asPieProgress('start');
 	});
 
 })();
