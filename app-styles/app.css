@@ -128,9 +128,9 @@ NAV
 HERO SECTION
 ********************************************************************/
 .hero {
-	background: url("../img/landing.jpg") no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
+	background: url("../img/landing.jpg") no-repeat !important;
+	background-size: cover !important;
+	background-attachment: fixed !important;
 	height: 100vh; }	
 .landing-text h1:nth-child(1), .landing-text h1:nth-child(2), .landing-text h5{
 	opacity : 1;
