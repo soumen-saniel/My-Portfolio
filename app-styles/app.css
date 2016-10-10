@@ -128,25 +128,10 @@ NAV
 HERO SECTION
 ********************************************************************/
 .hero {
-	/*background: url("../img/landing.jpg") no-repeat;
+	background: url("../img/landing.jpg") no-repeat;
 	background-size: cover;
-	background-attachment: fixed;*/
-	height: 100vh; }
-.hero:before {
-	content: "";
-	display: block;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: -10;
-	background: url("../img/landing.jpg") no-repeat center center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
+	background-attachment: fixed;
+	height: 100vh; }	
 .landing-text h1:nth-child(1), .landing-text h1:nth-child(2), .landing-text h5{
 	opacity : 1;
 	-ms-transform: translate(0, 0); /* IE 9 */
@@ -182,12 +167,29 @@ HERO SECTION
 }
 /* For mobile */
 @media (max-width: 720px) {
-  .hero:before {      
-    background: url("../img/mobile/landing.jpg") no-repeat;
-  }
-  .landing-text{
-  	margin-top: 80%;
-  }
+	.hero:before {
+		content: "";
+		display: block;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -10;
+		background: url("../img/mobile/landing.jpg") no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	.hero {
+		background: transparent;
+		background-size: auto;
+		background-attachment: scroll;
+	}
+	.landing-text{
+		margin-top: 80%;
+	}
 }
 /********************************************************************
 *********************************************************************
@@ -212,6 +214,20 @@ PORTFOLIO
 	background: url("../img/bg-img3.jpg") no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+}
+@media (max-width: 720px) {
+	.bg-img1{
+		background: url("../img/bg-img1.jpg") no-repeat;
+		background-size: cover;
+	}
+	.bg-img2{
+		background: url("../img/bg-img2.jpg") no-repeat;
+		background-size: cover;
+	}
+	.bg-img3{
+		background: url("../img/bg-img3.jpg") no-repeat;
+		background-size: cover;
+	}
 }
 .dummy-bg1{
 	background: url("../img/dummy1.jpg") no-repeat;
