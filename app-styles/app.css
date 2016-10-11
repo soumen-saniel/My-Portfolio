@@ -5,6 +5,10 @@ GENERAL
 .column, .columns{
 	overflow: hidden;
 }
+a:hover, a:focus{
+	text-decoration: none;
+	color: #000;
+}
 @media (min-width:768px) {
 	.row{
 		max-width: 90vw;
@@ -62,7 +66,7 @@ GENERAL
 .card{
 	height: 260px;
 }
-@media (min-width:768px) {
+@media (min-width:640px) {
 	.card{
 		height: 50vh;
 	}
@@ -176,16 +180,12 @@ HERO SECTION
 		width: 100%;
 		height: 100%;
 		z-index: -10;
-		background: url("../img/mobile/landing.jpg") no-repeat;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
+		background: url("../img/mobile/landing.jpg") no-repeat center center;
 		background-size: cover;
 	}
 	.hero {
 		background: transparent;
 		background-size: auto;
-		background-attachment: scroll;
 	}
 	.landing-text{
 		margin-top: 80%;
@@ -217,15 +217,15 @@ PORTFOLIO
 }
 @media (max-width: 720px) {
 	.bg-img1{
-		background: url("../img/bg-img1.jpg") no-repeat;
+		background: url("../img/bg-img1.jpg") no-repeat center center;
 		background-size: cover;
 	}
 	.bg-img2{
-		background: url("../img/bg-img2.jpg") no-repeat;
+		background: url("../img/bg-img2.jpg") no-repeat center center;
 		background-size: cover;
 	}
 	.bg-img3{
-		background: url("../img/bg-img3.jpg") no-repeat;
+		background: url("../img/bg-img3.jpg") no-repeat center center;
 		background-size: cover;
 	}
 }
@@ -371,7 +371,7 @@ figure.effect-bubba figcaption::after {
 }
 
 figure.effect-bubba h2 {
-	padding-top: 20%;
+	padding-top: 10%;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
 	-webkit-transform: translate3d(0,-20px,0);
@@ -440,10 +440,8 @@ figure.effect-bubba:hover p a:first-child i {
 	-webkit-transition-delay: 0.15s;
 	transition-delay: 0.15s;
 }
-@media (max-width: 720px) {
-	figure.effect-bubba h2 {
-		padding-top : 10%;
-	}
+@media (max-width: 640px) {
+	
 }
 
 /********************************************************************
@@ -466,20 +464,49 @@ SKILLS
 	}
 }
 
-
-
-
-
-
 /********************************************************************
-GENERAL
+ABOUT
 ********************************************************************/
-
-
-
-
-
-
+/***********************Manipulating existing classes***************/
+.accordion{
+	border-bottom : 1px solid #000;
+	background: transparent;
+}
+.accordion-title{
+	padding: 10px;
+	border: none;
+    border-radius: 0px;
+    border-top: 1px solid #000;
+    border-bottom: 0px solid #000;
+    color: #000;
+}
+.is-active > a.accordion-title{
+	border: none;
+    border-radius: 0px;
+    border-top: 2px solid #ff0000;
+    border-bottom: 0px solid #000;
+    color: #ff0000;
+}
+.accordion-item:first-child > :first-child{
+	border-radius: 0px;
+}
+:last-child:not(.is-active) > .accordion-title{
+	border-radius: 0px;
+    border-bottom: 0px;
+}
+.accordion-title:hover{
+	background: none;
+}
+.accordion-content{
+	border:none;
+	padding: 0;
+	background: transparent;
+}
+/********************************************************************/
+.accordion-content table,.accordion-content table> tbody,.accordion-content table> tbody > tr,.accordion-content table> tbody > tr > td {
+	background: #fff;
+	border: 0px;
+}
 
 
 
