@@ -464,7 +464,7 @@ SKILLS
 .pie_progress__number {
 	font-size: 1em;
 	font-weight: 700;
-	color : #ff0000;
+	color : #fff;
 }
 @media (max-width: 400px) {
 	.pie_progress {
