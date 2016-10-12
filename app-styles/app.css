@@ -9,6 +9,16 @@ a:hover, a:focus{
 	text-decoration: none;
 	color: #000;
 }
+.button{
+	border-radius: 0px;
+	border : 2px solid #000;
+	background: transparent;
+	color : #000;
+}
+.button:hover, .button:active{
+	background: black;
+	color : #fff;
+}
 @media (min-width:768px) {
 	.row{
 		max-width: 90vw;
@@ -170,7 +180,7 @@ HERO SECTION
     transform: translate(500%, 0);
 }
 /* For mobile */
-@media (max-width: 720px) {
+@media (max-width: 640px) {
 	.hero:before {
 		content: "";
 		display: block;
@@ -215,7 +225,7 @@ PORTFOLIO
 	background-size: cover;
 	background-attachment: fixed;
 }
-@media (max-width: 720px) {
+@media (max-width: 640px) {
 	.bg-img1{
 		background: url("../img/bg-img1.jpg") no-repeat center center;
 		background-size: cover;
@@ -448,13 +458,15 @@ figure.effect-bubba:hover p a:first-child i {
 SKILLS
 ********************************************************************/
 .pie_progress {
-  width: 160px;
-  margin: 10px auto;
+  width: 100px;
+  margin: 0px auto;
 }
 .pie_progress__number {
+	font-size: 1em;
+	font-weight: 700;
 	color : #ff0000;
 }
-@media (max-width: 720px) {
+@media (max-width: 400px) {
 	.pie_progress {
 		width: 25vw;
     	margin: 10px auto;
@@ -507,8 +519,10 @@ ABOUT
 	background: #fff;
 	border: 0px;
 }
-
-
+.about-section-img{
+	background: url("../img/imac-ipad-iphone.png") no-repeat center center;
+	background-size: contain;
+}
 
 
 
