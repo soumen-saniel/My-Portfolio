@@ -211,17 +211,17 @@ MAIN CONTENT SECTION
 PORTFOLIO
 ********************************************************************/
 .bg-img1{
-	background: url("../img/bg-img1.jpg") no-repeat;
+	background: url("../img/bg-img.jpg") no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 }
 .bg-img2{
-	background: url("../img/bg-img2.jpg") no-repeat;
+	background: url("../img/bg-img.jpg") no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 }
 .bg-img3{
-	background: url("../img/bg-img3.jpg") no-repeat;
+	background: url("../img/bg-img.jpg") no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -529,10 +529,23 @@ ABOUT
 
 
 /********************************************************************
-GENERAL
+TIMELINE
 ********************************************************************/
-
-
+.verticle-line{
+	width: 5px;
+	background: #fff;
+	height: 100%;
+}
+.timeline-box-left{
+	width: auto;
+	border: 2px solid #fff;
+	padding: 0.5em;
+}
+.timeline-img{
+	width:auto;
+	height: 100px;
+	background: #000;
+}
 
 
 
