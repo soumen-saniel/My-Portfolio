@@ -248,7 +248,7 @@ PORTFOLIO
 	background-size: cover;
 }
 .dummy-bg3{
-	background: url("../img/dummy3.png") no-repeat;
+	background: url("../img/dummy3.jpg") no-repeat;
 	background-size: cover;
 }
 .panel{
@@ -514,7 +514,7 @@ ABOUT
 	padding: 0;
 	background: transparent;
 }
-/********************************************************************/
+/****************************************************************/
 .accordion-content table,.accordion-content table> tbody,.accordion-content table> tbody > tr,.accordion-content table> tbody > tr > td {
 	background: #fff;
 	border: 0px;
@@ -531,32 +531,143 @@ ABOUT
 /********************************************************************
 TIMELINE
 ********************************************************************/
-.verticle-line{
-	width: 5px;
-	background: #fff;
+.timeline-col-left{
+	border-right: 1px solid #fff;
+	overflow: visible;
+	padding: 0 10px 0 0;
+}
+.timeline-col-right{
+	border-left: 1px solid #fff;
+	overflow: visible;
+	padding: 0 0 0 10px;
+}
+.timeline-box {
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	background: url("../img/dummy3.jpg") no-repeat center center;
+	background-size: cover;
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	overflow: visible;
+}
+.arrow {
+	position: absolute;
+	bottom: 0;
+	width: 0;
 	height: 100%;
 }
-.timeline-box-left{
-	width: auto;
-	border: 2px solid #fff;
-	padding: 0.5em;
+.arrow:before, .arrow:after{
+	content: '';
+	position: absolute;
+	height: 50%;
+	width: 100%;
+	box-sizing: border-box;
 }
-.timeline-img{
-	width:auto;
-	height: 100px;
-	background: #000;
+.timeline-content p{
+	padding: 2px;
+	background: rgba(255,255,255,0.5);
 }
-
-
-
-
-
-
-
-
-
-
-
-/********************************************************************
-GENERAL
-********************************************************************/
+.pointer{
+	position: absolute;
+    height: 20px;
+    width: 20px;
+    border: 5px solid #fff;
+    background: #8e8d8d;
+    border-radius: 10px;
+}
+/******Right timeline box******/
+.timeline-col-right .timeline-box{
+	float: left;
+}
+.timeline-col-right .timeline-content{
+	padding: 5px 10px 5px 30px;
+}
+.timeline-col-right .arrow:before,.timeline-col-right  .arrow:after {
+	left: 0;
+}
+.timeline-col-right .arrow:before {
+	border-left: 20px solid rgba(0,0,0,0.5);
+	border-bottom: 20px solid transparent;
+}
+.timeline-col-right .arrow:after {
+	top: 50%;
+	border-left: 20px solid rgba(0,0,0,0.5);
+	border-top: 20px solid transparent;
+}
+.timeline-col-right .pointer{
+	top: 45%;
+    left: -21px;
+}
+/******Left timeline box******/
+.timeline-col-left .timeline-box{
+	float: right;
+}
+.timeline-col-left .timeline-content{
+	padding: 5px 30px 5px 10px;
+}
+.timeline-col-left .arrow{
+	right: 0;
+}
+.timeline-col-left .arrow:before,.timeline-col-left  .arrow:after {
+	right: 0;
+}
+.timeline-col-left .arrow:before {
+	border-right: 20px solid rgba(0,0,0,0.5);
+	border-bottom: 20px solid transparent;
+}
+.timeline-col-left .arrow:after {
+	top: 50%;
+	border-right: 20px solid rgba(0,0,0,0.5);
+	border-top: 20px solid transparent;
+}
+.timeline-col-left .pointer{
+	top: 45%;
+    right: -21px;
+}
+/******For mobile******/
+@media (max-width: 640px) {
+	.section-experience{
+		padding-left: 10px;
+	}
+	.year{
+		margin-left: -15px;
+	}
+	.timeline-box{
+		margin-bottom: 10px;
+	}
+	.timeline-col-left{
+		border-right: 0px solid #fff;
+		border-left: 1px solid #fff;
+		overflow: visible;
+		padding: 0 0 0 10px;
+	}
+	.timeline-col-left .timeline-box{
+		float: left;
+	}
+	.timeline-col-left .timeline-content{
+		padding: 5px 10px 5px 30px;
+	}
+	.timeline-col-left .arrow{
+		left: 0;
+	}
+	.timeline-col-left .arrow:before,.timeline-col-left  .arrow:after {
+		left: 0;
+	}
+	.timeline-col-left .arrow:before {
+		border-right: 0px solid rgba(0,0,0,0.5);
+		border-left: 20px solid rgba(0,0,0,0.5);
+		border-bottom: 20px solid transparent;
+	}
+	.timeline-col-left .arrow:after {
+		top: 50%;
+		border-right: 0px solid rgba(0,0,0,0.5);
+		border-left: 20px solid rgba(0,0,0,0.5);
+		border-top: 20px solid transparent;
+	}
+	.timeline-col-left .pointer{
+		top: 45%;
+	    left: -21px;
+	}
+}
