@@ -457,6 +457,15 @@ figure.effect-bubba:hover p a:first-child i {
 /********************************************************************
 SKILLS
 ********************************************************************/
+/***********************Manipulating existing classes***************/
+.orbit-container{
+	height: auto !important;
+}
+.orbit-slide {
+    height: auto !important;
+    max-height: 500px !important;
+}
+/*******************************************************************/
 .pie_progress {
   width: 100px;
   margin: 0px auto;
