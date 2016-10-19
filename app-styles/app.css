@@ -25,12 +25,14 @@ a:hover, a:focus{
 	}
 }
 /*******************************************************************/
+html, body{
+	padding: 0;
+	margin: 0;
+}
 .hr-light{
 	border-bottom: 2px solid #ffffff;
 }
 .wrapper{
-	position: absolute;
-	z-index: 2;
 	overflow-x : hidden;
 	-webkit-filter: blur(0); /* Chrome, Safari, Opera */
     filter: blur(0);
@@ -67,8 +69,8 @@ a:hover, a:focus{
 	padding: 2px;
 }
 .text-bordered{
-	border-top: 2px solid red;
-	border-bottom: 2px solid red;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
 }
 .display-inline{
 	display: inline-flex;
@@ -142,10 +144,35 @@ NAV
 HERO SECTION
 ********************************************************************/
 .hero {
-	background: url("../img/landing.jpg") no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	height: 100vh; }	
+	height: 100vh; 
+}
+.hero .row {
+	max-width: 100vw;
+}
+.hero .row> .column{
+	height: 100%;
+}
+.hero .row> .column:nth-child(1){
+	padding: 0;
+}
+.hero .hero-content{
+	position: absolute;
+	top:0;
+	z-index: 2;
+	margin: 0;
+	padding: 0;
+}
+.hero .hero-content> .column{
+	height: 100%;
+}
+.hero-img-flexslider div{
+	width: 100%;
+	height: 100vh;
+}
+
+.landing-text{
+	background: rgba(0,0,0,0.4);
+}
 .landing-text h1:nth-child(1), .landing-text h1:nth-child(2), .landing-text h5{
 	opacity : 1;
 	-ms-transform: translate(0, 0); /* IE 9 */
@@ -163,42 +190,33 @@ HERO SECTION
 }
 .slide-in-text h1:nth-child(1){
 	opacity : 0;
-	-ms-transform: translate(120%, 0); /* IE 9 */
-    -webkit-transform: translate(120%, 0); /* Safari */
-    transform: translate(120%, 0);
+	-ms-transform: translate(-120%, 0); /* IE 9 */
+    -webkit-transform: translate(-120%, 0); /* Safari */
+    transform: translate(-120%, 0);
 }
 .slide-in-text h1:nth-child(2) {
 	opacity : 0;
-	-ms-transform: translate(140%, 0); /* IE 9 */
-    -webkit-transform: translate(140%, 0); /* Safari */
-    transform: translate(120%, 0);
+	-ms-transform: translate(-140%, 0); /* IE 9 */
+    -webkit-transform: translate(-140%, 0); /* Safari */
+    transform: translate(-120%, 0);
 }
 .slide-in-text h5 {
 	opacity : 0;
-	-ms-transform: translate(160%, 0); /* IE 9 */
-    -webkit-transform: translate(160%, 0); /* Safari */
-    transform: translate(500%, 0);
+	-ms-transform: translate(-160%, 0); /* IE 9 */
+    -webkit-transform: translate(-160%, 0); /* Safari */
+    transform: translate(-500%, 0);
 }
 /* For mobile */
 @media (max-width: 640px) {
-	.hero:before {
-		content: "";
-		display: block;
-		position: fixed;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -10;
-		background: url("../img/mobile/landing.jpg") no-repeat center center;
-		background-size: cover;
-	}
 	.hero {
 		background: transparent;
 		background-size: auto;
 	}
-	.landing-text{
-		margin-top: 80%;
+	.hero .hero-content{
+		height: auto !important;
+		top: 30%;
+	}
+	.hero .hero-content> .column{
 	}
 }
 /********************************************************************
@@ -458,24 +476,25 @@ figure.effect-bubba:hover p a:first-child i {
 SKILLS
 ********************************************************************/
 /***********************Manipulating existing classes***************/
-.orbit-container{
-	height: auto !important;
+.skills-flexslider{
+	background: transparent;
+	border: 0px;
+	margin: 0px;
 }
-.orbit-slide {
-    height: auto !important;
-    max-height: 500px !important;
+.flex-control-nav .flex-active {
+  background: #ccc;
+  color: #000;
 }
-/*******************************************************************/
 .pie_progress {
-  width: 100px;
-  margin: 0px auto;
+	width: 150px;
+	margin: 0px auto;
 }
 .pie_progress__number {
 	font-size: 1em;
 	font-weight: 700;
 	color : #fff;
 }
-@media (max-width: 400px) {
+@media (max-width: 640px) {
 	.pie_progress {
 		width: 25vw;
     	margin: 10px auto;
@@ -680,3 +699,114 @@ TIMELINE
 	    left: -21px;
 	}
 }
+
+/********************************************************************
+SERVICES
+********************************************************************/
+.services .column{
+	
+}
+/******************************/
+/*-----------------*/
+/***** Hera *****/
+/*-----------------*/
+
+figure.effect-hera {
+	background: #303fa9;
+}
+
+figure.effect-hera h2 {
+	font-size: 158.75%;
+}
+
+figure.effect-hera h2,
+figure.effect-hera p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+	-webkit-transform-origin: 50%;
+	transform-origin: 50%;
+}
+
+figure.effect-hera figcaption::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 200px;
+	height: 200px;
+	border: 2px solid #fff;
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
+	transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
+	-webkit-transform-origin: 50%;
+	transform-origin: 50%;
+}
+
+figure.effect-hera p {
+	width: 100px;
+	text-transform: none;
+	font-size: 121%;
+	line-height: 2;
+}
+
+figure.effect-hera p a {
+	color: #fff;
+}
+
+figure.effect-hera p a:hover,
+figure.effect-hera p a:focus {
+	opacity: 0.6;
+}
+
+figure.effect-hera p a i {
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-hera p a:first-child i {
+	-webkit-transform: translate3d(-60px,-60px,0);
+	transform: translate3d(-60px,-60px,0);
+}
+
+figure.effect-hera p a:nth-child(2) i {
+	-webkit-transform: translate3d(60px,-60px,0);
+	transform: translate3d(60px,-60px,0);
+}
+
+figure.effect-hera p a:nth-child(3) i {
+	-webkit-transform: translate3d(-60px,60px,0);
+	transform: translate3d(-60px,60px,0);
+}
+
+figure.effect-hera p a:nth-child(4) i {
+	-webkit-transform: translate3d(60px,60px,0);
+	transform: translate3d(60px,60px,0);
+}
+
+figure.effect-hera:hover figcaption::before {
+	opacity: 1;
+	-webkit-transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(1,1,1);
+	transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(1,1,1);
+}
+
+figure.effect-hera:hover h2 {
+	opacity: 0;
+	-webkit-transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
+	transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
+}
+
+figure.effect-hera:hover p i:empty {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0); /* just because it's stronger than nth-child */
+	opacity: 1;
+}
+
+/******************************/

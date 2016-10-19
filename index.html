@@ -6,10 +6,15 @@
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
 
   <title>Portfolio</title>
+  
   <link rel="stylesheet" href="styles/foundation.css">
+  <link rel="stylesheet" type="text/css" href="styles/motion-ui.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="styles/asPieProgress.css">
+  <link rel="stylesheet" type="text/css" href="styles/responsiveslides.css">
+  <link rel="stylesheet" type="text/css" href="styles/responsiveslider-theme.css">
+  <link rel="stylesheet" type="text/css" href="styles/flexslider.css">
   <link rel="stylesheet" href="app-styles/app.css">
 </head>
 <body>
@@ -25,16 +30,49 @@
   
   
   <!--Main section-->
-  <div id="wrapper" class="wrapper fullWidth">
+  <div class="wrapper fullWidth">
     <div id="scroller">
 
       <!-- Hero section -->
       <div id="home" class="fullHeight hero">
         <div class="row fullHeight align-middle">
-          <div class="columns text-right font-light landing-text slide-in-text">
-            <h1>HELLO, I'M</h1>
-            <h1><b>PATRIC JANE</b></h1>
-            <h5 class="text-bordered display-inline">Web Application Design And Development Enthusiast</h5>
+          <div class="column large-12 medium-12 small-12">
+            <div class="hero-img-flexslider">
+              <ul class="slides">
+                <li>
+                  <div style="background: url('img/hero-1.jpg') no-repeat center center; background-size: cover"></div>
+                </li>
+                <li>
+                  <div style="background: url('img/hero-2.jpg') no-repeat center center; background-size: cover"></div>
+                </li>
+                <li>
+                  <div style="background: url('img/hero-3.jpg') no-repeat center center; background-size: cover"></div>
+                </li>
+              </ul>
+            </div>
+            <div class="row fullHeight fullWidth hero-content">
+              <div class="column large-8 medium-8 small-12 hide-for-small-only"></div>
+              <div class="column large-4 medium-4 small-12 text-left font-light landing-text slide-in-text">
+                <div>
+                  <h1>HELLO, I'M</h1>
+                  <h1><b>PATRIC JANE</b></h1>
+                  <h5 class="text-bordered display-inline">Web Application Design And Development Enthusiast</h5>
+                  <div class="hero-content-flexslider">
+                    <ul class="slides">
+                      <li>
+                        <h1>Slide 1</h1>
+                      </li>
+                      <li>
+                        <h1>Slide 2</h1>
+                      </li>
+                      <li>
+                        <h1>Slide 3</h1>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -123,143 +161,144 @@
       <!--Skills-->
       <div id="skills" class="bg-img1 fullWidth row-padding">
         <div class="row align-center">
-          <div class="column large-6 small-12 text-center">
+          <div class="column large-12 small-12 text-center">
             <h1 class="font-light display-inline">SKILLS</h1>
           </div>
         </div>
-        <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-          <ul class="orbit-container">
-            <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-            <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-            <li class="is-active orbit-slide">
-              <div class="row align-center">
-                <div class="column large-12 small-12 text-center">
-                  <h5 class="font-light display-inline text-center">BASICS</h5>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="80">
-                    <div class="pie_progress__number">0%</div>
+        
+        <div class="row align-center">
+          <div class="column large-12 small-12 text-center slider-buttons skills-flexslider-controls">
+            <a class="button">BASICS</a>
+            <a class="button">CSS FRAMEWORKS</a>
+            <a class="button">JAVA SCRIPT FRAMEWORKS</a>
+            <a class="button">MEAN TECHNOLOGIES</a>
+            <a class="button">MAP API</a>
+            <a class="button">TOOLS</a>
+          </div>
+          <div class="column large-12 small-12 text-center skills-flexslider">
+            <ul class="slides">
+              <li class="">
+                <div class="row align-center">
+                  <div class="column large-12 small-12 text-center">
+                    <h5 class="font-light display-inline text-center">BASICS</h5>
                   </div>
-                  <h4><small class="font-light">HTML5</small></h4>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="60">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="80">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">HTML5</small></h4>
                   </div>
-                  <h4><small class="font-light">CSS3</small></h4>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="85">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="60">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">CSS3</small></h4>
                   </div>
-                  <h4><small class="font-light">Java Script</small></h4>
-                </div>
-              </div>
-            </li>
-            <li class="orbit-slide">
-              <div class="row align-center">
-                <div class="column large-12 small-12 text-center">
-                  <h5 class="font-light display-inline text-center">CSS FRAMEWORKS</h5>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="70">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="85">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Java Script</small></h4>
                   </div>
-                  <h4><small class="font-light">Bootstrap</small></h4>
                 </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="30">
-                    <div class="pie_progress__number">0%</div>
+              </li>
+              <li class="">
+                <div class="row align-center">
+                  <div class="column large-12 small-12 text-center">
+                    <h5 class="font-light display-inline text-center">CSS FRAMEWORKS</h5>
                   </div>
-                  <h4><small class="font-light">Foundation</small></h4>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="20">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="70">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Bootstrap</small></h4>
                   </div>
-                  <h4><small class="font-light">Angular Materials</small></h4>
-                </div>
-              </div>
-            </li>
-            <li class="orbit-slide">
-              <div class="row align-center">
-                <div class="column large-12 small-12 text-center">
-                  <h5 class="font-light display-inline text-center">JAVA SCRIPT FRAMEWORKS</h5>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="70">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="30">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Foundation</small></h4>
                   </div>
-                  <h4><small class="font-light">JQuery</small></h4>
-                </div>
-              </div>
-            </li>
-            <li class="orbit-slide">
-              <div class="row align-center">
-                <div class="column large-12 small-12 text-center">
-                  <h5 class="font-light display-inline text-center">MEAN TECHNOLOGIES</h5>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="10">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="20">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Angular Materials</small></h4>
                   </div>
-                  <h4><small class="font-light">Mongo DB</small></h4>
                 </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="70">
-                    <div class="pie_progress__number">0%</div>
+              </li>
+              <li class="">
+                <div class="row align-center">
+                  <div class="column large-12 small-12 text-center">
+                    <h5 class="font-light display-inline text-center">JAVA SCRIPT FRAMEWORKS</h5>
                   </div>
-                  <h4><small class="font-light">Angular JS</small></h4>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="20">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="70">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">JQuery</small></h4>
                   </div>
-                  <h4><small class="font-light">Node JS</small></h4>
                 </div>
-              </div>
-            </li>
-            <li class="orbit-slide">
-              <div class="row align-center">
-                <div class="column large-12 small-12 text-center">
-                  <h5 class="font-light display-inline text-center">MAP API</h5>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="90">
-                    <div class="pie_progress__number">0%</div>
+              </li>
+              <li class="">
+                <div class="row align-center">
+                  <div class="column large-12 small-12 text-center">
+                    <h5 class="font-light display-inline text-center">MEAN TECHNOLOGIES</h5>
                   </div>
-                  <h4><small class="font-light">Google Map API</small></h4>
-                </div>
-              </div>
-            </li>
-            <li class="orbit-slide">
-              <div class="row align-center">
-                <div class="column large-12 small-12 text-center">
-                  <h5 class="font-light display-inline text-center">TOOLS</h5>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="50">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="10">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Mongo DB</small></h4>
                   </div>
-                  <h4><small class="font-light">Adobe Muse</small></h4>
-                </div>
-                <div class="column large-3 small-4 text-center">
-                  <div class="pie_progress" role="progressbar" data-goal="10">
-                    <div class="pie_progress__number">0%</div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="70">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Angular JS</small></h4>
                   </div>
-                  <h4><small class="font-light">Adobe Photoshop</small></h4>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="20">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Node JS</small></h4>
+                  </div>
                 </div>
-              </div>
-            </li>
-          </ul>
-          <nav class="orbit-bullets">
-            <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-            <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-            <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-            <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-            <button data-slide="4"><span class="show-for-sr">Fourth slide details.</span></button>
-            <button data-slide="5"><span class="show-for-sr">Fourth slide details.</span></button>
-          </nav>
+              </li>
+              <li class="">
+                <div class="row align-center">
+                  <div class="column large-12 small-12 text-center">
+                    <h5 class="font-light display-inline text-center">MAP API</h5>
+                  </div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="90">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Google Map API</small></h4>
+                  </div>
+                </div>
+              </li>
+              <li class="">
+                <div class="row align-center">
+                  <div class="column large-12 small-12 text-center">
+                    <h5 class="font-light display-inline text-center">TOOLS</h5>
+                  </div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="50">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Adobe Muse</small></h4>
+                  </div>
+                  <div class="column large-3 small-4 text-center">
+                    <div class="pie_progress" role="progressbar" data-goal="10">
+                      <div class="pie_progress__number">0%</div>
+                    </div>
+                    <h4><small class="font-light">Adobe Photoshop</small></h4>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -268,11 +307,11 @@
         <div class="row align-center">
           <div class="columns text-center">
             <h1 class="font-dark display-inline">ABOUT</h1>
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           </div>
         </div>
         <div class="row">
           <div class="column large-6 medium-6 small-12" data-equalizer>
+          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <ul class="accordion" data-accordion>
               <li class="accordion-item is-active" data-accordion-item>
                 <a class="accordion-title">About Me</a>
@@ -392,8 +431,33 @@
           </div>
         </div>
       </div>
-
-      <div class="fullHeight fullWidth" style="background: #fff"></div>
+      
+      <!--My Services-->
+      <div id="services" class="fullWidth row-padding" style="background: #fff">
+        <div class="row align-center">
+          <div class="columns text-center">
+            <h1 class="font-dark display-inline">MY SERVICES</h1>
+          </div>
+        </div>
+        <div class="row align-center services" data-equalizer>
+          <div class="column large-3 medim-3 small-6 text-center">
+            <h4 class="font-dark text-center" data-equalizer-watch>Web Designing</h4>
+            <a class="button">Learn More</a>
+          </div>
+          <div class="column large-3 medim-3 small-6 text-center">
+            <h4 class="font-dark text-center" data-equalizer-watch>Front End Development</h4>
+            <a class="button">Learn More</a>
+          </div>
+          <div class="column large-3 medim-3 small-6 text-center"h>
+            <h4 class="font-dark text-center" data-equalizer-watch>End to End Development</h4>
+            <a class="button">Learn More</a>
+          </div>
+          <div class="column large-3 medim-3 small-6 text-center">
+            <h4 class="font-dark text-center" data-equalizer-watch>Manual and Automated Testing</h4>
+            <a class="button">Learn More</a>
+          </div>
+        </div>
+      </div>
 
       <div class="bg-img3 halfHeight fullWidth"></div>
 
@@ -404,9 +468,12 @@
   <script src="scripts/vendor/jquery.js"></script>
   <script src="scripts/vendor/what-input.js"></script>
   <script src="scripts/vendor/foundation.js"></script>
+  <script src="scripts/motion-ui.min.js"></script>
   <script src="scripts/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/iscroll.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/jquery-asPieProgress.js" type="text/javascript" charset="utf-8"></script>
+  <script src="scripts/responsiveslides.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="scripts/jquery.flexslider-min.js" type="text/javascript" charset="utf-8"></script>
   <script src="app-scripts/app.js"></script>
 </body>
 </html>
