@@ -1,6 +1,20 @@
 /********************************************************************
 GENERAL
 ********************************************************************/
+/***********************Applying google fonts***********************/
+body{
+	font-family: 'Oswald', sans-serif;
+	color: #fff;
+}
+h1, h2, h3, h4, h5{
+	font-family: 'Fjalla One', sans-serif;
+}
+h1{
+	color: #fff;
+}
+small{
+	font-family: 'Oswald', sans-serif;
+}
 /***********************Overwriting classes*************************/
 .column, .columns{
 	overflow: hidden;
@@ -21,26 +35,20 @@ a:hover, a:focus{
 }
 @media (min-width:768px) {
 	.row{
-		max-width: 90vw;
+		max-width: 80vw;
 	}
 }
 /*******************************************************************/
 html, body{
 	padding: 0;
 	margin: 0;
+	background: #282f35;
 }
 .hr-light{
 	border-bottom: 2px solid #ffffff;
 }
 .wrapper{
-	overflow-x : hidden;
-	-webkit-filter: blur(0); /* Chrome, Safari, Opera */
-    filter: blur(0);
-    transition: all 1000ms cubic-bezier(1, -0.4, 0.44, 0.985);
-}
-.blure{
-	-webkit-filter: blur(5px); /* Chrome, Safari, Opera */
-    filter: blur(5px);
+	/*overflow-x : hidden;*/
 }
 .fullWidth {
    width: 100%;
@@ -54,11 +62,17 @@ html, body{
 .halfHeight {
 	height: 50vh;
 }
+.bg-light{
+	background: #6bd7ca;
+}
+.bg-dark{
+	background: #282f35;
+}
 .font-light{
-	color : #fff;
+	color: #6bd7ca;
 }
 .font-dark{
-	color : #000;
+	color: #282f35;
 }
 .row-padding{
 	height: auto;
@@ -86,60 +100,10 @@ html, body{
 /********************************************************************
 NAV
 ********************************************************************/
-.toggle-menu {
+.navigation{
 	position: fixed;
-	font-size: 4rem;
-	z-index: 5000;
-	color: #5f5f5f;
-	top: -0.5rem;
-	left: 1.5rem;
-	transition: all 0.4s ease-in-out; }
-.toggle-menu:hover {
-	transition: all 0.4s ease-in-out;
-	color: red; }
-
-.overlay-menu {
-	position: fixed;
-	z-index: 1000;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	width: 100%;
-	margin: 0;
-	padding: 5rem 0 0;
-	opacity: 0;
-	list-style: none;
-	background: rgba(0,0,0, 0.5);
-	text-align: center;
-	transform: translateX(-100%) rotateX(40deg);
-	transition: all 1s cubic-bezier(1, -0.4, 0.44, 0.985); }
-.overlay-menu li {
-	font-size: 1.5rem; }
-.overlay-menu span {
-	cursor: pointer;
-	display: block;
-	color: #fff;
-	font-weight: bold;
-	height: 6.25rem;
-	line-height: 6.25rem;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-	text-decoration: none; }
-.overlay-menu a:hover {
-	background-color: #0f88ff; }
-.overlay-menu.is-open ~ .toggle-menu {
-	display: inline-block;
-	transition: all 0.4s ease-in-out;
-	transform: rotate(135deg);
-	color: red; }
-
-.is-open {
-	top: 0;
-	opacity: 1;
-	transform: perspective(200px) translateX(0) rotateX(0); }
-
-
-
+	z-index: 10;
+}
 /********************************************************************
 HERO SECTION
 ********************************************************************/
@@ -214,7 +178,7 @@ HERO SECTION
 	}
 	.hero .hero-content{
 		height: auto !important;
-		top: 30%;
+		top: 10%;
 	}
 	.hero .hero-content> .column{
 	}
@@ -228,248 +192,12 @@ MAIN CONTENT SECTION
 /********************************************************************
 PORTFOLIO
 ********************************************************************/
-.bg-img1{
-	background: url("../img/bg-img.jpg") no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-}
-.bg-img2{
-	background: url("../img/bg-img.jpg") no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-}
-.bg-img3{
-	background: url("../img/bg-img.jpg") no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-}
-@media (max-width: 640px) {
-	.bg-img1{
-		background: url("../img/bg-img1.jpg") no-repeat center center;
-		background-size: cover;
-	}
-	.bg-img2{
-		background: url("../img/bg-img2.jpg") no-repeat center center;
-		background-size: cover;
-	}
-	.bg-img3{
-		background: url("../img/bg-img3.jpg") no-repeat center center;
-		background-size: cover;
-	}
-}
-.dummy-bg1{
-	background: url("../img/dummy1.jpg") no-repeat;
-	background-size: cover;
-}
-.dummy-bg2{
-	background: url("../img/dummy2.jpg") no-repeat;
-	background-size: cover;
-}
-.dummy-bg3{
-	background: url("../img/dummy3.jpg") no-repeat;
-	background-size: cover;
-}
-.panel{
-	height: 100%;
-	overflow: hidden;
-}
-.grid {
-	position: relative;
-	margin: 0 auto;
-	list-style: none;
-	text-align: center;
-}
 
-/* Common style */
-.grid figure {
-	margin: 0;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    float: left;
-    overflow: hidden;
-    background: #3085a3;
-    text-align: center;
-    cursor: pointer;
+.portfolio .portfolio-content> .column{
+	padding: 5px;
 }
-
-.grid figure img {
-	position: relative;
-	display: block;
-	min-height: 100%;
-	max-width: 100%;
-	opacity: 0.8;
-}
-
-.grid figure figcaption {
-	padding: 2em;
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 1.25em;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.grid figure figcaption::before,
-.grid figure figcaption::after {
-	pointer-events: none;
-}
-
-.grid figure figcaption,
-.grid figure figcaption > a {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.grid figure figcaption > a {
-	z-index: 1000;
-	text-indent: 200%;
-	white-space: nowrap;
-	font-size: 0;
-	opacity: 0;
-}
-
-.grid figure h2 {
-	word-spacing: -0.15em;
-	font-weight: 300;
-}
-
-.grid figure h2 span {
-	font-weight: 800;
-}
-
-.grid figure h2,
-.grid figure p {
-	margin: 0;
-}
-
-.grid figure p {
-	letter-spacing: 1px;
-	font-size: 68.5%;
-	opacity: 0;
-}
-/************************************************************/
-
-figure.effect-bubba {
-	background: #9e5406;
-}
-
-figure.effect-bubba img {
-	opacity: 0.7;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: scale(1.3);
-	transform: scale(1.3);
-}
-
-figure.effect-bubba:hover img {
-	opacity: 0.5;
-	-webkit-transform: scale(1);
-	transform: scale(1.2);
-}
-
-figure.effect-bubba figcaption::before,
-figure.effect-bubba figcaption::after {
-	position: absolute;
-	top: 30px;
-	right: 30px;
-	bottom: 30px;
-	left: 30px;
-	content: '';
-	opacity: 0;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-}
-
-figure.effect-bubba figcaption::before {
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #fff;
-	-webkit-transform: scale(0,1);
-	transform: scale(0,1);
-}
-
-figure.effect-bubba figcaption::after {
-	border-right: 1px solid #fff;
-	border-left: 1px solid #fff;
-	-webkit-transform: scale(1,0);
-	transform: scale(1,0);
-}
-
-figure.effect-bubba h2 {
-	padding-top: 10%;
-	-webkit-transition: -webkit-transform 0.35s;
-	transition: transform 0.35s;
-	-webkit-transform: translate3d(0,-20px,0);
-	transform: translate3d(0,-20px,0);
-}
-
-figure.effect-bubba p{
-	padding: 10px 1.5em;
-	opacity: 0;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(0,20px,0);
-	transform: translate3d(0,20px,0);
-}
-
-figure.effect-bubba:hover figcaption::before,
-figure.effect-bubba:hover figcaption::after {
-	opacity: 1;
-	-webkit-transform: scale(1);
-	transform: scale(1);
-}
-
-figure.effect-bubba:hover h2,
-figure.effect-bubba:hover p {
-	opacity: 1;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-}
-/***************************************/
-
-figure.effect-bubba a {
-	margin: 0 10px;
-	color: #ffffff;
-	font-size: 170%;
-}
-
-figure.effect-bubba a:hover,
-figure.effect-bubba a:focus {
-	color: #cc6055;
-}
-
-figure.effect-bubba p a i {
-	opacity: 0;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(0,50px,0);
-	transform: translate3d(0,50px,0);
-}
-figure.effect-bubba:hover p i {
-	opacity: 1;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-}
-
-figure.effect-bubba:hover p a:nth-child(3) i {
-	-webkit-transition-delay: 0.05s;
-	transition-delay: 0.05s;
-}
-
-figure.effect-bubba:hover p a:nth-child(2) i {
-	-webkit-transition-delay: 0.1s;
-	transition-delay: 0.1s;
-}
-
-figure.effect-bubba:hover p a:first-child i {
-	-webkit-transition-delay: 0.15s;
-	transition-delay: 0.15s;
-}
-@media (max-width: 640px) {
-	
+.portfolio .portfolio-content figure{
+	margin: 0px;
 }
 
 /********************************************************************
@@ -508,11 +236,11 @@ SKILLS
 ABOUT
 ********************************************************************/
 /***********************Manipulating existing classes***************/
-.accordion{
+.about .accordion{
 	border-bottom : 1px solid #000;
 	background: transparent;
 }
-.accordion-title{
+.about .accordion-title{
 	padding: 10px;
 	border: none;
     border-radius: 0px;
@@ -520,60 +248,62 @@ ABOUT
     border-bottom: 0px solid #000;
     color: #000;
 }
-.is-active > a.accordion-title{
+.about .is-active > a.accordion-title{
 	border: none;
     border-radius: 0px;
-    border-top: 2px solid #ff0000;
+    border-top: 2px solid #6bd7ca;
     border-bottom: 0px solid #000;
-    color: #ff0000;
+    color: #6bd7ca;
 }
-.accordion-item:first-child > :first-child{
+.about .accordion-item:first-child > :first-child{
 	border-radius: 0px;
 }
-:last-child:not(.is-active) > .accordion-title{
+.about :last-child:not(.is-active) > .accordion-title{
 	border-radius: 0px;
     border-bottom: 0px;
 }
-.accordion-title:hover{
+.about .accordion-title:hover{
 	background: none;
 }
-.accordion-content{
+.about .accordion-content{
 	border:none;
 	padding: 0;
 	background: transparent;
 }
 /****************************************************************/
-.accordion-content table,.accordion-content table> tbody,.accordion-content table> tbody > tr,.accordion-content table> tbody > tr > td {
-	background: #fff;
+.about .accordion-content> table,.about .accordion-content> table> tbody,.about .accordion-content> table> tbody > tr,.about .accordion-content> table> tbody > tr > td {
+	background: transparent;
 	border: 0px;
 }
-.about-section-img{
+.about :last-child > .accordion-content:last-child{
+	border-bottom: 1px solid #282f35;
+}
+.about .about-section-img{
 	background: url("../img/imac-ipad-iphone.png") no-repeat center center;
 	background-size: contain;
 }
-
-
-
-
-
+.about-flexslider img{
+	width: 60%;
+	margin-left: 20%;
+}
 /********************************************************************
 TIMELINE
 ********************************************************************/
 .timeline-col-left{
-	border-right: 1px solid #fff;
+	border-right: 2px solid #6bd7ca;
 	overflow: visible;
-	padding: 0 10px 0 0;
+	padding: 0 20px 0 0;
 }
 .timeline-col-right{
-	border-left: 1px solid #fff;
+	border-left: 2px solid #6bd7ca;
 	overflow: visible;
-	padding: 0 0 0 10px;
+	padding: 0 0 0 20px;
 }
 .timeline-box {
 	position: relative;
 	overflow: hidden;
 	margin: 0 auto;
-	background: url("../img/dummy3.jpg") no-repeat center center;
+	background: url("") no-repeat center center;
 	background-size: cover;
 	width: 100%;
 	max-width: 400px;
@@ -599,11 +329,11 @@ TIMELINE
 }
 .pointer{
 	position: absolute;
-    height: 20px;
-    width: 20px;
-    border: 5px solid #fff;
-    background: #8e8d8d;
-    border-radius: 10px;
+    height: 30px;
+    width: 30px;
+    border: 5px solid rgba(255,255,255,0.5);
+    background: #6bd7ca;
+    border-radius: 15px;
 }
 /******Right timeline box******/
 .timeline-col-right .timeline-box{
@@ -625,8 +355,8 @@ TIMELINE
 	border-top: 20px solid transparent;
 }
 .timeline-col-right .pointer{
-	top: 45%;
-    left: -21px;
+	top: 43%;
+    left: -37px;
 }
 /******Left timeline box******/
 .timeline-col-left .timeline-box{
@@ -651,8 +381,8 @@ TIMELINE
 	border-top: 20px solid transparent;
 }
 .timeline-col-left .pointer{
-	top: 45%;
-    right: -21px;
+	top: 43%;
+    right: -37px;
 }
 /******For mobile******/
 @media (max-width: 640px) {
@@ -696,117 +426,23 @@ TIMELINE
 	}
 	.timeline-col-left .pointer{
 		top: 45%;
-	    left: -21px;
+	    left: -37px;
 	}
 }
 
 /********************************************************************
 SERVICES
 ********************************************************************/
-.services .column{
+.services img{
+	max-width: 200px;
 	
 }
-/******************************/
-/*-----------------*/
-/***** Hera *****/
-/*-----------------*/
-
-figure.effect-hera {
-	background: #303fa9;
+/********************************************************************
+CONTACT
+********************************************************************/
+.contact textarea{
+	min-height: 20vh;
 }
-
-figure.effect-hera h2 {
-	font-size: 158.75%;
+.contact img{
+	max-width: 50px;
 }
-
-figure.effect-hera h2,
-figure.effect-hera p {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
-	-webkit-transform-origin: 50%;
-	transform-origin: 50%;
-}
-
-figure.effect-hera figcaption::before {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 200px;
-	height: 200px;
-	border: 2px solid #fff;
-	content: '';
-	opacity: 0;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
-	transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
-	-webkit-transform-origin: 50%;
-	transform-origin: 50%;
-}
-
-figure.effect-hera p {
-	width: 100px;
-	text-transform: none;
-	font-size: 121%;
-	line-height: 2;
-}
-
-figure.effect-hera p a {
-	color: #fff;
-}
-
-figure.effect-hera p a:hover,
-figure.effect-hera p a:focus {
-	opacity: 0.6;
-}
-
-figure.effect-hera p a i {
-	opacity: 0;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-}
-
-figure.effect-hera p a:first-child i {
-	-webkit-transform: translate3d(-60px,-60px,0);
-	transform: translate3d(-60px,-60px,0);
-}
-
-figure.effect-hera p a:nth-child(2) i {
-	-webkit-transform: translate3d(60px,-60px,0);
-	transform: translate3d(60px,-60px,0);
-}
-
-figure.effect-hera p a:nth-child(3) i {
-	-webkit-transform: translate3d(-60px,60px,0);
-	transform: translate3d(-60px,60px,0);
-}
-
-figure.effect-hera p a:nth-child(4) i {
-	-webkit-transform: translate3d(60px,60px,0);
-	transform: translate3d(60px,60px,0);
-}
-
-figure.effect-hera:hover figcaption::before {
-	opacity: 1;
-	-webkit-transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(1,1,1);
-	transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(1,1,1);
-}
-
-figure.effect-hera:hover h2 {
-	opacity: 0;
-	-webkit-transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
-	transform: translate3d(-50%,-50%,0) scale3d(0.8,0.8,1);
-}
-
-figure.effect-hera:hover p i:empty {
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0); /* just because it's stronger than nth-child */
-	opacity: 1;
-}
-
-/******************************/

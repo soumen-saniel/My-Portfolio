@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
 
   <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Oswald" rel="stylesheet">
   
   <link rel="stylesheet" href="styles/foundation.css">
   <link rel="stylesheet" type="text/css" href="styles/motion-ui.min.css">
@@ -18,459 +19,480 @@
   <link rel="stylesheet" href="app-styles/app.css">
 </head>
 <body>
-  <!-- Desktop navigation -->
-  <nav role="navigation">
-    <ul id="menu" class="overlay-menu">
-      <li><span>Home</span></li>
-      <li><span>About</span></li>
-      <li><span>Contact</span></li>
-    </ul>
-    <a class="toggle-menu" href="#menu"><i class="fi-plus"></i></a>
-  </nav>
-  
-  
-  <!--Main section-->
-  <div class="wrapper fullWidth">
-    <div id="scroller">
+  <div class="wrapper fullWidth" data-magellan>
+    <div id="navigation" class="fullWidth navigation">
+      <div class="row">
+        <div class="column">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
 
-      <!-- Hero section -->
-      <div id="home" class="fullHeight hero">
-        <div class="row fullHeight align-middle">
-          <div class="column large-12 medium-12 small-12">
-            <div class="hero-img-flexslider">
-              <ul class="slides">
-                <li>
-                  <div style="background: url('img/hero-1.jpg') no-repeat center center; background-size: cover"></div>
-                </li>
-                <li>
-                  <div style="background: url('img/hero-2.jpg') no-repeat center center; background-size: cover"></div>
-                </li>
-                <li>
-                  <div style="background: url('img/hero-3.jpg') no-repeat center center; background-size: cover"></div>
-                </li>
-              </ul>
-            </div>
-            <div class="row fullHeight fullWidth hero-content">
-              <div class="column large-8 medium-8 small-12 hide-for-small-only"></div>
-              <div class="column large-4 medium-4 small-12 text-left font-light landing-text slide-in-text">
-                <div>
-                  <h1>HELLO, I'M</h1>
-                  <h1><b>PATRIC JANE</b></h1>
-                  <h5 class="text-bordered display-inline">Web Application Design And Development Enthusiast</h5>
-                  <div class="hero-content-flexslider">
-                    <ul class="slides">
-                      <li>
-                        <h1>Slide 1</h1>
-                      </li>
-                      <li>
-                        <h1>Slide 2</h1>
-                      </li>
-                      <li>
-                        <h1>Slide 3</h1>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-
-      <!--Portfolio-->
-      <div id="portfolio" class="fullWidth row-padding" style="background: #fff">
-        <div class="row align-center">
-          <div class="column large-6 small-12 text-center">
-            <h1 class="font-dark display-inline">PORTFOLIO</h1>
-            <br/>
-            <div class="small column button-group display-inline">
-              <a class="button">All</a>
-              <a class="button">Latest</a>
-              <a class="button">On Going</a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-6 medium-6 small-12 columns card column-padding">
-            <div class="panel grid">
-              <figure class="effect-bubba">
-                <img src="img/dummy1.jpg" alt="dummy1.jpg"/>
-                <figcaption>
-                  <h2>Glowing <span>Ruby</span></h2>
-                  <p>Ruby did not need any help. Everybody knew that.</p>
-                  <p>
-                    <a><i class="fa fa-fw fa-star-o"></i></a>
-                    <a><i class="fa fa-fw fa-comments-o"></i></a>
-                    <a><i class="fa fa-fw fa-envelope-o"></i></a>
-                  </p>
-                </figcaption>     
-              </figure>
-            </div>
-          </div>
-          <div class="large-6 medium-6 small-12 columns card column-padding">
-            <div class="panel grid">
-              <figure class="effect-bubba">
-                <img src="img/dummy2.jpg" alt="dummy2.jpg"/>
-                <figcaption>
-                  <h2>Glowing <span>Ruby</span></h2>
-                  <p>Ruby did not need any help. Everybody knew that.</p>
-                  <p>
-                    <a><i class="fa fa-fw fa-star-o"></i></a>
-                    <a><i class="fa fa-fw fa-comments-o"></i></a>
-                    <a><i class="fa fa-fw fa-envelope-o"></i></a>
-                  </p>
-                </figcaption>     
-              </figure>
-            </div>
-          </div>
-          <div class="large-6 medium-6 small-12 columns card column-padding">
-            <div class="panel grid">
-              <figure class="effect-bubba">
-                <img src="img/dummy3.jpg" alt="dummy3.jpg"/>
-                <figcaption>
-                  <h2>Glowing <span>Ruby</span></h2>
-                  <p>Ruby did not need any help. Everybody knew that.</p>
-                  <p>
-                    <a><i class="fa fa-fw fa-star-o"></i></a>
-                    <a><i class="fa fa-fw fa-comments-o"></i></a>
-                    <a><i class="fa fa-fw fa-envelope-o"></i></a>
-                  </p>
-                </figcaption>     
-              </figure>
-            </div>
-          </div>
-          <div class="large-6 medium-6 small-12 columns card column-padding">
-            <div class="panel grid">
-              <figure class="effect-bubba">
-                <img src="img/dummy4.jpg" alt="dummy4.jpg"/>
-                <figcaption>
-                  <h2>Glowing <span>Ruby</span></h2>
-                  <p>Ruby did not need any help. Everybody knew that.</p>
-                  <p>
-                    <a><i class="fa fa-fw fa-star-o"></i></a>
-                    <a><i class="fa fa-fw fa-comments-o"></i></a>
-                    <a><i class="fa fa-fw fa-envelope-o"></i></a>
-                  </p>
-                </figcaption>     
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!--Skills-->
-      <div id="skills" class="bg-img1 fullWidth row-padding">
-        <div class="row align-center">
-          <div class="column large-12 small-12 text-center">
-            <h1 class="font-light display-inline">SKILLS</h1>
-          </div>
-        </div>
-        
-        <div class="row align-center">
-          <div class="column large-12 small-12 text-center slider-buttons skills-flexslider-controls">
-            <a class="button">BASICS</a>
-            <a class="button">CSS FRAMEWORKS</a>
-            <a class="button">JAVA SCRIPT FRAMEWORKS</a>
-            <a class="button">MEAN TECHNOLOGIES</a>
-            <a class="button">MAP API</a>
-            <a class="button">TOOLS</a>
-          </div>
-          <div class="column large-12 small-12 text-center skills-flexslider">
+    </div>
+    <!-- Hero section -->
+    <div id="home" class="fullHeight hero">
+      <div class="row fullHeight align-middle">
+        <div class="column large-12 medium-12 small-12">
+          <div class="hero-img-flexslider">
             <ul class="slides">
-              <li class="">
-                <div class="row align-center">
-                  <div class="column large-12 small-12 text-center">
-                    <h5 class="font-light display-inline text-center">BASICS</h5>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="80">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">HTML5</small></h4>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="60">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">CSS3</small></h4>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="85">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Java Script</small></h4>
-                  </div>
-                </div>
+              <li>
+                <div style="background: url('img/hero-1.jpg') no-repeat center center; background-size: cover"></div>
               </li>
-              <li class="">
-                <div class="row align-center">
-                  <div class="column large-12 small-12 text-center">
-                    <h5 class="font-light display-inline text-center">CSS FRAMEWORKS</h5>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="70">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Bootstrap</small></h4>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="30">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Foundation</small></h4>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="20">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Angular Materials</small></h4>
-                  </div>
-                </div>
+              <li>
+                <div style="background: url('img/hero-2.jpg') no-repeat center center; background-size: cover"></div>
               </li>
-              <li class="">
-                <div class="row align-center">
-                  <div class="column large-12 small-12 text-center">
-                    <h5 class="font-light display-inline text-center">JAVA SCRIPT FRAMEWORKS</h5>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="70">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">JQuery</small></h4>
-                  </div>
-                </div>
+              <li>
+                <div style="background: url('img/hero-3.jpg') no-repeat center center; background-size: cover"></div>
               </li>
-              <li class="">
-                <div class="row align-center">
-                  <div class="column large-12 small-12 text-center">
-                    <h5 class="font-light display-inline text-center">MEAN TECHNOLOGIES</h5>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="10">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Mongo DB</small></h4>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="70">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Angular JS</small></h4>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="20">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Node JS</small></h4>
-                  </div>
+            </ul>
+          </div>
+          <div class="row fullHeight fullWidth hero-content">
+            <div class="column large-8 medium-8 small-12 hide-for-small-only"></div>
+            <div class="column large-4 medium-4 small-12 text-left font-light landing-text slide-in-text">
+              <div>
+                <h1>Hello, I'm</h1>
+                <h1><b>Patric Jane</b></h1>
+                <h5 class="text-bordered display-inline">Web Application Design And Development Enthusiast</h5>
+                <div class="hero-content-flexslider">
+                  <ul class="slides">
+                    <li>
+                      <h1>Slide 1</h1>
+                    </li>
+                    <li>
+                      <h1>Slide 2</h1>
+                    </li>
+                    <li>
+                      <h1>Slide 3</h1>
+                    </li>
+                  </ul>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--About-->
+    <div id="about" data-magellan-target="about" class="fullWidth row-padding about">
+      <div class="row align-center">
+        <div class="columns text-center">
+          <h1 class="display-inline">About</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column large-6 medium-6 small-12" data-equalizer>
+          <p class="font-light text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <ul class="accordion about-accordian" data-accordion>
+            <li class="accordion-item is-active" data-accordion-item>
+              <a class="accordion-title">About Me</a>
+              <div class="accordion-content" data-tab-content data-equalizer-watch>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Birth day</td>
+                      <td>:</td>
+                      <td>19th Jume 1992</td>
+                    </tr>
+                    <tr>
+                      <td>Nationality</td>
+                      <td>:</td>
+                      <td>Indian</td>
+                    </tr>
+                    <tr>
+                      <td>Languages known</td>
+                      <td>:</td>
+                      <td>English, Hendi, Bengali</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+              <a class="accordion-title">Interests</a>
+              <div class="accordion-content" data-tab-content data-equalizer-watch>
+                <table>
+                  <tbody>
+                    <tr><td>Web design and development</td></tr>
+                    <tr><td>Learning new web related technologies and trends</td></tr>
+                    <tr><td>Electronics and IOT</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+              <a class="accordion-title">Hobbies</a>
+              <div class="accordion-content" data-tab-content data-equalizer-watch>
+                <table>
+                  <tbody>
+                    <tr><td>Playing guiter</td></tr>
+                    <tr><td>Listning music</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="column large-6 medium-6 hide-for-small-only">
+          <div class="about-flexslider">
+            <ul class="slides">
+              <li>
+                <img src="img/icons/about/webdesign.svg"/>
               </li>
-              <li class="">
-                <div class="row align-center">
-                  <div class="column large-12 small-12 text-center">
-                    <h5 class="font-light display-inline text-center">MAP API</h5>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="90">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Google Map API</small></h4>
-                  </div>
-                </div>
+              <li>
+                <img src="img/icons/about/javascript.svg"/>
               </li>
-              <li class="">
-                <div class="row align-center">
-                  <div class="column large-12 small-12 text-center">
-                    <h5 class="font-light display-inline text-center">TOOLS</h5>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="50">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Adobe Muse</small></h4>
-                  </div>
-                  <div class="column large-3 small-4 text-center">
-                    <div class="pie_progress" role="progressbar" data-goal="10">
-                      <div class="pie_progress__number">0%</div>
-                    </div>
-                    <h4><small class="font-light">Adobe Photoshop</small></h4>
-                  </div>
-                </div>
+              <li>
+                <img src="img/icons/about/headphone.svg"/>
               </li>
             </ul>
           </div>
         </div>
-      </div>
-
-      <!--About-->
-      <div id="about" class="fullWidth row-padding" style="background: #fff">
-        <div class="row align-center">
-          <div class="columns text-center">
-            <h1 class="font-dark display-inline">ABOUT</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="column large-6 medium-6 small-12" data-equalizer>
-          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <ul class="accordion" data-accordion>
-              <li class="accordion-item is-active" data-accordion-item>
-                <a class="accordion-title">About Me</a>
-                <div class="accordion-content" data-tab-content data-equalizer-watch>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>Birth day</td>
-                        <td>:</td>
-                        <td>19th Jume 1992</td>
-                      </tr>
-                      <tr>
-                        <td>Nationality</td>
-                        <td>:</td>
-                        <td>Indian</td>
-                      </tr>
-                      <tr>
-                        <td>Languages known</td>
-                        <td>:</td>
-                        <td>English, Hendi, Bengali</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </li>
-              <li class="accordion-item" data-accordion-item>
-                <a class="accordion-title">Interests</a>
-                <div class="accordion-content" data-tab-content data-equalizer-watch>
-                  <table>
-                    <tbody>
-                      <tr><td>Web design and development</td></tr>
-                      <tr><td>Learning new web related technologies and trends</td></tr>
-                      <tr><td>Electronics and IOT</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </li>
-              <li class="accordion-item" data-accordion-item>
-                <a class="accordion-title">Hobbies</a>
-                <div class="accordion-content" data-tab-content data-equalizer-watch>
-                  <table>
-                    <tbody>
-                      <tr><td>Playing guiter</td></tr>
-                      <tr><td>Listning music</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="column large-6 medium-6 about-section-img">
-          </div>
-          <div class="column large-12 small-12 text-center medium-text-left">
-            <a href="#cv" class="button">DOWNLOAD MY CV</a>
-          </div>
+        <div class="column large-12 small-12 text-center medium-text-left">
+          <a href="#cv" class="button">DOWNLOAD MY CV</a>
         </div>
       </div>
+    </div>
 
-      <!--Experience-->
-      <div id="experience" class="bg-img2 fullWidth row-padding">
-        <div class="row align-center">
-          <div class="columns text-center">
-            <h1 class="font-light display-inline">TIMELINE</h1>
-            <p class="text-justify font-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-        </div>
-        <div class="row align-center">
-          <div class="columns text-center">
-            <h4 class="font-light display-inline">Work Experience</h4>
-          </div>
-        </div>
-        
-        <div class="row align-center section-experience">
-          <div class="column large-12 small-12 text-left medium-text-center">
-            <h5 class="display-inline font-light year">2016</h5>
-          </div>
-          <div class="column large-6 medium-6 small-12 timeline-col-left">
-            <div class="timeline-box">
-              <div class="timeline-content">
-                <h5 class="font-dark">Lorem ipsum dolor</h5>
-                <h5><small class="font-dark"><b>Lorem ipsum dolor sit amet</b></small></h5>
-                <p class="text-left font-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
-              </div>
-              <div class="arrow"></div>
-              <div class="pointer"></div>
-            </div>
-          </div>
-          <div class="column large-6 medium-6 small-12 timeline-col-right hide-for-small-only"></div>
-          <div class="column large-12 small-12 text-left medium-text-center">
-            <h5 class="display-inline font-light year">2015</h5>
-          </div>
-          <div class="column large-6 medium-6 small-12 timeline-col-left hide-for-small-only"></div>
-          <div class="column large-6 medium-6 small-12 timeline-col-right">
-            <div class="timeline-box">
-              <div class="timeline-content">
-                <h5 class="font-dark">Lorem ipsum dolor</h5>
-                <h5><small class="font-dark"><b>Lorem ipsum dolor sit amet</b></small></h5>
-                <p class="text-left font-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
-              </div>
-              <div class="arrow"></div>
-              <div class="pointer"></div>
-            </div>
-          </div>
-          <div class="column large-6 medium-6 small-12 timeline-col-left">
-            <div class="timeline-box">
-              <div class="timeline-content">
-                <h5 class="font-dark">Lorem ipsum dolor</h5>
-                <h5><small class="font-dark"><b>Lorem ipsum dolor sit amet</b></small></h5>
-                <p class="text-left font-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
-              </div>
-              <div class="arrow"></div>
-              <div class="pointer"></div>
-            </div>
-          </div>
-          <div class="column large-6 medium-6 small-12 timeline-col-right hide-for-small-only"></div>
-          <div class="column large-12 small-12 text-left medium-text-center">
-          </div>
+    <!--Skills-->
+    <div id="skills" data-magellan-target="skills" class="bg-light fullWidth row-padding">
+      <div class="row align-center">
+        <div class="column large-12 small-12 text-center">
+          <h1 class="display-inline">Skills</h1>
         </div>
       </div>
       
-      <!--My Services-->
-      <div id="services" class="fullWidth row-padding" style="background: #fff">
-        <div class="row align-center">
-          <div class="columns text-center">
-            <h1 class="font-dark display-inline">MY SERVICES</h1>
+      <div class="row align-center">
+        <div class="column large-12 small-12 text-center slider-buttons skills-flexslider-controls">
+          <div style="display:inline-block"><a class="button hide-for-small-only">BASICS</a><a class="button tiny show-for-small-only">BASICS</a></div>
+          <div style="display:inline-block"><a class="button hide-for-small-only">CSS FRAMEWORKS</a><a class="button tiny show-for-small-only">CSS FRAMEWORKS</a></div>
+          <div style="display:inline-block"><a class="button hide-for-small-only">JAVA SCRIPT FRAMEWORKS</a><a class="button tiny show-for-small-only">JAVA SCRIPT FRAMEWORKS</a></div>
+          <div style="display:inline-block"><a class="button hide-for-small-only">MEAN TECHNOLOGIES</a><a class="button tiny show-for-small-only">MEAN TECHNOLOGIES</a></div>
+          <div style="display:inline-block"><a class="button hide-for-small-only">MAP API</a><a class="button tiny show-for-small-only">MAP API</a></div>
+          <div style="display:inline-block"><a class="button hide-for-small-only">TOOLS</a><a class="button tiny show-for-small-only">TOOLS</a></div>
+        </div>
+        <div class="column large-12 small-12 text-center skills-flexslider">
+          <ul class="slides" data-equalizer>
+            <li class="">
+              <div class="row align-center">
+                <div class="column large-12 small-12 text-center">
+                  <h5 class="display-inline text-center">BASICS</h5>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="80">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">HTML5</small></h4>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="60">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">CSS3</small></h4>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="85">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Java Script</small></h4>
+                </div>
+              </div>
+            </li>
+            <li class="">
+              <div class="row align-center">
+                <div class="column large-12 small-12 text-center">
+                  <h5 class="display-inline text-center">CSS FRAMEWORKS</h5>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="70">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Bootstrap</small></h4>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="30">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Foundation</small></h4>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="20">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Angular Materials</small></h4>
+                </div>
+              </div>
+            </li>
+            <li class="">
+              <div class="row align-center">
+                <div class="column large-12 small-12 text-center">
+                  <h5 class="display-inline text-center">JAVA SCRIPT FRAMEWORKS</h5>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="70">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">JQuery</small></h4>
+                </div>
+              </div>
+            </li>
+            <li class="">
+              <div class="row align-center">
+                <div class="column large-12 small-12 text-center">
+                  <h5 class="display-inline text-center">MEAN TECHNOLOGIES</h5>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="10">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Mongo DB</small></h4>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="70">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Angular JS</small></h4>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="20">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Node JS</small></h4>
+                </div>
+              </div>
+            </li>
+            <li class="">
+              <div class="row align-center">
+                <div class="column large-12 small-12 text-center">
+                  <h5 class="display-inline text-center">MAP API</h5>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="90">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Google Map API</small></h4>
+                </div>
+              </div>
+            </li>
+            <li class="">
+              <div class="row align-center">
+                <div class="column large-12 small-12 text-center">
+                  <h5 class="display-inline text-center">TOOLS</h5>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="50">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Adobe Muse</small></h4>
+                </div>
+                <div class="column large-3 small-4 text-center">
+                  <div class="pie_progress" role="progressbar" data-goal="10">
+                    <div class="pie_progress__number">0%</div>
+                  </div>
+                  <h4 data-equalizer-watch><small class="font-dark">Adobe Photoshop</small></h4>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!--Timeline-->
+    <div id="experience" data-magellan-target="experience" class="fullWidth row-padding">
+      <div class="row align-center">
+        <div class="columns text-center">
+          <h1 class="display-inline">Timeline</h1>
+          <p class="font-light text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+      <div class="row align-center">
+        <div class="columns text-center">
+          <h4 class="display-inline">Work Experience</h4>
+        </div>
+      </div>
+      
+      <div class="row align-center section-experience">
+        <div class="column large-12 small-12 text-left medium-text-center">
+          <h5 class="display-inline year">2016</h5>
+        </div>
+        <div class="column large-6 medium-6 small-12 timeline-col-left">
+          <div class="timeline-box">
+            <div class="timeline-content">
+              <h5 class="font-light">Lorem ipsum dolor</h5>
+              <h5><small>Lorem ipsum dolor sit amet</small></h5>
+              <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="pointer"></div>
           </div>
         </div>
-        <div class="row align-center services" data-equalizer>
-          <div class="column large-3 medim-3 small-6 text-center">
-            <h4 class="font-dark text-center" data-equalizer-watch>Web Designing</h4>
-            <a class="button">Learn More</a>
+        <div class="column large-6 medium-6 small-12 timeline-col-right hide-for-small-only"></div>
+        <div class="column large-12 small-12 text-left medium-text-center">
+          <h5 class="display-inline year">2015</h5>
+        </div>
+        <div class="column large-6 medium-6 small-12 timeline-col-left hide-for-small-only"></div>
+        <div class="column large-6 medium-6 small-12 timeline-col-right">
+          <div class="timeline-box">
+            <div class="timeline-content">
+              <h5 class="font-light">Lorem ipsum dolor</h5>
+              <h5><small>Lorem ipsum dolor sit amet</small></h5>
+              <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="pointer"></div>
           </div>
-          <div class="column large-3 medim-3 small-6 text-center">
-            <h4 class="font-dark text-center" data-equalizer-watch>Front End Development</h4>
-            <a class="button">Learn More</a>
+        </div>
+        <div class="column large-6 medium-6 small-12 timeline-col-left">
+          <div class="timeline-box">
+            <div class="timeline-content">
+              <h5 class="font-light">Lorem ipsum dolor</h5>
+              <h5><small>Lorem ipsum dolor sit amet</small></h5>
+              <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
+            </div>
+            <div class="arrow"></div>
+            <div class="pointer"></div>
           </div>
-          <div class="column large-3 medim-3 small-6 text-center"h>
-            <h4 class="font-dark text-center" data-equalizer-watch>End to End Development</h4>
-            <a class="button">Learn More</a>
+        </div>
+        <div class="column large-6 medium-6 small-12 timeline-col-right hide-for-small-only"></div>
+        <div class="column large-12 small-12 text-left medium-text-center">
+        </div>
+      </div>
+    </div>
+
+    <!--My Services-->
+    <div id="services" data-magellan-target="services" class="bg-light fullWidth row-padding services">
+      <div class="row align-center">
+        <div class="columns text-center">
+          <h1 class="display-inline">My Services</h1>
+        </div>
+      </div>
+      <div class="row align-center services" data-equalizer>
+        <div class="column large-3 medium-3 small-3 text-center">
+          <img src="img/icons/icon-set-2/designing.svg"/>
+          <h5 class="text-center font-dark" data-equalizer-watch>Web Designing</h5>
+          <a class="button hide-for-small-only">Learn More</a>
+          <a class="button tiny show-for-small-only">Learn More</a>
+        </div>
+        <div class="column large-3 medium-3 small-3 text-center">
+          <img src="img/icons/icon-set-2/html.svg"/>
+          <h5 class="text-center font-dark" data-equalizer-watch>Front End Development</h5>
+          <a class="button hide-for-small-only">Learn More</a>
+          <a class="button tiny show-for-small-only">Learn More</a>
+        </div>
+        <div class="column large-3 medium-3 small-3 text-center"h>
+          <img src="img/icons/icon-set-2/www.svg"/>
+          <h5 class="text-center font-dark" data-equalizer-watch>End to End Development</h5>
+          <a class="button hide-for-small-only">Learn More</a>
+          <a class="button tiny show-for-small-only">Learn More</a>
+        </div>
+        <div class="column large-3 medium-3 small-3 text-center">
+          <img src="img/icons/icon-set-2/tools.svg"/>
+          <h5 class="text-center font-dark" data-equalizer-watch>Manual and Automated Testing</h5>
+          <a class="button hide-for-small-only">Learn More</a>
+          <a class="button tiny show-for-small-only">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!--Portfolio-->
+    <div id="portfolio" data-magellan-target="portfolio" class="fullWidth row-padding portfolio">
+      <div class="row align-center">
+        <div class="column large-6 small-12 text-center">
+          <h1 class="display-inline">Portfolio</h1>
+          <br/>
+          <div class="column button-group display-inline hide-for-small-only">
+            <a class="button">All</a>
+            <a class="button">Latest</a>
+            <a class="button">On Going</a>
           </div>
-          <div class="column large-3 medim-3 small-6 text-center">
-            <h4 class="font-dark text-center" data-equalizer-watch>Manual and Automated Testing</h4>
-            <a class="button">Learn More</a>
+          <div class="small column button-group display-inline show-for-small-only">
+            <a class="button">All</a>
+            <a class="button">Latest</a>
+            <a class="button">On Going</a>
           </div>
         </div>
       </div>
+      <div class="row align-center portfolio-content">
+        <div class="column large-4 medium-4">
+          <figure>
+            <img src="img/icons/technology/html.svg"/>
+          </figure>
+        </div>
+        <div class="column large-4 medium-4">
+          <figure>
+            <img src="img/icons/technology/css.svg"/>
+          </figure>
+        </div>
+        <div class="column large-4 medium-4">
+          <figure>
+            <img src="img/icons/technology/javascript.svg"/>
+          </figure>
+        </div>
+        <div class="column large-4 medium-4">
+          <figure>
+            <img src="img/icons/technology/jquery.svg"/>
+          </figure>
+        </div>
+        <div class="column large-4 medium-4">
+          <figure>
+            <img src="img/icons/technology/angular.svg"/>
+          </figure>
+        </div>
+        <div class="column large-4 medium-4">
+          <figure>
+            <img src="img/icons/technology/nodejs.svg"/>
+          </figure>
+        </div>
+      </div>
+    </div>
 
-      <div class="bg-img3 halfHeight fullWidth"></div>
-
+    <!--Contact-->
+    <div id="contact" data-magellan-target="contact" class="bg-light fullWidth row-padding contact">
+      <div class="row align-center">
+        <div class="columns text-center">
+          <h1 class="display-inline">Contact</h1>
+        </div>
+      </div>
+      <div class="row align-center">
+        <div class="column large-6 medium-6 small-6">
+          <input type="text" placeholder="Your name"/>
+        </div>
+        <div class="column large-6 medium-6 small-6">
+          <input type="text" placeholder="Your email"/>
+        </div>
+        <div class="column large-12 medium-12 small-12">
+          <textarea placeholder="Message:"></textarea>
+        </div>
+        <div class="column large-12 medium-12 small-12 text-center">
+          <a class="button">Submit</a>
+        </div>
+        <div class="column large-12 medium-12 small-12 text-center">
+          <div>
+            <span><img src="img/icons/social/facebook.svg"></span>
+            <span><img src="img/icons/social/github.svg"></span>
+            <span><img src="img/icons/social/google.svg"></span>
+            <span><img src="img/icons/social/linkdin.svg"></span>
+            <span><img src="img/icons/social/outlook.svg"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!--Footer-->
+    <div id="map" class="fullWidth row-padding">
+      
     </div>
   </div>
-  <!-- Footer section -->
 
   <script src="scripts/vendor/jquery.js"></script>
   <script src="scripts/vendor/what-input.js"></script>
   <script src="scripts/vendor/foundation.js"></script>
   <script src="scripts/motion-ui.min.js"></script>
-  <script src="scripts/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-  <script src="scripts/iscroll.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/jquery-asPieProgress.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/responsiveslides.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/jquery.flexslider-min.js" type="text/javascript" charset="utf-8"></script>
