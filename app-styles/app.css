@@ -3,7 +3,7 @@ GENERAL
 ********************************************************************/
 /***********************Applying google fonts***********************/
 body{
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Raleway', sans-serif;
 	color: #fff;
 }
 h1, h2, h3, h4, h5{
@@ -13,7 +13,17 @@ h1{
 	color: #fff;
 }
 small{
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Raleway', sans-serif;
+}
+p{
+	font-size: 1.3em;
+    line-height: 1.3em;
+}
+@media (max-width: 640px){
+	p{
+		font-size: inherit;
+		line-height: 1.6;
+	}
 }
 /***********************Overwriting classes*************************/
 .column, .columns{
@@ -25,12 +35,13 @@ a:hover, a:focus{
 }
 .button{
 	border-radius: 0px;
-	border : 2px solid #000;
+	border : 2px solid rgba(255,255,255,0.7);
 	background: transparent;
-	color : #000;
+	color : rgba(255,255,255,0.7);
 }
 .button:hover, .button:active{
 	background: black;
+	border : 2px solid #000;
 	color : #fff;
 }
 @media (min-width:768px) {
@@ -62,6 +73,9 @@ html, body{
 .halfHeight {
 	height: 50vh;
 }
+.minHeight {
+	min-height: 100vh;
+}
 .bg-light{
 	background: #6bd7ca;
 }
@@ -76,8 +90,8 @@ html, body{
 }
 .row-padding{
 	height: auto;
-	padding-top: 3%;
-	padding-bottom: 3%;
+	padding-top: 4%;
+	padding-bottom: 4%;
 }
 .column-padding{
 	padding: 2px;
@@ -89,21 +103,37 @@ html, body{
 .display-inline{
 	display: inline-flex;
 }
-.card{
-	height: 260px;
-}
-@media (min-width:640px) {
-	.card{
-		height: 50vh;
-	}
-}
 /********************************************************************
 NAV
 ********************************************************************/
 .navigation{
 	position: fixed;
+	background: #fff;
 	z-index: 10;
+	display: none;
 }
+.navigation .menu > .menu-text{
+	color: #282f35;
+}
+.navigation .menu > li > a{
+	color: #6bd7ca;
+}
+.navigation .menu > li > a:hover, a:focus{
+	color: #282f35;
+}
+.navigation .menu > li.is-dropdown-submenu-parent > a::after {
+	display: none;
+}
+.navigation .menu > li.opens-right > .is-dropdown-submenu {
+	width: 100vw;
+}
+.navigation .menu-text > a{
+	padding: 0;
+}
+.background{
+	display: block;
+}
+
 /********************************************************************
 HERO SECTION
 ********************************************************************/
@@ -178,7 +208,7 @@ HERO SECTION
 	}
 	.hero .hero-content{
 		height: auto !important;
-		top: 10%;
+		top: 40%;
 	}
 	.hero .hero-content> .column{
 	}
@@ -246,7 +276,7 @@ ABOUT
     border-radius: 0px;
     border-top: 1px solid #000;
     border-bottom: 0px solid #000;
-    color: #000;
+    color: #b3e0db;
 }
 .about .is-active > a.accordion-title{
 	border: none;
@@ -269,6 +299,7 @@ ABOUT
 	border:none;
 	padding: 0;
 	background: transparent;
+	color: #b3e0db;
 }
 /****************************************************************/
 .about .accordion-content> table,.about .accordion-content> table> tbody,.about .accordion-content> table> tbody > tr,.about .accordion-content> table> tbody > tr > td {
@@ -325,7 +356,8 @@ TIMELINE
 }
 .timeline-content p{
 	padding: 2px;
-	background: rgba(255,255,255,0.5);
+	background: rgba(107, 215, 202, 0.2);
+	margin-bottom: 2px;
 }
 .pointer{
 	position: absolute;
@@ -395,9 +427,21 @@ TIMELINE
 	.timeline-box{
 		margin-bottom: 10px;
 	}
+	.pointer {
+	    height: 15px;
+	    width: 15px;
+	    border: 3px solid rgba(255,255,255,0.5);
+	    border-radius: 10px;
+	}
 	.timeline-col-left{
-		border-right: 0px solid #fff;
-		border-left: 1px solid #fff;
+		border-right: 0px solid #6bd7ca;
+		border-left: 1px solid #6bd7ca;
+		overflow: visible;
+		padding: 0 0 0 10px;
+	}
+	.timeline-col-right{
+		border-right: 0px solid #6bd7ca;
+		border-left: 1px solid #6bd7ca;
 		overflow: visible;
 		padding: 0 0 0 10px;
 	}
@@ -405,7 +449,10 @@ TIMELINE
 		float: left;
 	}
 	.timeline-col-left .timeline-content{
-		padding: 5px 10px 5px 30px;
+		padding: 0px 10px 0px 15px;
+	}
+	.timeline-col-right .timeline-content{
+		padding: 0px 10px 0px 15px;
 	}
 	.timeline-col-left .arrow{
 		left: 0;
@@ -415,18 +462,31 @@ TIMELINE
 	}
 	.timeline-col-left .arrow:before {
 		border-right: 0px solid rgba(0,0,0,0.5);
-		border-left: 20px solid rgba(0,0,0,0.5);
-		border-bottom: 20px solid transparent;
+	    border-left: 10px solid rgba(0,0,0,0.5);
+	    border-bottom: 10px solid rgba(0, 0, 0, 0);
 	}
 	.timeline-col-left .arrow:after {
 		top: 50%;
 		border-right: 0px solid rgba(0,0,0,0.5);
-		border-left: 20px solid rgba(0,0,0,0.5);
-		border-top: 20px solid transparent;
+		border-left: 10px solid rgba(0,0,0,0.5);
+		border-top: 10px solid transparent;
 	}
-	.timeline-col-left .pointer{
-		top: 45%;
-	    left: -37px;
+	.timeline-col-right .arrow:before {
+		border-left: 10px solid rgba(0,0,0,0.5);
+		border-bottom: 10px solid transparent;
+	}
+	.timeline-col-right .arrow:after {
+		top: 50%;
+		border-left: 10px solid rgba(0,0,0,0.5);
+		border-top: 10px solid transparent;
+	}
+	.timeline-col-left .pointer {
+	    top: 46%;
+	    left: -18px;
+	}
+	.timeline-col-right .pointer {
+		top: 46%;
+	    left: -18px;
 	}
 }
 

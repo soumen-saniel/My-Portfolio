@@ -6,11 +6,10 @@
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
 
   <title>Portfolio</title>
-  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Oswald" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Raleway" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/foundation.css">
   <link rel="stylesheet" type="text/css" href="styles/motion-ui.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="styles/asPieProgress.css">
   <link rel="stylesheet" type="text/css" href="styles/responsiveslides.css">
@@ -20,17 +19,34 @@
 </head>
 <body>
   <div class="wrapper fullWidth" data-magellan>
+    <!--Navigation-->
     <div id="navigation" class="fullWidth navigation">
-      <div class="row">
-        <div class="column">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#services">Services</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#contact">Contact</a>
-
-        </div>
+      <div class="row show-for-small-only">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a><i class="fi-list-thumbnails"></i></a>
+            <ul class="menu">
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </li>
+          <li class="menu-text"><a href="#home">Site Title</a></li>
+        </ul>
+      </div>
+      <div class="row hide-for-small-only">
+        <ul class="menu">
+          <li class="menu-text"><a href="#home">Site Title</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
     </div>
     <!-- Hero section -->
@@ -78,7 +94,7 @@
     </div>
 
     <!--About-->
-    <div id="about" data-magellan-target="about" class="fullWidth row-padding about">
+    <div id="about" data-magellan-target="about" class="fullWidth row-padding minHeight about">
       <div class="row align-center">
         <div class="columns text-center">
           <h1 class="display-inline">About</h1>
@@ -86,7 +102,7 @@
       </div>
       <div class="row">
         <div class="column large-6 medium-6 small-12" data-equalizer>
-          <p class="font-light text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p class="font-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
           <ul class="accordion about-accordian" data-accordion>
             <li class="accordion-item is-active" data-accordion-item>
               <a class="accordion-title">About Me</a>
@@ -96,7 +112,7 @@
                     <tr>
                       <td>Birth day</td>
                       <td>:</td>
-                      <td>19th Jume 1992</td>
+                      <td>19th June 1992</td>
                     </tr>
                     <tr>
                       <td>Nationality</td>
@@ -106,7 +122,7 @@
                     <tr>
                       <td>Languages known</td>
                       <td>:</td>
-                      <td>English, Hendi, Bengali</td>
+                      <td>English, Hindi, Bengali</td>
                     </tr>
                   </tbody>
                 </table>
@@ -153,13 +169,14 @@
           </div>
         </div>
         <div class="column large-12 small-12 text-center medium-text-left">
-          <a href="#cv" class="button">DOWNLOAD MY CV</a>
+          <a href="#cv" class="button hide-for-small-only">DOWNLOAD MY CV</a>
+          <a href="#cv" class="button tiny show-for-small-only">DOWNLOAD MY CV</a>
         </div>
       </div>
     </div>
 
     <!--Skills-->
-    <div id="skills" data-magellan-target="skills" class="bg-light fullWidth row-padding">
+    <div id="skills" data-magellan-target="skills" class="bg-light fullWidth minHeight row-padding">
       <div class="row align-center">
         <div class="column large-12 small-12 text-center">
           <h1 class="display-inline">Skills</h1>
@@ -303,7 +320,7 @@
     </div>
 
     <!--Timeline-->
-    <div id="experience" data-magellan-target="experience" class="fullWidth row-padding">
+    <div id="experience" data-magellan-target="experience" class="fullWidth minHeight row-padding">
       <div class="row align-center">
         <div class="columns text-center">
           <h1 class="display-inline">Timeline</h1>
@@ -365,32 +382,32 @@
     </div>
 
     <!--My Services-->
-    <div id="services" data-magellan-target="services" class="bg-light fullWidth row-padding services">
+    <div id="services" data-magellan-target="services" class="bg-light fullWidth minHeight row-padding services">
       <div class="row align-center">
         <div class="columns text-center">
           <h1 class="display-inline">My Services</h1>
         </div>
       </div>
       <div class="row align-center services" data-equalizer>
-        <div class="column large-3 medium-3 small-3 text-center">
+        <div class="column large-3 medium-3 small-6 text-center">
           <img src="img/icons/icon-set-2/designing.svg"/>
           <h5 class="text-center font-dark" data-equalizer-watch>Web Designing</h5>
           <a class="button hide-for-small-only">Learn More</a>
           <a class="button tiny show-for-small-only">Learn More</a>
         </div>
-        <div class="column large-3 medium-3 small-3 text-center">
+        <div class="column large-3 medium-3 small-6 text-center">
           <img src="img/icons/icon-set-2/html.svg"/>
           <h5 class="text-center font-dark" data-equalizer-watch>Front End Development</h5>
           <a class="button hide-for-small-only">Learn More</a>
           <a class="button tiny show-for-small-only">Learn More</a>
         </div>
-        <div class="column large-3 medium-3 small-3 text-center"h>
+        <div class="column large-3 medium-3 small-6 text-center"h>
           <img src="img/icons/icon-set-2/www.svg"/>
           <h5 class="text-center font-dark" data-equalizer-watch>End to End Development</h5>
           <a class="button hide-for-small-only">Learn More</a>
           <a class="button tiny show-for-small-only">Learn More</a>
         </div>
-        <div class="column large-3 medium-3 small-3 text-center">
+        <div class="column large-3 medium-3 small-6 text-center">
           <img src="img/icons/icon-set-2/tools.svg"/>
           <h5 class="text-center font-dark" data-equalizer-watch>Manual and Automated Testing</h5>
           <a class="button hide-for-small-only">Learn More</a>
@@ -400,7 +417,7 @@
     </div>
 
     <!--Portfolio-->
-    <div id="portfolio" data-magellan-target="portfolio" class="fullWidth row-padding portfolio">
+    <div id="portfolio" data-magellan-target="portfolio" class="fullWidth row-padding minHeight portfolio">
       <div class="row align-center">
         <div class="column large-6 small-12 text-center">
           <h1 class="display-inline">Portfolio</h1>
@@ -418,32 +435,32 @@
         </div>
       </div>
       <div class="row align-center portfolio-content">
-        <div class="column large-4 medium-4">
+        <div class="column small-6 large-4 medium-4">
           <figure>
             <img src="img/icons/technology/html.svg"/>
           </figure>
         </div>
-        <div class="column large-4 medium-4">
+        <div class="column small-6 large-4 medium-4">
           <figure>
             <img src="img/icons/technology/css.svg"/>
           </figure>
         </div>
-        <div class="column large-4 medium-4">
+        <div class="column small-6 large-4 medium-4">
           <figure>
             <img src="img/icons/technology/javascript.svg"/>
           </figure>
         </div>
-        <div class="column large-4 medium-4">
+        <div class="column small-6 large-4 medium-4">
           <figure>
             <img src="img/icons/technology/jquery.svg"/>
           </figure>
         </div>
-        <div class="column large-4 medium-4">
+        <div class="column small-6 large-4 medium-4">
           <figure>
             <img src="img/icons/technology/angular.svg"/>
           </figure>
         </div>
-        <div class="column large-4 medium-4">
+        <div class="column small-6 large-4 medium-4">
           <figure>
             <img src="img/icons/technology/nodejs.svg"/>
           </figure>
@@ -452,24 +469,36 @@
     </div>
 
     <!--Contact-->
-    <div id="contact" data-magellan-target="contact" class="bg-light fullWidth row-padding contact">
+    <div id="contact" data-magellan-target="contact" class="bg-light fullWidth row-padding minHeight contact">
       <div class="row align-center">
         <div class="columns text-center">
           <h1 class="display-inline">Contact</h1>
         </div>
       </div>
-      <div class="row align-center">
-        <div class="column large-6 medium-6 small-6">
-          <input type="text" placeholder="Your name"/>
+      <div class="row">
+        <div class="column small-12 medium-6">
+          <h5 class="font-dark"><i class="fi-marker large"></i>&nbsp;ADDRESS</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <h5 class="font-dark"><i class="fi-telephone large"></i>&nbsp;PHONE</h5>
+          <h5>+91 9876543212</h5>
+          <h5 class="font-dark"><i class="fi-mail large"></i>&nbsp;MAIL</h5>
+          <h5>patric.jane@xyz.com</h5>
         </div>
-        <div class="column large-6 medium-6 small-6">
-          <input type="text" placeholder="Your email"/>
-        </div>
-        <div class="column large-12 medium-12 small-12">
-          <textarea placeholder="Message:"></textarea>
-        </div>
-        <div class="column large-12 medium-12 small-12 text-center">
-          <a class="button">Submit</a>
+        <div class="column small-12 medium-6">
+          <div class="row align-center">
+            <div class="column large-6 medium-6 small-6">
+              <input type="text" placeholder="Your name"/>
+            </div>
+            <div class="column large-6 medium-6 small-6">
+              <input type="text" placeholder="Your email"/>
+            </div>
+            <div class="column large-12 medium-12 small-12">
+              <textarea placeholder="Message:"></textarea>
+            </div>
+            <div class="column large-12 medium-12 small-12 text-center">
+              <a class="button">Submit</a>
+            </div>
+          </div>
         </div>
         <div class="column large-12 medium-12 small-12 text-center">
           <div>
@@ -485,8 +514,9 @@
     
     <!--Footer-->
     <div id="map" class="fullWidth row-padding">
-      
+
     </div>
+
   </div>
 
   <script src="scripts/vendor/jquery.js"></script>
