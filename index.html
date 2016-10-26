@@ -1,24 +1,26 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 <head>
+  <meta name="author" content="Soumen Saniel">
+  <meta name="description" content="Soumen Saniel, web application developer">
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
   <title>Portfolio</title>
+  
   <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Raleway" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="styles/foundation.css">
   <link rel="stylesheet" type="text/css" href="styles/motion-ui.min.css">
   <link rel="stylesheet" type="text/css" href="styles/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="styles/asPieProgress.css">
-  <link rel="stylesheet" type="text/css" href="styles/responsiveslides.css">
-  <link rel="stylesheet" type="text/css" href="styles/responsiveslider-theme.css">
   <link rel="stylesheet" type="text/css" href="styles/flexslider.css">
   <link rel="stylesheet" href="app-styles/app.css">
 </head>
 <body>
   <div class="wrapper fullWidth" data-magellan>
+
     <!--Navigation-->
     <div id="navigation" class="fullWidth navigation">
       <div class="row show-for-small-only">
@@ -26,31 +28,35 @@
           <li>
             <a><i class="fi-list-thumbnails"></i></a>
             <ul class="menu">
+              <li><a href="#services">Services</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#skills">Skills</a></li>
               <li><a href="#experience">Experience</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="#footer">Resources</a></li>
             </ul>
           </li>
           <li class="menu-text"><a href="#home">Site Title</a></li>
         </ul>
       </div>
+      <!--To be shown only in small screen-->
       <div class="row hide-for-small-only">
         <ul class="menu">
           <li class="menu-text"><a href="#home">Site Title</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#footer">Resources</a></li>
         </ul>
       </div>
     </div>
+
     <!-- Hero section -->
-    <div id="home" class="fullHeight hero">
+    <div id="home" data-magellan-target="home" class="fullHeight hero">
       <div class="row fullHeight align-middle">
         <div class="column large-12 medium-12 small-12">
           <div class="hero-img-flexslider">
@@ -86,6 +92,191 @@
                     </li>
                   </ul>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--My Services-->
+    <div id="services" data-magellan-target="services" class="fullWidth minHeight row-padding services">
+      <div class="row align-center">
+        <div class="columns text-center">
+          <h1 class="display-inline">My Services</h1>
+        </div>
+      </div>
+      <div class="row align-center services" data-equalizer>
+        <div class="column large-3 medium-3 small-6 text-center">
+          <img src="img/icons/services/designing.svg"/>
+          <h5 class="text-center font-light" data-equalizer-watch>Web Designing</h5>
+          <a class="button hide-for-small-only">Learn More</a>
+          <a class="button tiny show-for-small-only">Learn More</a>
+        </div>
+        <div class="column large-3 medium-3 small-6 text-center">
+          <img src="img/icons/services/html.svg"/>
+          <h5 class="text-center font-light" data-equalizer-watch>Front End Development</h5>
+          <a class="button hide-for-small-only">Learn More</a>
+          <a class="button tiny show-for-small-only">Learn More</a>
+        </div>
+        <div class="column large-3 medium-3 small-6 text-center"h>
+          <img src="img/icons/services/www.svg"/>
+          <h5 class="text-center font-light" data-equalizer-watch>End to End Development</h5>
+          <a class="button hide-for-small-only">Learn More</a>
+          <a class="button tiny show-for-small-only">Learn More</a>
+        </div>
+        <div class="column large-3 medium-3 small-6 text-center">
+          <img src="img/icons/services/tools.svg"/>
+          <h5 class="text-center font-light" data-equalizer-watch>Manual and Automated Testing</h5>
+          <a class="button hide-for-small-only">Learn More</a>
+          <a class="button tiny show-for-small-only">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+    <!--Portfolio-->
+    <div id="portfolio" data-magellan-target="portfolio" class="bg-light fullWidth row-padding minHeight portfolio">
+      <div class="row align-center">
+        <div class="column large-6 small-12 text-center">
+          <h1 class="display-inline">Portfolio</h1>
+          <br/>
+        </div>
+      </div>
+      <div class="row align-center">
+        <div class="columns">
+          <div class="row align-center">
+            <div class="columns tabs portfoli-category-tabs text-center" data-tabs id="portfolio-category-tabs">
+              <span class="tabs-title"><a href="#portfolio-all">All</a></span>
+              <span class="tabs-title is-active"><a href="#portfolio-latest" aria-selected="true">Latest</a></span>
+              <span class="tabs-title"><a href="#portfolio-on-going">On going</a></span>
+            </div>
+          </div>
+          <div class="tabs-content" data-tabs-content="portfolio-category-tabs">
+            <!--Portfolio all-->
+            <div class="tabs-panel" id="portfolio-all">
+              <div class="row align-center portfolio-content">
+                <!--Project over view-->
+                <div class="column small-12 medium-12 large-12">
+                  <div class="row">
+                    <div class="column small-12 medium-12 large-6">
+                      <img src="img/dummy.png"/>
+                    </div>
+                    <div class="column small-12 medium-12 large-6">
+                      <br/>
+                      <h4 class="font-dark">Project title</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      <span class="label">Angular JS</span>
+                      <span class="label">Foundation</span>
+                      <span class="label">AJAX</span>
+                      <span class="label">JQuery</span>
+                      <br/><br/>
+                      <a class="button small">Learn more</a>
+                      <a class="button small">View live</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column small-12 medium-12 large-12"><hr/></div>
+
+                <!--Project over view-->
+                <div class="column small-12 medium-12 large-12">
+                  <div class="row">
+                    <div class="column small-12 medium-12 large-6">
+                      <img src="img/dummy.png"/>
+                    </div>
+                    <div class="column small-12 medium-12 large-6">
+                      <br/>
+                      <h4 class="font-dark">Project title</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      <span class="label">Angular JS</span>
+                      <span class="label">Foundation</span>
+                      <span class="label">AJAX</span>
+                      <span class="label">JQuery</span>
+                      <br/><br/>
+                      <a class="button small">Learn more</a>
+                      <a class="button small">View live</a>
+                    </div>
+                  </div>
+                </div>
+                <br/>
+                <div  class="column small-12 medium-12 large-12 text-center">
+                  <a class="button hide-for-small-only">Load more</a>
+                  <a class="button show-for-small-only">Load more</a>
+                </div>
+              </div>
+            </div>
+            <!--Portfolio latest-->
+            <div class="tabs-panel is-active" id="portfolio-latest">
+              <div class="row align-center portfolio-content">
+                <!--Project over view-->
+                <div class="column small-12 medium-12 large-12">
+                  <div class="row">
+                    <div class="column small-12 medium-12 large-6">
+                      <img src="img/dummy.png"/>
+                    </div>
+                    <div class="column small-12 medium-12 large-6">
+                      <br/>
+                      <h4 class="font-dark">Project title</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      <span class="label">Angular JS</span>
+                      <span class="label">Foundation</span>
+                      <span class="label">AJAX</span>
+                      <span class="label">JQuery</span>
+                      <br/><br/>
+                      <a class="button small">Learn more</a>
+                      <a class="button small">View live</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Portfolio on going-->
+            <div class="tabs-panel" id="portfolio-on-going">
+              <div class="row align-center portfolio-content">
+                <!--Project over view-->
+                <div class="column small-12 medium-12 large-12">
+                  <div class="row">
+                    <div class="column small-12 medium-12 large-6">
+                      <img src="img/dummy.png"/>
+                    </div>
+                    <div class="column small-12 medium-12 large-6">
+                      <br/>
+                      <h4 class="font-dark">Project title</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      <span class="label">Angular JS</span>
+                      <span class="label">Foundation</span>
+                      <span class="label">AJAX</span>
+                      <span class="label">JQuery</span>
+                      <br/><br/>
+                      <a class="button small">Learn more</a>
+                      <a class="button small">View live</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="column small-12 medium-12 large-12"><hr/></div>
+
+                <!--Project over view-->
+                <div class="column small-12 medium-12 large-12">
+                  <div class="row">
+                    <div class="column small-12 medium-12 large-6">
+                      <img src="img/dummy.png"/>
+                    </div>
+                    <div class="column small-12 medium-12 large-6">
+                      <br/>
+                      <h4 class="font-dark">Project title</h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      <span class="label">Angular JS</span>
+                      <span class="label">Foundation</span>
+                      <span class="label">AJAX</span>
+                      <span class="label">JQuery</span>
+                      <br/><br/>
+                      <a class="button small">Learn more</a>
+                      <a class="button small">View live</a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -185,7 +376,7 @@
       
       <div class="row align-center">
         <div class="column large-12 small-12 text-center slider-buttons skills-flexslider-controls">
-          <div style="display:inline-block"><a class="button hide-for-small-only">BASICS</a><a class="button tiny show-for-small-only">BASICS</a></div>
+          <div style="display:inline-block"><a class="button button-active hide-for-small-only">BASICS</a><a class="button button-active tiny show-for-small-only">BASICS</a></div>
           <div style="display:inline-block"><a class="button hide-for-small-only">CSS FRAMEWORKS</a><a class="button tiny show-for-small-only">CSS FRAMEWORKS</a></div>
           <div style="display:inline-block"><a class="button hide-for-small-only">JAVA SCRIPT FRAMEWORKS</a><a class="button tiny show-for-small-only">JAVA SCRIPT FRAMEWORKS</a></div>
           <div style="display:inline-block"><a class="button hide-for-small-only">MEAN TECHNOLOGIES</a><a class="button tiny show-for-small-only">MEAN TECHNOLOGIES</a></div>
@@ -319,11 +510,11 @@
       </div>
     </div>
 
-    <!--Timeline-->
+    <!--Experience-->
     <div id="experience" data-magellan-target="experience" class="fullWidth minHeight row-padding">
       <div class="row align-center">
         <div class="columns text-center">
-          <h1 class="display-inline">Timeline</h1>
+          <h1 class="display-inline">Experience</h1>
           <p class="font-light text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
       </div>
@@ -381,93 +572,6 @@
       </div>
     </div>
 
-    <!--My Services-->
-    <div id="services" data-magellan-target="services" class="bg-light fullWidth minHeight row-padding services">
-      <div class="row align-center">
-        <div class="columns text-center">
-          <h1 class="display-inline">My Services</h1>
-        </div>
-      </div>
-      <div class="row align-center services" data-equalizer>
-        <div class="column large-3 medium-3 small-6 text-center">
-          <img src="img/icons/icon-set-2/designing.svg"/>
-          <h5 class="text-center font-dark" data-equalizer-watch>Web Designing</h5>
-          <a class="button hide-for-small-only">Learn More</a>
-          <a class="button tiny show-for-small-only">Learn More</a>
-        </div>
-        <div class="column large-3 medium-3 small-6 text-center">
-          <img src="img/icons/icon-set-2/html.svg"/>
-          <h5 class="text-center font-dark" data-equalizer-watch>Front End Development</h5>
-          <a class="button hide-for-small-only">Learn More</a>
-          <a class="button tiny show-for-small-only">Learn More</a>
-        </div>
-        <div class="column large-3 medium-3 small-6 text-center"h>
-          <img src="img/icons/icon-set-2/www.svg"/>
-          <h5 class="text-center font-dark" data-equalizer-watch>End to End Development</h5>
-          <a class="button hide-for-small-only">Learn More</a>
-          <a class="button tiny show-for-small-only">Learn More</a>
-        </div>
-        <div class="column large-3 medium-3 small-6 text-center">
-          <img src="img/icons/icon-set-2/tools.svg"/>
-          <h5 class="text-center font-dark" data-equalizer-watch>Manual and Automated Testing</h5>
-          <a class="button hide-for-small-only">Learn More</a>
-          <a class="button tiny show-for-small-only">Learn More</a>
-        </div>
-      </div>
-    </div>
-
-    <!--Portfolio-->
-    <div id="portfolio" data-magellan-target="portfolio" class="fullWidth row-padding minHeight portfolio">
-      <div class="row align-center">
-        <div class="column large-6 small-12 text-center">
-          <h1 class="display-inline">Portfolio</h1>
-          <br/>
-          <div class="column button-group display-inline hide-for-small-only">
-            <a class="button">All</a>
-            <a class="button">Latest</a>
-            <a class="button">On Going</a>
-          </div>
-          <div class="small column button-group display-inline show-for-small-only">
-            <a class="button">All</a>
-            <a class="button">Latest</a>
-            <a class="button">On Going</a>
-          </div>
-        </div>
-      </div>
-      <div class="row align-center portfolio-content">
-        <div class="column small-6 large-4 medium-4">
-          <figure>
-            <img src="img/icons/technology/html.svg"/>
-          </figure>
-        </div>
-        <div class="column small-6 large-4 medium-4">
-          <figure>
-            <img src="img/icons/technology/css.svg"/>
-          </figure>
-        </div>
-        <div class="column small-6 large-4 medium-4">
-          <figure>
-            <img src="img/icons/technology/javascript.svg"/>
-          </figure>
-        </div>
-        <div class="column small-6 large-4 medium-4">
-          <figure>
-            <img src="img/icons/technology/jquery.svg"/>
-          </figure>
-        </div>
-        <div class="column small-6 large-4 medium-4">
-          <figure>
-            <img src="img/icons/technology/angular.svg"/>
-          </figure>
-        </div>
-        <div class="column small-6 large-4 medium-4">
-          <figure>
-            <img src="img/icons/technology/nodejs.svg"/>
-          </figure>
-        </div>
-      </div>
-    </div>
-
     <!--Contact-->
     <div id="contact" data-magellan-target="contact" class="bg-light fullWidth row-padding minHeight contact">
       <div class="row align-center">
@@ -487,13 +591,13 @@
         <div class="column small-12 medium-6">
           <div class="row align-center">
             <div class="column large-6 medium-6 small-6">
-              <input type="text" placeholder="Your name"/>
+              <input id="sender_name" type="text" placeholder="Your name"/>
             </div>
             <div class="column large-6 medium-6 small-6">
-              <input type="text" placeholder="Your email"/>
+              <input id="sender_email" type="text" placeholder="Your email"/>
             </div>
             <div class="column large-12 medium-12 small-12">
-              <textarea placeholder="Message:"></textarea>
+              <textarea data-autoresize id="mail_message" placeholder="Message:" rows="4"></textarea>
             </div>
             <div class="column large-12 medium-12 small-12 text-center">
               <a class="button">Submit</a>
@@ -504,17 +608,58 @@
           <div>
             <span><img src="img/icons/social/facebook.svg"></span>
             <span><img src="img/icons/social/github.svg"></span>
-            <span><img src="img/icons/social/google.svg"></span>
-            <span><img src="img/icons/social/linkdin.svg"></span>
-            <span><img src="img/icons/social/outlook.svg"></span>
+            <span><img src="img/icons/social/linkedin.svg"></span>
+            <span><img src="img/icons/social/skype.svg"></span>
           </div>
         </div>
       </div>
     </div>
     
     <!--Footer-->
-    <div id="map" class="fullWidth row-padding">
+    <div id="footer" data-magellan-target="footer" class="fullWidth row-padding footer">
+      <div class="row">
 
+        <div class="column small-12 medium-12 text-center">
+          <h3 class="display-inline">Resources</h3>
+        </div>
+
+        <div class="column small-6 medium-3 large-3">
+          <h4 class="font-light">Frameworks</h4>
+          <a href="http://foundation.zurb.com/" target="_blank"><h5>CSS </h5>Zurb Foundation 6</a>
+          </br>
+          <a href="https://angularjs.org/" target="_blank"><h5>JAVA SCRIPT </h5>Angular JS</a>
+        </div>
+
+        <div class="column small-6 medium-3 large-3">
+          <h4 class="font-light">Libraries</h4>
+          <a href="https://jquery.com/" target="_blank"><h5>JAVA SCRIPT </h5>Jquery</a>
+          </br>
+          <a href="http://flexslider.woothemes.com/" target="_blank"><h5>SLIDER </h5>Flex Slider</a>
+          </br>
+          <a href="http://www.jqueryscript.net/demo/Animated-Circle-Progress-Bar-with-jQuery-SVG-asPieProgress/" target="_blank"><h5>CHART </h5>Jquery asPieProgress</a>
+        </div>
+
+        <div class="column small-6 medium-3 large-3">
+          <h4 class="font-light">Icons / Images</h4>
+          <a href="http://zurb.com/playground/foundation-icon-fonts-3" target="_blank"><h5>FONT ICONS </h5>Foundation Icon Fonts 3</a>
+          </br>
+          <a href="https://www.iconfinder.com/" target="_blank"><h5>SVG ICONS </h5>Iconfinder</a>
+          </br>
+          <h5>about by </h5><a href="https://www.iconfinder.com/butterflytronics" target="_blank"><i>Benjamin STAWARZ</i>, </a><a href="https://www.iconfinder.com/icondesigner" target="_blank"><i>Icon Designer</i>, </a><a href="https://www.iconfinder.com/ymbproperties" target="_blank"><i>YMB Properties</i></a>
+          </br>
+          <h5>services by </h5></a href="https://www.iconfinder.com/Vecteezy" target="_blank"><a><i>Vecteezy</i></a>
+          </br>
+          <h5>socail by </h5></a><a href="https://www.iconfinder.com/shotamickaia" target="_blank"><i>Shota MIckaia</i></a>
+        </div>
+        
+        <div class="column small-6 medium-3 large-3">
+          <h4 class="font-light">Google Fonts</h4>
+          <a href="https://fonts.google.com/specimen/Fjalla+One" target="_blank"><h5>HEADINGS </h5>Fjalla One</a>
+          </br>
+          <a href="https://fonts.google.com/specimen/Raleway" target="_blank"><h5>CONTENT </h5>Raleway</a>
+        </div>
+
+      </div>
     </div>
 
   </div>
@@ -524,7 +669,6 @@
   <script src="scripts/vendor/foundation.js"></script>
   <script src="scripts/motion-ui.min.js"></script>
   <script src="scripts/jquery-asPieProgress.js" type="text/javascript" charset="utf-8"></script>
-  <script src="scripts/responsiveslides.min.js" type="text/javascript" charset="utf-8"></script>
   <script src="scripts/jquery.flexslider-min.js" type="text/javascript" charset="utf-8"></script>
   <script src="app-scripts/app.js"></script>
 </body>

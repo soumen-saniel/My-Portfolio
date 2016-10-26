@@ -19,6 +19,10 @@ p{
 	font-size: 1.3em;
     line-height: 1.3em;
 }
+textarea {
+    box-sizing: border-box;
+    resize: none;
+}
 @media (max-width: 640px){
 	p{
 		font-size: inherit;
@@ -43,6 +47,53 @@ a:hover, a:focus{
 	background: black;
 	border : 2px solid #000;
 	color : #fff;
+}
+.button-active{
+	background: black;
+	border : 2px solid #000;
+	color : #fff;
+}
+.tabs{
+	background: transparent;
+	border: 0px solid;
+}
+.tabs-title{
+	float: none;
+}
+.tabs-title > a {
+    display: inline-block;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    vertical-align: middle;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 0px;
+    padding: 0.85em 1em;
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0);
+    color: rgba(255,255,255,0.7);
+}
+@media (max-width: 640px){
+	.tabs-title > a{
+		font-size: 0.6rem;
+	}
+}
+.tabs-title > a:hover, .tabs-title > a:focus, .tabs-title > a[aria-selected='true']{
+    background: #000;
+    border: 2px solid #000;
+    color: #fff;
+}
+.tabs-content {
+    background: transparent;
+    transition: all 0.5s ease;
+    border: 0px solid;
+    border-top: 0;
+}
+.tabs-panel{
+	padding: 0;
 }
 @media (min-width:768px) {
 	.row{
@@ -74,7 +125,12 @@ html, body{
 	height: 50vh;
 }
 .minHeight {
-	min-height: 100vh;
+	min-height: auto;
+}
+@media (max-height: 640px){
+	.minHeight {
+		min-height: 100vh;
+	}
 }
 .bg-light{
 	background: #6bd7ca;
@@ -213,11 +269,6 @@ HERO SECTION
 	.hero .hero-content> .column{
 	}
 }
-/********************************************************************
-*********************************************************************
-MAIN CONTENT SECTION
-*********************************************************************
-********************************************************************/
 
 /********************************************************************
 PORTFOLIO
@@ -226,10 +277,16 @@ PORTFOLIO
 .portfolio .portfolio-content> .column{
 	padding: 5px;
 }
-.portfolio .portfolio-content figure{
-	margin: 0px;
-}
 
+.portfolio hr{
+	border-bottom: 2px solid rgba(255,255,255,0.3);
+	max-width: 100%;
+}
+@media (max-width: 640px){
+	.portfolio hr{
+		margin : 0px;
+	}
+}
 /********************************************************************
 SKILLS
 ********************************************************************/
@@ -506,3 +563,24 @@ CONTACT
 .contact img{
 	max-width: 50px;
 }
+/********************************************************************
+FOOTER
+********************************************************************/
+.footer ul{
+	list-style: none !important;
+}
+.footer h5{
+	display: inline;
+}
+.footer a{
+	color: #fff;
+}
+.footer a:hover, .footer a:focus{
+	color: #6bd7ca;
+}
+
+/*******************************************************************/
+/********************************************************************
+PROJECT PAGE
+********************************************************************/
+/*******************************************************************/

@@ -1,10 +1,41 @@
 (function(){
 	
 	$(document).ready(function(){
-		//Foundation init
-		$(document).foundation();
-		//FlexScroll init
 		var windowWidth = $(window).innerWidth();
+		var windowHeight = $(window).innerHeight();
+		var skillSlideParent = $("#skills .slides");
+		var skillSlideChildCount = skillSlideParent.children().length;
+		var skillControlParent = $(".skills-flexslider-controls");
+		var skillControlCount = skillControlParent.children().length;
+		//-----------------------------------------------------------------------------------------------
+		//Assigning heights to elements
+		//-----------------------------------------------------------------------------------------------
+		$(".fullHeight").css({"height":windowHeight+"px"});
+		if(windowWidth <= 640)
+			$(".minHeight").css({"height":windowHeight+"px"});
+		//-----------------------------------------------------------------------------------------------
+		//Foundation init
+		//-----------------------------------------------------------------------------------------------
+		$(document).foundation();
+		//-----------------------------------------------------------------------------------------------
+		//Update skill slider buttons
+		//-----------------------------------------------------------------------------------------------
+		function updateBtn(){
+			var index  = skillSlideParent.children(".flex-active-slide").index();
+			for(var i = 0; i < skillSlideChildCount; i++){
+				var child;
+				if(i === (index-1)){
+					child = skillControlParent.children()[i];
+					$(child).find(".button").addClass("button-active");
+				}else{
+					child = skillControlParent.children()[i];
+					$(child).find(".button").removeClass("button-active");
+				}
+			}
+		}
+		//-----------------------------------------------------------------------------------------------
+		//FlexScroll init
+		//-----------------------------------------------------------------------------------------------
       	$(window).load(function() {
       		if(windowWidth > 640){
       			$('.about-flexslider').flexslider({
@@ -73,7 +104,7 @@
 				startAt: 0,                     //Integer: The slide that the slider should start on. Array notation (0 = first slide)
 				slideshow: true,                //Boolean: Animate slider automatically
 				slideshowSpeed: 4000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
-				animationSpeed: 1000,            //Integer: Set the speed of animations, in milliseconds
+				animationSpeed: 500,            //Integer: Set the speed of animations, in milliseconds
 				initDelay: 0,                   //{NEW} Integer: Set an initialization delay, in milliseconds
 				randomize: false,               //Boolean: Randomize slide order
 
@@ -112,8 +143,15 @@
 				                                
 				// Callback API
 				start: function(){},            //Callback: function(slider) - Fires when the slider loads the first slide
-				before: function(){},           //Callback: function(slider) - Fires asynchronously with each slider animation
-				after: function(){},            //Callback: function(slider) - Fires after each slider animation completes
+				before: function(){
+					if(windowWidth > 640)
+						$('.pie_progress').asPieProgress('reset');
+				},           //Callback: function(slider) - Fires asynchronously with each slider animation
+				after: function(){
+					updateBtn();
+					if(windowWidth > 640)
+						$('.pie_progress').asPieProgress('start');
+				},            //Callback: function(slider) - Fires after each slider animation completes
 				end: function(){},              //Callback: function(slider) - Fires when the slider reaches the last slide (asynchronous)
 				added: function(){},            //{NEW} Callback: function(slider) - Fires after a slide is added
 				removed: function(){}           //{NEW} Callback: function(slider) - Fires after a slide is removed
@@ -167,8 +205,9 @@
 				directionNav: false,             //Boolean: Create navigation for previous/next navigation? (true/false)
 			});
 	  	});
+		//-----------------------------------------------------------------------------------------------
 		//Plage scroll listner
-		var windowHeight = $(window).innerHeight();
+		//-----------------------------------------------------------------------------------------------
 		$(window).scroll(function (event) {
 		    var scrollHeight = $(window).scrollTop();
 		    if(scrollHeight >= (windowHeight/2)){
@@ -177,13 +216,17 @@
 		    	$("#navigation").removeClass("background");
 		    }
 		});
+		//-----------------------------------------------------------------------------------------------
 		//Landing page animation
+		//-----------------------------------------------------------------------------------------------
 		setTimeout(function(){
 			$(".landing-text").removeClass("slide-in-text");
 		}, 500);
+		//-----------------------------------------------------------------------------------------------
 		//PieProgress init
+		//-----------------------------------------------------------------------------------------------
 		$.asPieProgress.setDefaults({
-			speed : 50,
+			speed : 10,
 			barcolor: 'rgb(40,47,53)',
 			barsize: '8',
 			trackcolor: 'rgba(255,255,255,0.1)',
@@ -192,9 +235,10 @@
 		$('.pie_progress').asPieProgress({
 	        namespace: 'pie_progress'
 		});
-
 		$('.pie_progress').asPieProgress('start');
+		//-----------------------------------------------------------------------------------------------
 		//Close open dropdown
+		//-----------------------------------------------------------------------------------------------
 	    $(".is-dropdown-submenu-parent").click(function(event){
 	    	setTimeout(function(){
 		    	if($(".is-dropdown-submenu").hasClass("js-dropdown-active")){
@@ -204,7 +248,16 @@
 		    	}
 		    }, 50);
 	    });
+	    //-----------------------------------------------------------------------------------------------
+	    //Text area auto resizing
+	    //-----------------------------------------------------------------------------------------------
+		jQuery.each(jQuery('textarea[data-autoresize]'), function() {
+		    var offset = this.offsetHeight - this.clientHeight;
+		    var resizeTextarea = function(el) {
+		        jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+		    };
+		    jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+		});
 
 	});
-
 })();
