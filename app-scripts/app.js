@@ -12,7 +12,7 @@
 		//-----------------------------------------------------------------------------------------------
 		//Assigning heights to elements
 		//-----------------------------------------------------------------------------------------------
-		$(".fullHeight").css({"height":windowHeight+"px"});
+		//$(".fullHeight").css({"height":windowHeight+"px"});
 		if(windowWidth <= 640){
 			$(".minHeight").css({"min-height":windowHeight+"px"});
 		}
@@ -275,7 +275,7 @@
 		$(window).on("orientationchange", function () {
 			windowWidth = $(window).innerWidth();
 			windowHeight = $(window).innerHeight();
-			$(".fullHeight").css({"height":windowHeight+"px"});
+			//$(".fullHeight").css({"height":windowHeight+"px"});
 			if(windowWidth <= 640){
 				$(".minHeight").css({"min-height":windowHeight+"px"});
 			}else{
