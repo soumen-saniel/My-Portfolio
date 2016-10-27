@@ -13,9 +13,9 @@
 		//Assigning heights to elements
 		//-----------------------------------------------------------------------------------------------
 		$(".fullHeight").css({"height":windowHeight+"px"});
-		if(windowWidth <= 640)
+		if(windowWidth <= 640){
 			$(".minHeight").css({"min-height":windowHeight+"px"});
-
+		}
 		//-----------------------------------------------------------------------------------------------
 		//Foundation init
 		//-----------------------------------------------------------------------------------------------
@@ -55,13 +55,13 @@
 				randomize: false,               //Boolean: Randomize slide order
 
 				// Usability features
-				pauseOnAction: true,            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
-				pauseOnHover: true,            //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
+				pauseOnAction: false,            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
+				pauseOnHover: false,            //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
 				useCSS: true,                   //{NEW} Boolean: Slider will use CSS3 transitions if available
 				touch: false,                    //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
 
 				// Primary Controls
-				controlNav: true,               //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
+				controlNav: false,               //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
 				directionNav: false,             //Boolean: Create navigation for previous/next navigation? (true/false)
 				prevText: "Previous",           //String: Set the text for the "previous" directionNav item
 				nextText: "Next",               //String: Set the text for the "next" directionNav item
@@ -110,8 +110,8 @@
 				randomize: false,               //Boolean: Randomize slide order
 
 				// Usability features
-				pauseOnAction: true,            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
-				pauseOnHover: true,            //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
+				pauseOnAction: false,            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
+				pauseOnHover: false,            //Boolean: Pause the slideshow when hovering over slider, then resume when no longer hovering
 				useCSS: true,                   //{NEW} Boolean: Slider will use CSS3 transitions if available
 				touch: true,                    //{NEW} Boolean: Allow touch swipe navigation of the slider on touch-enabled devices
 
@@ -211,9 +211,10 @@
 		//-----------------------------------------------------------------------------------------------
 		for(var i = 0; i < aboutSliderControls.length; i++){
 			$(aboutSliderControls[i]).click(function(){
-				var index = $(aboutSliderControlsParent).children(".is-active").index();
-				console.log(index);
-				$('.about-flexslider').flexslider(index);
+				if(windowWidth > 640){
+					var index = $(aboutSliderControlsParent).children(".is-active").index();
+					$('.about-flexslider').flexslider(index);
+				}
 			});
 		}
 		//-----------------------------------------------------------------------------------------------
@@ -242,7 +243,6 @@
 			barsize: '8',
 			trackcolor: 'rgba(255,255,255,0.1)',
 		});
-
 		$('.pie_progress').asPieProgress({
 	        namespace: 'pie_progress'
 		});
@@ -273,9 +273,15 @@
 	    //Refresh on orientation change
 	    //-----------------------------------------------------------------------------------------------
 		$(window).on("orientationchange", function () {
+			windowWidth = $(window).innerWidth();
+			windowHeight = $(window).innerHeight();
 			$(".fullHeight").css({"height":windowHeight+"px"});
-			if(windowWidth <= 640)
+			if(windowWidth <= 640){
 				$(".minHeight").css({"min-height":windowHeight+"px"});
+			}else{
+				$(".minHeight").css({"min-height":"auto"});
+			}
 		});
 	});
+
 })();

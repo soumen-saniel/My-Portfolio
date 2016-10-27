@@ -257,7 +257,7 @@ HERO SECTION
     transform: translate(-500%, 0);
 }
 /* For mobile */
-@media (max-width: 640px) {
+@media (max-width: 639px) {
 	.hero {
 		background: transparent;
 		background-size: auto;
