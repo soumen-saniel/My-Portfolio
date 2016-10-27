@@ -9,13 +9,7 @@
 		var skillControl = skillControlParent.children();
 		var aboutSliderControlsParent = $(".about-accordian");
 		var aboutSliderControls = $(".about-accordian").children("li");
-		//-----------------------------------------------------------------------------------------------
-		//Assigning heights to elements
-		//-----------------------------------------------------------------------------------------------
-		//$(".fullHeight").css({"height":windowHeight+"px"});
-		if(windowWidth <= 640){
-			$(".minHeight").css({"min-height":windowHeight+"px"});
-		}
+		
 		//-----------------------------------------------------------------------------------------------
 		//Foundation init
 		//-----------------------------------------------------------------------------------------------
@@ -272,16 +266,6 @@
 		//-----------------------------------------------------------------------------------------------
 	    //Refresh on orientation change
 	    //-----------------------------------------------------------------------------------------------
-		$(window).on("orientationchange", function () {
-			windowWidth = $(window).innerWidth();
-			windowHeight = $(window).innerHeight();
-			//$(".fullHeight").css({"height":windowHeight+"px"});
-			if(windowWidth <= 640){
-				$(".minHeight").css({"min-height":windowHeight+"px"});
-			}else{
-				$(".minHeight").css({"min-height":"auto"});
-			}
-		});
 	});
 
 })();
