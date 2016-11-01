@@ -1,0 +1,387 @@
+<div class="wrapper fullWidth" data-magellan>
+  <!--Navigation-->
+  <div id="navigation" class="fullWidth navigation">
+    <div class="row show-for-small-only">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li>
+          <a><i class="fi-list-thumbnails"></i></a>
+          <ul class="menu">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#footer">Resources</a></li>
+          </ul>
+        </li>
+        <li class="menu-text"><a href="#home">Site Title</a></li>
+      </ul>
+    </div>
+    <!--To be shown only in large screen-->
+    <div class="row hide-for-small-only">
+      <ul class="menu">
+        <li class="menu-text"><a href="#home">Site Title</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#footer">Resources</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hero section -->
+  <div id="home" data-magellan-target="home" class="fullHeight hero">
+    <div class="row fullHeight align-middle">
+      <div class="column large-12 medium-12 small-12">
+        <div class="hero-img-flexslider">
+          <ul class="slides">
+            <li ng-repeat="slide in main.heroSection.slides">
+              <div style="background: url({{slide.image}}) no-repeat center center; background-size: cover"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="row fullHeight fullWidth hero-content">
+          <div class="column large-8 medium-8 small-12 hide-for-small-only"></div>
+          <div class="column large-4 medium-4 small-12 text-left font-light landing-text slide-in-text">
+            <div>
+              <h1>Hello, I'm</h1>
+              <h1><b>Patric Jane</b></h1>
+              <h5 class="text-bordered display-inline">Web Application Design And Development Enthusiast</h5>
+              <div class="hero-content-flexslider">
+                <ul class="slides">
+                  <li ng-repeat="slide in main.heroSection.slides">
+                    <h1>{{slide.text}}</h1>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--My Services-->
+  <div id="services" data-magellan-target="services" class="fullWidth row-padding services">
+    <div class="row align-center">
+      <div class="columns text-center">
+        <h1 class="display-inline">My Services</h1>
+      </div>
+    </div>
+    <div class="row align-center services" data-equalizer>
+      <div class="column large-3 medium-3 small-6 text-center" ng-repeat="service in main.servicesSection.services">
+        <img src="{{service.image}}"/>
+        <h5 class="text-center font-light" data-equalizer-watch>{{service.title}}</h5>
+        <a href="{{service.link}}" class="button hide-for-small-only">Learn More</a>
+        <a href="{{service.link}}" class="button small show-for-small-only">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <!--Portfolio-->
+  <div id="portfolio" data-magellan-target="portfolio" class="bg-light fullWidth row-padding portfolio">
+    <div class="row align-center">
+      <div class="column large-6 small-12 text-center">
+        <h1 class="display-inline">Portfolio</h1>
+        <br/>
+      </div>
+    </div>
+    <div class="row align-center">
+      <div class="columns">
+        <div class="row align-center">
+          <div class="columns tabs portfoli-category-tabs text-center" data-tabs id="portfolio-category-tabs">
+            <span class="tabs-title"><a href="#portfolio-all">All</a></span>
+            <span class="tabs-title is-active"><a href="#portfolio-latest" aria-selected="true">Latest</a></span>
+            <span class="tabs-title"><a href="#portfolio-on-going">On going</a></span>
+          </div>
+        </div>
+        <div class="tabs-content" data-tabs-content="portfolio-category-tabs">
+          <!--Portfolio all-->
+          <div class="tabs-panel" id="portfolio-all">
+            <div class="row align-center portfolio-content">
+              <!--Project over view-->
+              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | orderBy : 'date':true">
+                <div class="row">
+                  <div class="column small-12 medium-12 large-6" ng-repeat="image in project.images | filter : {primary : true}">
+                    <img src="{{image.image}}"/>
+                  </div>
+                  <div class="column small-12 medium-12 large-6">
+                    <br/>
+                    <h4 class="font-dark">{{project.title}}</h4>
+                    <p>{{project.overview}}</p>
+                    <span class="label" ng-repeat="technology in project.technology">{{technology}}</span>
+                    <br/><br/>
+                    <a href="" class="button small">Learn more</a>
+                    <a href="{{project.url}}" class="button small">View live</a>
+                  </div>
+                </div>
+                <hr/ ng-show="!$last">
+              </div>
+            </div>
+          </div>
+
+          <!--Portfolio latest-->
+          <div class="tabs-panel is-active" id="portfolio-latest">
+            <div class="row align-center portfolio-content">
+              <!--Project over view-->
+              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | filter : {complete : true} | orderBy : 'date':true | limitTo : 1">
+                <div class="row">
+                  <div class="column small-12 medium-12 large-6" ng-repeat="image in project.images | filter : {primary : true}">
+                    <img src="{{image.image}}"/>
+                  </div>
+                  <div class="column small-12 medium-12 large-6">
+                    <br/>
+                    <h4 class="font-dark">{{project.title}}</h4>
+                    <p>{{project.overview}}</p>
+                    <span class="label" ng-repeat="technology in project.technology">{{technology}}</span>
+                    <br/><br/>
+                    <a href="" class="button small">Learn more</a>
+                    <a href="{{project.url}}" class="button small">View live</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Portfolio on going-->
+          <div class="tabs-panel" id="portfolio-on-going">
+            <div class="row align-center portfolio-content">
+              <!--Project over view-->
+              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | filter : {complete : false} | orderBy : 'date':true">
+                <div class="row">
+                  <div class="column small-12 medium-12 large-6" ng-repeat="image in project.images | filter : {primary : true}">
+                    <img src="{{image.image}}"/>
+                  </div>
+                  <div class="column small-12 medium-12 large-6">
+                    <br/>
+                    <h4 class="font-dark">{{project.title}}</h4>
+                    <p>{{project.overview}}</p>
+                    <span class="label" ng-repeat="technology in project.technology">{{technology}}</span>
+                    <br/><br/>
+                    <a href="" class="button small">Learn more</a>
+                    <a href="{{project.url}}" class="button small">View live</a>
+                  </div>
+                </div>
+                <hr/ ng-show="!$last">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--About-->
+  <div id="about" data-magellan-target="about" class="fullWidth row-padding about">
+    <div class="row align-center">
+      <div class="columns text-center">
+        <h1 class="display-inline">About</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column large-6 medium-6 small-12" data-equalizer>
+        <p class="font-light">{{main.aboutSection.description}}</p>
+        <ul class="accordion about-accordian" data-accordion>
+
+          <li class="accordion-item" ng-class="{'is-active': $first}" data-accordion-item ng-repeat="section in main.aboutSection.sections">
+            <a class="accordion-title">{{section.title}}</a>
+            <div class="accordion-content" data-tab-content data-equalizer-watch>
+              <table>
+                <tbody>
+                  <tr ng-repeat="component in section.components">
+                    <td ng-if="component.title">{{component.title}}</td>
+                    <td ng-if="component.title">:</td>
+                    <td>{{component.content}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="column large-6 medium-6 hide-for-small-only">
+        <div class="about-flexslider">
+          <ul class="slides">
+            <li ng-repeat="section in main.aboutSection.sections">
+              <img src="{{section.image}}"/>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="column large-12 small-12 text-center medium-text-left">
+        <a href="#cv" class="button hide-for-small-only">DOWNLOAD MY CV</a>
+        <a href="#cv" class="button small show-for-small-only">DOWNLOAD MY CV</a>
+      </div>
+    </div>
+  </div>
+
+  <!--Skills-->
+  <div id="skills" data-magellan-target="skills" class="bg-light fullWidth row-padding">
+    <div class="row align-center">
+      <div class="column large-12 small-12 text-center">
+        <h1 class="display-inline">Skills</h1>
+      </div>
+    </div>
+
+    <div class="row align-center">
+      <div class="column large-12 small-12 text-center slider-buttons skills-flexslider-controls">
+        <div style="display:inline-block" ng-repeat="skills in main.skillsSection.skills"><a class="button hide-for-small-only" ng-class="{'button-active' : $first}">{{skills.category}}</a><a class="button small show-for-small-only" ng-class="{'button-active' : $first}">{{skills.category}}</a></div>
+      </div>
+      <div class="column large-12 small-12 text-center skills-flexslider">
+        <ul class="slides" data-equalizer>
+          <li ng-repeat="skills in main.skillsSection.skills">
+            <div class="row align-center">
+              <div class="column large-12 small-12 text-center">
+                <h5 class="display-inline text-center">{{skills.category}}</h5>
+              </div>
+              <div class="column large-3 small-4 text-center" ng-repeat="skill in skills.skills">
+                <div class="pie_progress" role="progressbar" data-goal="{{skill.percentage}}">
+                  <div class="pie_progress__number">0%</div>
+                </div>
+                <h4 data-equalizer-watch><small class="font-dark">{{skill.title}}</small></h4>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--Experience-->
+  <div id="experience" data-magellan-target="experience" class="fullWidth row-padding">
+    <div class="row align-center">
+      <div class="columns text-center">
+        <h1 class="display-inline">Experience</h1>
+        <p class="font-light text-justify">{{main.experienceSection.description}}</p>
+      </div>
+    </div>
+    <div class="row align-center">
+      <div class="columns text-center">
+        <h4 class="display-inline">Work Experience</h4>
+      </div>
+    </div>
+    
+    <div class="row align-center section-experience" ng-repeat="experience in main.experienceSection.experiences">
+
+      <div class="column large-12 small-12 text-left medium-text-center" ng-if="$first">
+        <h5 class="display-inline year" ng-if="experience.end">{{experience.end | date : "yyyy"}}</h5>
+        <h5 class="display-inline year" ng-if="!experience.end">{{experience.start | date : "yyyy"}}</h5>
+      </div>
+
+      <div class="column large-6 medium-6 small-12 timeline-col-left hide-for-small-only" ng-class-odd="'hide'"></div>
+
+      <div class="column large-6 medium-6 small-12 " ng-class-odd="'timeline-col-left'" ng-class-even="'timeline-col-right'">
+        <div class="timeline-box">
+          <div class="timeline-content">
+            <h5 class="font-light">{{experience.company}}</h5>
+            <h6><span>{{experience.start | date : "MMMM yyyy"}}&nbsp;-&nbsp;</span><span ng-if="!experience.end">Present</span><span>{{experience.end | date : "MMMM yyyy"}}</span></h6>
+            <h5><small>Role : {{experience.role}}</small></h5>
+            <p class="text-left">{{experience.description}}</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="pointer"></div>
+        </div>
+      </div>
+
+      <div class="column large-6 medium-6 small-12 timeline-col-right hide-for-small-only" ng-class-even="'hide'"></div>
+
+    </div>
+  </div>
+
+  <!--Contact-->
+  <div id="contact" data-magellan-target="contact" class="bg-light fullWidth row-padding contact">
+    <div class="row align-center">
+      <div class="columns text-center">
+        <h1 class="display-inline">Contact</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <h4 class="font-dark"><i class="fi-marker large"></i>&nbsp;ADDRESS</h4>
+        <p>{{main.contactSection.contact.address}}</p>
+        <h5 class="font-dark"><i class="fi-telephone large"></i>&nbsp;PHONE</h5>
+        <h5>{{main.contactSection.contact.phone}}</h5>
+        <h5 class="font-dark"><i class="fi-mail large"></i>&nbsp;MAIL</h5>
+        <h5>{{main.contactSection.contact.email}}</h5>
+      </div>
+      <div class="column small-12 medium-6">
+        <div class="row align-center">
+          <div class="column large-6 medium-6 small-6">
+            <input id="sender_name" type="text" placeholder="Your name"/>
+          </div>
+          <div class="column large-6 medium-6 small-6">
+            <input id="sender_email" type="text" placeholder="Your email"/>
+          </div>
+          <div class="column large-12 medium-12 small-12">
+            <textarea data-autoresize id="mail_message" placeholder="Message:" rows="4"></textarea>
+          </div>
+          <div class="column large-12 medium-12 small-12 text-center">
+            <a class="button">Submit</a>
+          </div>
+        </div>
+      </div>
+      <div class="column large-12 medium-12 small-12 text-center">
+        <div>
+          <a ng-repeat="social in main.contactSection.contact.social" href="{{social.url}}"><span><img src="{{social.image}}"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <div id="footer" data-magellan-target="footer" class="fullWidth row-padding footer">
+    <div class="row">
+
+      <div class="column small-12 medium-12 text-center">
+        <h3 class="display-inline">Resources</h3>
+      </div>
+
+      <div class="column small-6 medium-3 large-3">
+        <h4 class="font-light">Frameworks</h4>
+        <a href="http://foundation.zurb.com/" target="_blank"><h5>CSS </h5>Zurb Foundation 6</a>
+        </br>
+        <a href="https://angularjs.org/" target="_blank"><h5>JAVA SCRIPT </h5>Angular JS</a>
+      </div>
+
+      <div class="column small-6 medium-3 large-3">
+        <h4 class="font-light">Libraries</h4>
+        <a href="https://jquery.com/" target="_blank"><h5>JAVA SCRIPT </h5>Jquery</a>
+        </br>
+        <a href="http://flexslider.woothemes.com/" target="_blank"><h5>SLIDER </h5>Flex Slider</a>
+        </br>
+        <a href="http://www.jqueryscript.net/demo/Animated-Circle-Progress-Bar-with-jQuery-SVG-asPieProgress/" target="_blank"><h5>CHART </h5>Jquery asPieProgress</a>
+      </div>
+
+      <div class="column small-6 medium-3 large-3">
+        <h4 class="font-light">Icons / Images</h4>
+        <a href="http://zurb.com/playground/foundation-icon-fonts-3" target="_blank"><h5>FONT ICONS </h5>Foundation Icon Fonts 3</a>
+        </br>
+        <a href="https://www.iconfinder.com/" target="_blank"><h5>SVG ICONS </h5>Iconfinder</a>
+        </br>
+        <h5>about by </h5><a href="https://www.iconfinder.com/butterflytronics" target="_blank"><i>Benjamin STAWARZ</i>, </a><a href="https://www.iconfinder.com/icondesigner" target="_blank"><i>Icon Designer</i>, </a><a href="https://www.iconfinder.com/ymbproperties" target="_blank"><i>YMB Properties</i></a>
+        </br>
+        <h5>services by </h5></a href="https://www.iconfinder.com/Vecteezy" target="_blank"><a><i>Vecteezy</i></a>
+        </br>
+        <h5>socail by </h5></a><a href="https://www.iconfinder.com/shotamickaia" target="_blank"><i>Shota MIckaia</i></a>
+      </div>
+      
+      <div class="column small-6 medium-3 large-3">
+        <h4 class="font-light">Google Fonts</h4>
+        <a href="https://fonts.google.com/specimen/Fjalla+One" target="_blank"><h5>HEADINGS </h5>Fjalla One</a>
+        </br>
+        <a href="https://fonts.google.com/specimen/Raleway" target="_blank"><h5>CONTENT </h5>Raleway</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
