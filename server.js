@@ -7,6 +7,19 @@ var mongoose = require('mongoose'); // mongoose for mongodb
 var morgan = require('morgan'); // log requests to the console (express4)
 var bodyParser = require('body-parser'); // pull information from HTML POST (express4)
 var appRoutes = require('./app/routes/routes');
+var multer = require('multer');
+var storage = multer.diskStorage({ //multers disk storage settings
+    destination: function (req, file, cb) {
+        cb(null, '/public/img/')
+    },
+    filename: function (req, file, cb) {
+        var datetimestamp = Date.now();
+        cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
+    }
+});
+var upload = multer({ //multer settings
+    storage: storage
+}).single('file');
 
 var port = process.env.PORT || 3000;
 //-----------------------------------------------------------------------------------------------
@@ -24,6 +37,19 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({'extended':'true'})); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
+//-----------------------------------------------------------------------------------------------
+//Configuring multer for file uploads
+//-----------------------------------------------------------------------------------------------
+/** API path that will upload the files */
+app.post('/upload', function(req, res) {
+    upload(req,res,function(err){
+        if(err){
+             res.json({error_code:1,err_desc:err});
+             return;
+        }
+         res.json({error_code:0,err_desc:null});
+    })
+});
 //-----------------------------------------------------------------------------------------------
 //Load the routes
 //-----------------------------------------------------------------------------------------------

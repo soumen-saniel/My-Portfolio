@@ -1,5 +1,24 @@
 <div class="wrapper fullWidth" data-magellan>
 	<div class="">
 		<h1>CONTROL ROOM</h1>
+		<h2>{{main.hello}}</h2>
+		<form  ng-controller="MyCtrl as main" name="main.upload_form">
+                Single Image with validations
+            <input 
+               type="file" 
+               ngf-select 
+               ng-model="main.file" 
+               name="file" 
+               ngf-pattern="'image/*'"
+               accept="image/*" 
+               ngf-max-size="20MB" 
+               />
+            Image thumbnail: <img style="width:100px;" ngf-thumbnail="main.file || '/thumb.jpg'"/>
+            <i ng-show="main.upload_form.file.$error.required">*required</i><br>
+            <i ng-show="main.upload_form.file.$error.maxSize">File too large 
+            {{main.file.size / 1000000|number:1}}MB: max 20M</i>
+            <button type="submit" ng-click="main.submit()">submit</button>
+            <p>{{main.progress}}
+        </form>
 	</div>
 </div>

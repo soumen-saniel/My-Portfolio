@@ -1,6 +1,6 @@
 (function(){
 
-var app = angular.module("appModule", ["ngRoute"]);
+var app = angular.module("appModule", ["ngRoute", "ngFileUpload"]);
 
 app.controller("appController", ["appService", "logService", appController]);
 
@@ -9,13 +9,15 @@ function appController(appService, logService){
 	//-----------------------------------------------------------------------------------------------
 	//Values for hero section
 	//-----------------------------------------------------------------------------------------------
-	var slides = [];
-	this.heroSection = {
-		slides : slides
+	var ctrl = this;
+	ctrl.heroSection = {
+		slides : []
 	}
 	appService.get('/api/hero').then(
         function(response) {
-            slides = response.data;
+        	ctrl.heroSection = {
+				slides : response.data
+			}
             logService.success('appService.get()', response);
         }, 
         function(response) {
@@ -25,7 +27,7 @@ function appController(appService, logService){
 	//-----------------------------------------------------------------------------------------------
 	//Values for services section
 	//-----------------------------------------------------------------------------------------------
-	this.servicesSection = {
+	ctrl.servicesSection = {
 		services : [
 			{
 				title : "Web Designing",
@@ -52,7 +54,7 @@ function appController(appService, logService){
 	//-----------------------------------------------------------------------------------------------
 	//Values for portfolio section
 	//-----------------------------------------------------------------------------------------------
-	this.portfolioSection = {
+	ctrl.portfolioSection = {
 		projects : [
 			{
 				title : "Project 1",
@@ -121,7 +123,7 @@ function appController(appService, logService){
 	//-----------------------------------------------------------------------------------------------
 	//Values for about section
 	//-----------------------------------------------------------------------------------------------
-	this.aboutSection = {
+	ctrl.aboutSection = {
 		description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
 		sections : [
 			{
@@ -179,7 +181,7 @@ function appController(appService, logService){
 	//-----------------------------------------------------------------------------------------------
 	//Values for skills section
 	//-----------------------------------------------------------------------------------------------
-	this.skillsSection = {
+	ctrl.skillsSection = {
 		skills : [
 			{
 				category : "BASICS",
@@ -229,7 +231,7 @@ function appController(appService, logService){
 	//-----------------------------------------------------------------------------------------------
 	//Values for experience section
 	//-----------------------------------------------------------------------------------------------
-	this.experienceSection = {
+	ctrl.experienceSection = {
 		description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
 		experiences : [
 			{
@@ -258,7 +260,7 @@ function appController(appService, logService){
 	//-----------------------------------------------------------------------------------------------
 	//Values for contact section
 	//-----------------------------------------------------------------------------------------------
-	this.contactSection = {
+	ctrl.contactSection = {
 		contact : {
 			address : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
 			phone : "+91 9876543212",

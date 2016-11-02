@@ -1,4 +1,4 @@
-<div class="wrapper fullWidth" data-magellan>
+<div class="wrapper fullWidth" data-magellan home-directive>
   <!--Navigation-->
   <div id="navigation" class="fullWidth navigation">
     <div class="row show-for-small-only">
@@ -186,13 +186,13 @@
     </div>
 
     <div class="row">
-      <div class="column large-6 medium-6 small-12" data-equalizer>
+      <div class="column large-6 medium-6 small-12">
         <p class="font-light">{{main.aboutSection.description}}</p>
         <ul class="accordion about-accordian" data-accordion>
 
-          <li class="accordion-item" ng-class="{'is-active': $first}" data-accordion-item ng-repeat="section in main.aboutSection.sections">
+          <li class="accordion-item" ng-class="{'is-active': $first}" ng-repeat="section in main.aboutSection.sections" data-accordion-item>
             <a class="accordion-title">{{section.title}}</a>
-            <div class="accordion-content" data-tab-content data-equalizer-watch>
+            <div class="accordion-content" data-tab-content>
               <table>
                 <tbody>
                   <tr ng-repeat="component in section.components">
