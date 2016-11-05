@@ -16,28 +16,14 @@
   <link rel="stylesheet" type="text/css" href="styles/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="styles/asPieProgress.css">
   <link rel="stylesheet" type="text/css" href="styles/flexslider.css">
-  <link rel="stylesheet" href="app-styles/app.css">
+  <link rel="stylesheet" href="styles/app-styles/app.css">
 </head>
-<body ng-app="appModule">
-  <div ng-view></div>
+<body>
 
-<script src="scripts/vendor/jquery.js"></script>
-<script src="scripts/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="scripts/angular/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="scripts/ng-file-upload-shim.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="scripts/ng-file-upload.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="app-scripts/controllers/appController.js" type="text/javascript" charset="utf-8"></script>
-<script src="app-scripts/controllers/dashboardController.js" type="text/javascript" charset="utf-8"></script>
-<script src="app-scripts/services/appService.js" type="text/javascript" charset="utf-8"></script>
-<script src="app-scripts/services/logService.js" type="text/javascript" charset="utf-8"></script>
-<script src="app-scripts/config/appConfig.js" type="text/javascript" charset="utf-8"></script>
-<script src="app-scripts/directives/homeDirective.js" type="text/javascript" charset="utf-8"></script>
+  <!-- <div ng-view></div> -->
+  <div ui-view></div>
+  <!-- Require JS File/ Entry point for all the script files -->
+  <script data-main="scripts/main" src="scripts/lib/require.min.js"></script>
 
-<script src="scripts/vendor/what-input.js"></script>
-<script src="scripts/vendor/foundation.js"></script>
-<script src="scripts/motion-ui.min.js"></script>
-<script src="scripts/jquery-asPieProgress.js" type="text/javascript" charset="utf-8"></script>
-<script src="scripts/jquery.flexslider-min.js" type="text/javascript" charset="utf-8"></script>
-<!-- <script src="app-scripts/app.js"></script> -->
 </body>
 </html>

@@ -10,7 +10,7 @@ var appRoutes = require('./app/routes/routes');
 var multer = require('multer');
 var storage = multer.diskStorage({ //multers disk storage settings
     destination: function (req, file, cb) {
-        cb(null, '/public/img/')
+        cb(null, './public/img')
     },
     filename: function (req, file, cb) {
         var datetimestamp = Date.now();
@@ -37,6 +37,12 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({'extended':'true'})); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json()); // parse application/json
+app.use(function(req, res, next) { //allow cross origin requests
+    res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+    res.header("Access-Control-Allow-Origin", "http://localhost");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 //-----------------------------------------------------------------------------------------------
 //Configuring multer for file uploads
 //-----------------------------------------------------------------------------------------------
@@ -44,16 +50,18 @@ app.use(bodyParser.json()); // parse application/json
 app.post('/upload', function(req, res) {
     upload(req,res,function(err){
         if(err){
-             res.json({error_code:1,err_desc:err});
-             return;
+        	console.log('ERROR');
+        	console.log(err);
+            res.json({error_code:1,err_desc:err});
+            return;
         }
-         res.json({error_code:0,err_desc:null});
+        res.json({error_code:0,err_desc:null});
     })
 });
 //-----------------------------------------------------------------------------------------------
 //Load the routes
 //-----------------------------------------------------------------------------------------------
-app.use('/api/hero', appRoutes);
+app.use('/api', appRoutes);
 //-----------------------------------------------------------------------------------------------
 //listen (start app with node server.js)
 //-----------------------------------------------------------------------------------------------

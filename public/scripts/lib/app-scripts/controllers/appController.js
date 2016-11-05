@@ -1,15 +1,13 @@
-(function(){
+define(function(){
 
-var app = angular.module("appModule", ["ngRoute", "ngFileUpload"]);
+var app = angular.module("coreModule");
 
-app.controller("appController", ["appService", "logService", appController]);
-
-function appController(appService, logService){
-
+app.registerController("appController", ["appService", "logService", function (appService, logService){
 	//-----------------------------------------------------------------------------------------------
 	//Values for hero section
 	//-----------------------------------------------------------------------------------------------
 	var ctrl = this;
+	ctrl.title = 'Require is working';
 	ctrl.heroSection = {
 		slides : []
 	}
@@ -289,6 +287,6 @@ function appController(appService, logService){
 			]
 		}
 	}
-}
+}]);
 
-})();
+});

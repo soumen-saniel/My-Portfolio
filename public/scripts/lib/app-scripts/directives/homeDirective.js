@@ -1,6 +1,6 @@
-(function(){
+define(['jquery', 'jquery-as-pie-progress', 'flexslider', 'foundation'], function($, asPieProgress, flexslider){
 
-var app = angular.module("appModule");
+var app = angular.module("coreModule");
 app.directive('homeDirective', ['$timeout' , function ($timeout) {
 	return {
 		restrict: 'A',
@@ -257,12 +257,12 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 				    //-----------------------------------------------------------------------------------------------
 				    //Text area auto resizing
 				    //-----------------------------------------------------------------------------------------------
-					jQuery.each(jQuery('textarea[data-autoresize]'), function() {
+					$.each($('textarea[data-autoresize]'), function() {
 					    var offset = this.offsetHeight - this.clientHeight;
 					    var resizeTextarea = function(el) {
-					        jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+					        $(el).css('height', 'auto').css('height', el.scrollHeight + offset);
 					    };
-					    jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+					    $(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
 					});
 					//-----------------------------------------------------------------------------------------------
 				    //Watch for DOM change
@@ -329,4 +329,4 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 	};
 }])
 
-})();
+});

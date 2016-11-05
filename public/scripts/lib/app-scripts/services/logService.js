@@ -1,5 +1,5 @@
-(function(){
-    angular.module('appModule')
+define(function(){
+    angular.module("coreModule")
     .factory('logService', ['$log', function($log) {
         return {
             success: function(request, response) {
@@ -17,4 +17,4 @@
             }
         }
     }]);
-})();
+});

@@ -1,0 +1,13 @@
+<div class="fullWidth row-padding dashboard-landing">
+	<div class="row align-center">
+      <div class="columns text-center">
+        <h1 class="display-inline">LANDING SECTION</h1>
+      </div>
+    </div>
+    <div class="row">
+    	<div class="column large-6 medium-6 small-12" ng-repeat="landing in main.heroSection">
+    		<img src={{landing.image}}/>
+    		<textarea data-autoresize id="mail_message" placeholder="Message:" rows="4" ng-model="landing.text"></textarea>
+    	</div>
+    </div>
+</div>

@@ -1,10 +1,11 @@
 var express = require('express');
+var multer = require('multer');
 var model = require('../models/dbmodel'); // load the portfolio model
 var router = express.Router();
-router.route('/')
+router.route('/hero')
     .get(function(req, res) {
         // use mongoose to get all portfolio details in the database
-        model.find(function(err, result) {
+        model.portfolio.find(function(err, result) {
 
             // if there is an error retrieving, send the error. nothing after res.send(err) will execute
             if (err)

@@ -1,9 +1,8 @@
-(function(){
-	var app = angular.module("appModule");
-	app.controller('dashboardController', ["appService","Upload","$window", dashboardController]);
+define(function(){
+	var app = angular.module("coreModule");
+	app.registerController('dashboardController', ["appService","Upload","$window", dashboardController]);
 	function dashboardController(appService, Upload, $window){
 		var vm = this;
-		vm.hello = "hello";
 		vm.submit = function(){ //function to call on form submit
             if (vm.upload_form.file.$valid && vm.file) { //check if from is valid
                 vm.upload(vm.file); //call upload function
@@ -30,4 +29,4 @@
             });
         };
 	}
-})();
+});
