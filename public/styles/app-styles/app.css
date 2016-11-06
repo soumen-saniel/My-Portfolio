@@ -602,6 +602,16 @@ DASHBOARD NAV
 	background: #fff;
 	display: block;
 }
+.dashboard-wrapper .add-new{
+	border: 2px solid ddd;
+	border-style: dashed;
+}
+.dashboard-wrapper .add-new .button{
+	margin-top: 45%;
+}
+.dashboard-wrapper .dragover {
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
 /********************************************************************
 DASHBOARD LANDING
 ********************************************************************/

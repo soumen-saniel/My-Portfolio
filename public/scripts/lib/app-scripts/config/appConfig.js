@@ -9,7 +9,7 @@ define(function(){
 		    $stateProvider
 		    	.state('home',{
 		    		url: '/',
-		    		templateUrl : '../../../../views/home.html',
+		    		templateUrl : '/views/home.html',
 		    		controller: 'appController as main',
 		    		resolve: {
 		    			load: ['$q', function($q){
@@ -23,8 +23,8 @@ define(function(){
 		    	})
 		    	.state('admin',{
 		    		url:'/admin',
-		    		templateUrl : '../../../../views/dashboard.html',
-		    		controller: 'dashboardController as main',
+		    		templateUrl : '/views/dashboard.html',
+		    		controller: 'dashboardController as dashboard',
 		    		resolve: {
 		    			load: ['$q', function($q){
 		    				var defered = $q.defer();
@@ -38,7 +38,7 @@ define(function(){
 		    	})
 		    	.state('admin.landing',{
 		    		url:'/landing',
-		    		templateUrl : '../../../../views/dashboardViews/landing.html',
+		    		templateUrl : '/views/dashboardViews/landing.html',
 		    		controller: 'landingController as main',
 		    		resolve: {
 		    			load: ['$q', function($q){
@@ -53,37 +53,37 @@ define(function(){
 		    	})
 		    	.state('admin.services',{
 		    		url:'/services',
-		    		templateUrl : '../../../../views/dashboardViews/services.html',
+		    		templateUrl : '/views/dashboardViews/services.html',
 		    		authenticate: true
 		    	})
 		    	.state('admin.portfolio',{
 		    		url:'/portfolio',
-		    		templateUrl : '../../../../views/dashboardViews/portfolio.html',
+		    		templateUrl : '/views/dashboardViews/portfolio.html',
 		    		authenticate: true
 		    	})
 		    	.state('admin.about',{
 		    		url:'/about',
-		    		templateUrl : '../../../../views/dashboardViews/about.html',
+		    		templateUrl : '/views/dashboardViews/about.html',
 		    		authenticate: true
 		    	})
 		    	.state('admin.skills',{
 		    		url:'/skills',
-		    		templateUrl : '../../../../views/dashboardViews/skills.html',
+		    		templateUrl : '/views/dashboardViews/skills.html',
 		    		authenticate: true
 		    	})
 		    	.state('admin.experience',{
 		    		url:'/experience',
-		    		templateUrl : '../../../../views/dashboardViews/experience.html',
+		    		templateUrl : '/views/dashboardViews/experience.html',
 		    		authenticate: true
 		    	})
 		    	.state('admin.contact',{
 		    		url:'/contact',
-		    		templateUrl : '../../../../views/dashboardViews/contact.html',
+		    		templateUrl : '/views/dashboardViews/contact.html',
 		    		authenticate: true
 		    	})
 		    	.state('admin.resources',{
 		    		url:'/resources',
-		    		templateUrl : '../../../../views/dashboardViews/resources.html',
+		    		templateUrl : '/views/dashboardViews/resources.html',
 		    		authenticate: true
 		    	})
 		});

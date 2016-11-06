@@ -1,13 +1,20 @@
-<div class="fullWidth row-padding dashboard-landing">
+<div class="fullWidth row-padding dashboard-landing" dashboard-directive>
 	<div class="row align-center">
       <div class="columns text-center">
         <h1 class="display-inline">LANDING SECTION</h1>
       </div>
     </div>
     <div class="row">
-    	<div class="column large-6 medium-6 small-12" ng-repeat="landing in main.heroSection">
-    		<img src={{landing.image}}/>
+    	<div class="column large-6 medium-6 small-12" ng-repeat="landing in main.heroSection.slides track by $index">
+
+            <fileupload-directive data="landing.image" url="/api/hero/img" path="/image/landing/"></fileupload-directive>
+            
     		<textarea data-autoresize id="mail_message" placeholder="Message:" rows="4" ng-model="landing.text"></textarea>
+            <a class="button small" ng-click="main.save(landing)">Save</a>
+            <a class="button small" ng-click="main.remove(landing)">Delete</a>
     	</div>
+        <div class="column large-6 medium-6 small-12 text-center add-new ">
+            <a class="button large align-middle" ng-click="main.addNew()">Add New</a>
+        </div>
     </div>
 </div>

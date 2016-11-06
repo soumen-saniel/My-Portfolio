@@ -11,8 +11,8 @@ var heroSchema = mongoose.Schema(
     }
 );
 
-var portfolio = mongoose.model('heroSection', heroSchema);
+var hero = mongoose.model('heroSection', heroSchema);
 
 module.exports = {
-	portfolio : portfolio
+	hero : hero
 };

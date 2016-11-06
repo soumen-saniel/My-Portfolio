@@ -74,7 +74,7 @@
     </div>
     <div class="row align-center services" data-equalizer>
       <div class="column large-3 medium-3 small-6 text-center" ng-repeat="service in main.servicesSection.services">
-        <img src="{{service.image}}"/>
+        <img ng-src="{{service.image}}"/>
         <h5 class="text-center font-light" data-equalizer-watch>{{service.title}}</h5>
         <a href="{{service.link}}" class="button hide-for-small-only">Learn More</a>
         <a href="{{service.link}}" class="button small show-for-small-only">Learn More</a>
@@ -107,7 +107,7 @@
               <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | orderBy : 'date':true">
                 <div class="row">
                   <div class="column small-12 medium-12 large-6" ng-repeat="image in project.images | filter : {primary : true}">
-                    <img src="{{image.image}}"/>
+                    <img ng-src="{{image.image}}"/>
                   </div>
                   <div class="column small-12 medium-12 large-6">
                     <br/>
@@ -131,7 +131,7 @@
               <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | filter : {complete : true} | orderBy : 'date':true | limitTo : 1">
                 <div class="row">
                   <div class="column small-12 medium-12 large-6" ng-repeat="image in project.images | filter : {primary : true}">
-                    <img src="{{image.image}}"/>
+                    <img ng-src="{{image.image}}"/>
                   </div>
                   <div class="column small-12 medium-12 large-6">
                     <br/>
@@ -154,7 +154,7 @@
               <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | filter : {complete : false} | orderBy : 'date':true">
                 <div class="row">
                   <div class="column small-12 medium-12 large-6" ng-repeat="image in project.images | filter : {primary : true}">
-                    <img src="{{image.image}}"/>
+                    <img ng-src="{{image.image}}"/>
                   </div>
                   <div class="column small-12 medium-12 large-6">
                     <br/>
@@ -212,7 +212,7 @@
         <div class="about-flexslider">
           <ul class="slides">
             <li ng-repeat="section in main.aboutSection.sections">
-              <img src="{{section.image}}"/>
+              <img ng-src="{{section.image}}"/>
             </li>
           </ul>
         </div>
@@ -331,7 +331,7 @@
       </div>
       <div class="column large-12 medium-12 small-12 text-center">
         <div>
-          <a ng-repeat="social in main.contactSection.contact.social" href="{{social.url}}"><span><img src="{{social.image}}"></span></a>
+          <a ng-repeat="social in main.contactSection.contact.social" href="{{social.url}}"><span><img ng-src="{{social.image}}"></span></a>
         </div>
       </div>
     </div>

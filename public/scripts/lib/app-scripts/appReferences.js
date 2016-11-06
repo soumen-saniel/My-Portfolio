@@ -8,5 +8,6 @@ define(function(){
 
 		'lib/app-scripts/directives/homeDirective',
 		'lib/app-scripts/directives/dashboardDirective',
+		'lib/app-scripts/directives/fileuploadDirective',
 	];
 });

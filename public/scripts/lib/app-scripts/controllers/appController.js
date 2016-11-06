@@ -29,22 +29,22 @@ app.registerController("appController", ["appService", "logService", function (a
 		services : [
 			{
 				title : "Web Designing",
-				image : "img/icons/services/designing.svg",
+				image : "/image/icons/services/designing.svg",
 				link : ""
 			},
 			{
 				title : "Front End Development",
-				image : "img/icons/services/html.svg",
+				image : "/image/icons/services/html.svg",
 				link : ""
 			},
 			{
 				title : "End to End Development",
-				image : "img/icons/services/www.svg",
+				image : "/image/icons/services/www.svg",
 				link : ""
 			},
 			{
 				title : "Manual and Automated Testing",
-				image : "img/icons/services/tools.svg",
+				image : "/image/icons/services/tools.svg",
 				link : ""
 			},
 		]
@@ -67,19 +67,19 @@ app.registerController("appController", ["appService", "logService", function (a
 				images : [
 					{
 						title : "primary",
-						image : "img/dummy.png",
+						image : "/image/dummy.png",
 						description : "primary",
 						primary : true
 					},
 					{
 						title : "secondary 1",
-						image : "img/dummy.png",
+						image : "/image/dummy.png",
 						description : "secondary 1",
 						primary : false
 					},
 					{
 						title : "secondary 2",
-						image : "img/dummy.png",
+						image : "/image/dummy.png",
 						description : "secondary 2",
 						primary : false
 					}
@@ -98,19 +98,19 @@ app.registerController("appController", ["appService", "logService", function (a
 				images : [
 					{
 						title : "primary",
-						image : "img/dummy.png",
+						image : "/image/dummy.png",
 						description : "primary",
 						primary : true
 					},
 					{
 						title : "secondary 1",
-						image : "img/dummy.png",
+						image : "/image/dummy.png",
 						description : "secondary 1",
 						primary : false
 					},
 					{
 						title : "secondary 2",
-						image : "img/dummy.png",
+						image : "/image/dummy.png",
 						description : "secondary 2",
 						primary : false
 					}
@@ -126,7 +126,7 @@ app.registerController("appController", ["appService", "logService", function (a
 		sections : [
 			{
 				title : "About me",
-				image : "img/icons/about/webdesign.svg",
+				image : "/image/icons/about/webdesign.svg",
 				components : [
 					{
 						title : "Birth day",
@@ -144,7 +144,7 @@ app.registerController("appController", ["appService", "logService", function (a
 			},
 			{
 				title : "Interests",
-				image : "img/icons/about/javascript.svg",
+				image : "/image/icons/about/javascript.svg",
 				components : [
 					{
 						title : "",
@@ -162,7 +162,7 @@ app.registerController("appController", ["appService", "logService", function (a
 			},
 			{
 				title : "Hobbies",
-				image : "img/icons/about/headphone.svg",
+				image : "/image/icons/about/headphone.svg",
 				components : [
 					{
 						title : "",
@@ -267,22 +267,22 @@ app.registerController("appController", ["appService", "logService", function (a
 				{
 					title : "facebook",
 					url : "",
-					image : "img/icons/social/facebook.svg"
+					image : "/image/icons/social/facebook.svg"
 				},
 				{
 					title : "github",
 					url : "",
-					image : "img/icons/social/github.svg"
+					image : "/image/icons/social/github.svg"
 				},
 				{
 					title : "linkedin",
 					url : "",
-					image : "img/icons/social/linkedin.svg"
+					image : "/image/icons/social/linkedin.svg"
 				},
 				{
 					title : "skype",
 					url : "",
-					image : "img/icons/social/skype.svg"
+					image : "/image/icons/social/skype.svg"
 				}
 			]
 		}
