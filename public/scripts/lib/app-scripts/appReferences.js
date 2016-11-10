@@ -9,5 +9,7 @@ define(function(){
 		'lib/app-scripts/directives/homeDirective',
 		'lib/app-scripts/directives/dashboardDirective',
 		'lib/app-scripts/directives/fileuploadDirective',
+		'lib/app-scripts/directives/alertDirective',
+		'lib/app-scripts/directives/projectdetailDirective'
 	];
 });

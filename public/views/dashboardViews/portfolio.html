@@ -1,5 +1,20 @@
-<h1>PORTFOLIO</h1>
-<!-- Add project -->
-<div class="row">
-	
+<div class="fullWidth row-padding dashboard-landing">
+	<div class="row align-center">
+      <div class="columns text-center">
+        <h1 class="display-inline">PORTFOLIO SECTION</h1>
+      </div>
+    </div>
+
+    <div class="row" ng-repeat="project in main.projects">
+    	<div class="column small-12 medium-12 large-6">
+    		<fileupload-directive data="project" url="{{main.url.fs}}" path="{{getUrl(project.name)}}"></fileupload-directive>
+    	</div>
+    	<div class="column small-12 medium-12 large-6">
+    		<form name="{{project.name}}">
+    			<input type="text" ng-model="project.name" ng-readonly="!project.name" placeholder="Enter project name : " required/>
+    			<input type="text" ng-model="project.overview" placeholder="Project overview : " required/>
+    			
+    		</form>
+    	</div>
+    </div>
 </div>

@@ -276,7 +276,9 @@ HERO SECTION
 /********************************************************************
 PORTFOLIO
 ********************************************************************/
-
+.portfolio .column {
+	transition : all 0.5s linear;
+}
 .portfolio .portfolio-content> .column{
 	padding: 5px;
 }
@@ -607,10 +609,13 @@ DASHBOARD NAV
 	border-style: dashed;
 }
 .dashboard-wrapper .add-new .button{
-	margin-top: 45%;
+	margin: 10px 0 10px 0;
 }
 .dashboard-wrapper .dragover {
     border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.dashboard-wrapper .unsaved {
+	border: 2px solid rgba(255, 0, 0, 0.5);
 }
 /********************************************************************
 DASHBOARD LANDING

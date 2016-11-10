@@ -1,6 +1,7 @@
 //-----------------------------------------------------------------------------------------------
 //Set up
 //-----------------------------------------------------------------------------------------------
+
 var express = require('express');
 // create our app w/ express
 var app = express(); 
@@ -42,7 +43,7 @@ app.use(compression())
 // set the static files location /public/img will be /img for users
 //app.use(express.static(__dirname + '/public', { maxAge: oneDay })); 
 app.use(express.static(__dirname + '/public')); 
-app.use('/image', express.static(__dirname + '/public/img'));
+//app.use('/image', express.static(__dirname + '/public/img'));
 // *log every request to the console*
 app.use(morgan('dev')); 
 // parse application/x-www-form-urlencoded

@@ -1,6 +1,6 @@
 define(function(){
 	var app = angular.module("coreModule");
-	app.directive("fileuploadDirective", ["Upload","$window","$timeout","logService", function(Upload, $window, $timeout, logService){
+	app.directive("fileuploadDirective", ["Upload","$window","$timeout","logService","appService", function(Upload, $window, $timeout, logService, appService){
 		return{
 			restrict : "AE",
 
@@ -17,12 +17,14 @@ define(function(){
 
 			link : function (scope, element, attrs) {
 				angular.element(element).ready(function(){
-					scope.image = scope.data;
+					scope.$watch('data', function(value){
+						scope.image = scope.data.image;
+					});
+					scope.image = scope.data.image;
 					scope.files = "";
 					scope.file = "";
 					scope.accept = "image/*,application/pdf";
 					scope.pattern = "'image/*,application/pdf'";
-
 					scope.$watch(function () {
 			            return scope.files;
 			        }, function(value){
@@ -47,8 +49,8 @@ define(function(){
 			                        Upload.upload({
 			                            url: scope.url, //webAPI exposed to upload the file,
 			                            data: {
-			                                username: scope.username,
-			                                file: file  
+			                                file: file,
+			                                test: "hello"
 			                            }
 			                        }).then(function (resp) {
 
@@ -57,11 +59,11 @@ define(function(){
 			                                var log = 'file: ' +
 			                                resp.config.data.file.name +
 			                                ', Response: ' + JSON.stringify(resp.data) ;
-			                                console.log(log);
-
 			                                scope.image = scope.path + resp.config.data.file.name;
-			                                scope.data = scope.image;
-			                                
+			                                //Assign new value to data
+			                                scope.data.image = scope.image;
+			                                //Add a flag to notify the image changed and is unsaved
+			                                scope.data.imgUnSaved = true;
 			                            });
 			                        }, null, function (evt) {
 			                            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);

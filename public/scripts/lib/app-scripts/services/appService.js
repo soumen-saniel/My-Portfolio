@@ -10,9 +10,19 @@ app.factory('appService', ['$http', function($http){
 		post : function(url, data){
 			return $http.post(url, data);
 		},
+		put : function(url, data){
+			return $http.put(url, data);
+		},
 		delete: function(url, data) {
-            return $http.delete(url, data);
-        }
+			var config = {
+			    method: "DELETE",
+			    url: url,
+			    data: data,
+			    headers: {"Content-Type": "application/json;charset=utf-8"}
+			};
+
+			return $http(config);
+        } 
 	};
 }])
 
