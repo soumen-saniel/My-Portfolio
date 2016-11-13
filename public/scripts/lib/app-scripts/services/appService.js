@@ -7,6 +7,9 @@ app.factory('appService', ['$http', function($http){
 		get : function(url){
 			return $http.get(url);
 		},
+		getQuery : function(url, id){
+			return $http.get(url +'/'+ id);
+		},
 		post : function(url, data){
 			return $http.post(url, data);
 		},

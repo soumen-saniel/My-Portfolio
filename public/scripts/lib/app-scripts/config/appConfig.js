@@ -59,6 +59,16 @@ define(function(){
 		    	.state('admin.portfolio',{
 		    		url:'/portfolio',
 		    		templateUrl : '/views/dashboardViews/portfolio.html',
+		    		controller: 'portfolioController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/dashboardControllers/portfolioController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		},
 		    		authenticate: true
 		    	})
 		    	.state('admin.about',{

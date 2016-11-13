@@ -46,15 +46,13 @@ define(function(){
             	val = val[val.length - 1];
             	imgArr.push(val);
             });
-            angular.forEach(imgArr, function (val, key){
-            	appService.delete(ctrl.url.fs, {file : imgArr}).then(
-		    		function(response){
-		    			//logService.success('appService.delete()', response);
-		    		},function(err){
-		    			//logService.failed('appService.delete()', err);
-		    		}
-	    		);
-            })
+        	appService.delete(ctrl.url.fs, {file : imgArr}).then(
+	    		function(response){
+	    			//logService.success('appService.delete()', response);
+	    		},function(err){
+	    			//logService.failed('appService.delete()', err);
+	    		}
+    		);
 		}
 	    
 	    //-----------------------------------------------------------------------------------------------

@@ -10,6 +10,9 @@ var heroSchema = mongoose.Schema(
         text: { type: String, required: true }
     },
     {
+	    timestamps: true
+	},
+    {
     	collection: 'heroSection'
     }
 );
@@ -22,14 +25,16 @@ var projectMainSchema = mongoose.Schema(
 	{
 		name : { type: String, required: true },
 		overview : { type: String, required: true },
-		technology : [String],
+		technology : { type: [String], required: true },
 		url : String,
 		category : { type: String, required: true },
-		date : { type: Date, default: Date.now },
 		client : String,
 		role : { type: String, required: true },
 		complete : { type: Boolean, required: true },
 		image : { type: String, required: true }
+	},
+	{
+	    timestamps: true
 	},
 	{
     	collection: 'projectMain'
@@ -39,20 +44,23 @@ var projectSubSchema = mongoose.Schema(
 	{
 		image : { type: String, required: true },
 		key : {type: String, required: true},
+		name : {type: String, required: true},
 		description : { type: String, required: true }
+	},
+	{
+	    timestamps: true
 	},
 	{
     	collection: 'projectSub'
     }	
 );
-var portfolio = {
-	main : mongoose.model('projectMain', projectMainSchema),
-	sub : mongoose.model('projectSub', projectSubSchema)
-}
+var portfolioMain = mongoose.model('projectMain', projectMainSchema);
+var portfolioSub = mongoose.model('projectSub', projectSubSchema);
 //-----------------------------------------------------------------------------------------------
 //Exports
 //-----------------------------------------------------------------------------------------------
 module.exports = {
 	hero : hero,
-	portfolio : portfolio
+	portfolioMain : portfolioMain,
+	portfolioSub : portfolioSub
 };

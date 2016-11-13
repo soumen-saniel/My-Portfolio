@@ -1,4 +1,4 @@
-define(['jquery', 'foundation'], function($, foundation){
+define(['jquery', 'foundation'], function($, Foundation){
 
 var app = angular.module("coreModule");
 app.directive("dashboardDirective", ['$timeout', function($timeout){

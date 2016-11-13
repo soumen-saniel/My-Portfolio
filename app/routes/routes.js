@@ -63,6 +63,25 @@ function deleteDirectory (dir) {
         }
     });
 }
+function deleteUnrequiredFolders(files, path){
+    fs.readdir(path, function (err, result){
+        result.forEach(function (val, key){
+            var exists = false;
+            for(var i = 0; i < files.length; i++){
+                if(val.toUpperCase() === files[i].toUpperCase()){
+                    exists = true;
+                    break;
+                }
+            }
+            if(!exists){
+                fs.remove(path + val, function(err){
+                    if (err) return console.error(err);
+                    console.log("Directory removed successfully");
+                });
+            }
+        });
+    });
+}
 function copy () {
     var readStream = fs.createReadStream(oldPath);
     var writeStream = fs.createWriteStream(newPath);
@@ -121,7 +140,6 @@ router.route('/hero')
         });
     })
     .post(function (req, res) {
-        console.log('POST object (req.body):', req.body);
     
         model.hero.create({
             image : req.body.image,
@@ -140,7 +158,6 @@ router.route('/hero')
         });
     })
     .put(function (req, res){
-        console.log('PUT object (req.body):', req.body);
         var query = {_id : req.body._id};
         model.hero.update(query,{
             image : req.body.image,
@@ -193,13 +210,11 @@ router.route('/hero/img')
     .post( function (req, res) {
         uploadHero(req,res,function (err){
             if(err){
-                console.log('ERROR');
                 console.log(err);
                 res.json({error_code:1,err_desc:err});
                 return;
             }
             res.json({error_code:0,err_desc:null});
-            console.log(req.body);
         })
     })
     .delete( function (req, res) {
@@ -215,20 +230,19 @@ router.route('/hero/img')
 //-----------------------------------------------------------------------------------------------
 router.route('/portfolio/main')
     .get(function (req, res){
-        model.portfolio.main.find(function (err, result) {
+        model.portfolioMain.find(function (err, result) {
             if (err)
                 res.send(err);
             res.json(result);
         });
     })
     .post(function (req, res){
-        model.portfoilo.main.create({
+        model.portfolioMain.create({
             name : req.body.name,
             overview : req.body.overview,
             technology : req.body.technology,
             url : req.body.url,
             category : req.body.category,
-            date : req.body.date,
             client : req.body.client,
             role : req.body.role,
             complete : req.body.complete,
@@ -239,7 +253,7 @@ router.route('/portfolio/main')
                 res.send(err);
 
             // get and return all the todos after you create another
-            model.portfoilo.main.find(function (err, result) {
+            model.portfolioMain.find(function (err, result) {
                 if (err)
                     res.send(err);
                 
@@ -248,17 +262,12 @@ router.route('/portfolio/main')
         });
     })
     .put(function (req, res){
-        if(req.body.oldImage){
-            // Delete the image file from directory
-            deleteFile(req.body.oldImage);
-        }
         var query = {_id : req.body._id};
-        model.portfoilo.main.update(query,{
+        model.portfolioMain.update(query,{
             overview : req.body.overview,
             technology : req.body.technology,
             url : req.body.url,
             category : req.body.category,
-            date : req.body.date,
             client : req.body.client,
             role : req.body.role,
             complete : req.body.complete,
@@ -270,7 +279,7 @@ router.route('/portfolio/main')
                 res.send(err);
 
             // get and return all the todos after you create another
-            model.portfoilo.main.find(function (err, result) {
+            model.portfolioMain.find(function (err, result) {
                 if (err)
                     res.send(err);
                 
@@ -280,33 +289,40 @@ router.route('/portfolio/main')
     })
     .delete(function (req, res){
         deleteDirectory (req.body.name);
-        model.portfoilo.main.remove({
+        model.portfolioMain.remove({
             _id : req.body._id
         }, function (err, result) {
             if(err)
                 res.send(err);
-             model.portfoilo.main.find(function (err, result) {
+             model.portfolioMain.find(function (err, result) {
                 if (err)
                     res.send(err);
                 res.json(result);
             });
         })
     });
-router.route('/portfolio/sub')
+router.route('/portfolio/sub/:id')
     .get(function (req, res){
-        model.portfolio.sub.find({'key' : req.body._id}, function (err, result) {
+        console.log(req.params.id);
+        model.portfolioSub.find({'key' : req.params.id}, function (err, result) {
             if (err)
                 res.send(err);
             res.json(result);
         });
     })
+router.route('/portfolio/sub')
     .post(function (req, res){
-        model.portfoilo.sub.create(req.body.data, function (err, result) {
+        model.portfolioSub.create({
+            image : req.body.image,
+            key : req.body.key,
+            name : req.body.name,
+            description : req.body.description
+        }, function (err, result) {
             if (err)
                 res.send(err);
 
             // get and return all the todos after you create another
-            model.portfolio.sub.find({'key' : req.body[0].key}, function (err, result) {
+            model.portfolioSub.find({'key' : req.body.key}, function (err, result) {
                 if (err)
                     res.send(err);
                 res.json(result);
@@ -319,7 +335,7 @@ router.route('/portfolio/sub')
             deleteFile(req.body.oldImage);
         }
         var query = {_id : req.body._id};
-        model.portfoilo.sub.update(query,{
+        model.portfolioSub.update(query,{
             image : req.body.image,
             key : req.body.key,
             description : req.body.description
@@ -329,7 +345,7 @@ router.route('/portfolio/sub')
             if (err)
                 res.send(err);
 
-            model.portfolio.sub.find({'key' : req.body.key}, function (err, result) {
+            model.portfolioSub.find({'key' : req.body.key}, function (err, result) {
                 if (err)
                     res.send(err);
                 res.json(result);
@@ -338,12 +354,12 @@ router.route('/portfolio/sub')
     })
     .delete(function (req, res){
         deleteFile(req.body.image);
-        model.portfoilo.sub.remove({
+        model.portfolioSub.remove({
             _id : req.body._id
         }, function (err, result) {
             if(err)
                 res.send(err);
-            model.portfolio.sub.find({'key' : req.body.key}, function (err, result) {
+            model.portfolioSub.find({'key' : req.body.key}, function (err, result) {
                 if (err)
                     res.send(err);
                 res.json(result);
@@ -353,7 +369,7 @@ router.route('/portfolio/sub')
 
 var storageProject = multer.diskStorage({ 
     destination: function (req, file, cb) {
-        cb(null, './public/img/project/temp')
+        cb(null, './public/img/temp')
     },
     filename: function (req, file, cb) {
         var datetimestamp = Date.now();
@@ -365,16 +381,17 @@ var uploadProject = multer({
 }).single('file');
 router.route('/portfolio/img')
     .post( function (req, res) {
-        uploadHero(req,res,function (err){
+        uploadProject(req,res,function (err){
             if(err){
                 console.log('ERROR');
                 console.log(err);
                 res.json({error_code:1,err_desc:err});
                 return;
             }
-            var oldPath = './public/img/project/temp/' + req.body.fileName,
-                newPath = './public/img/project/' + req.body.projName + req.body.fileName,
-                dir = req.body.projName;
+            console.log(req.body);
+            var oldPath = './public/img/temp/' + req.body.name,
+                newPath = './public/img/project/' +req.body.dir+'/'+ req.body.name,
+                dir = req.body.dir;
             move(oldPath, newPath, dir, function (err){
                 if(err){
                     console.log(err);
@@ -386,7 +403,16 @@ router.route('/portfolio/img')
         })
     })
     .delete( function (req, res) {
-        if(req.body.file){
+        if(Array.isArray(req.body.file)){
+            var files = req.body.file;
+            var path = req.body.path;
+            if(req.body.folder){
+	            deleteUnrequiredFolders(files, path);
+	        }else{
+	        	console.log(path);
+	        	deleteUnrequiredResources(files, path);
+	        }
+        }else{
             deleteFile(req.body.file);
         }
     });

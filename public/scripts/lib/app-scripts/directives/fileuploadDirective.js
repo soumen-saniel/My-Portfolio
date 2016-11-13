@@ -20,7 +20,10 @@ define(function(){
 					scope.$watch('data', function(value){
 						scope.image = scope.data.image;
 					});
-					scope.image = scope.data.image;
+					var dir = "";
+					if(scope.data.name){
+						dir = angular.copy(scope.data.name);
+					}
 					scope.files = "";
 					scope.file = "";
 					scope.accept = "image/*,application/pdf";
@@ -49,8 +52,9 @@ define(function(){
 			                        Upload.upload({
 			                            url: scope.url, //webAPI exposed to upload the file,
 			                            data: {
-			                                file: file,
-			                                test: "hello"
+			                            	file: file,
+			                                name: file.name,
+			                                dir: dir
 			                            }
 			                        }).then(function (resp) {
 
