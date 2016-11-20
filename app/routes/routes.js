@@ -751,6 +751,136 @@ router.route('/experience/img')
         }
     });
 //-----------------------------------------------------------------------------------------------
+//Routes for contact section
+//-----------------------------------------------------------------------------------------------
+router.route('/contact')
+    .get( function (req, res){
+        model.contact.find(function (err, result){
+            if (err)
+                res.send(err);
+            res.json(result);
+        });
+    })
+    .post( function (req, res){
+        model.contact.create({
+            address : req.body.address,
+            phone : req.body.phone,
+            email : req.body.email
+        }, function (err, result){
+            if (err)
+                res.send(err);
+            model.contact.find(function (err, result){
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .put( function (req, res){
+        var query = { _id : req.body._id };
+        model.contact.update( query, {
+            address : req.body.address,
+            phone : req.body.phone,
+            email : req.body.email
+        },{
+            multi: false
+        }, function (err, result){
+            if (err)
+                res.send(err);
+            model.contact.find(function (err, result){
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    });
+//-----------------------------------------------------------------------------------------------
+//Routes for social section
+//-----------------------------------------------------------------------------------------------
+router.route('/social')
+    .get(function (req, res){
+        model.social.find(function (err, result){
+            if(err)
+                res.send(err);
+            res.json(result);
+        });
+    })
+    .post(function (req, res){
+        model.social.create({
+            url : req.body.url,
+            image : req.body.image
+        }, function (err, result){
+            if(err)
+                res.send(err);
+            model.social.find(function (err, result){
+                if(err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .put(function (req, res){
+        var query = { _id : req.body._id };
+        model.social.update(query, {
+            url : req.body.url,
+            image : req.body.image
+        },{
+            multi : false
+        }, function (err, result){
+            if(err)
+                res.send(err);
+            model.social.find(function (err, result){
+                if(err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .delete(function (err, result){
+        model.social.remove({
+            _id : req.body._id
+        }, function (err, result){
+            if(err)
+                res.send(err);
+            model.social.find(function (err, result){
+                if(err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+var storageSocial = multer.diskStorage({ 
+    destination: function (req, file, cb) {
+        cb(null, './public/img/social')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+var uploadSocial = multer({ 
+    storage: storageSocial
+}).single('file');
+
+router.route('/social/img')
+    .post( function (req, res) {
+        uploadSocial(req,res,function (err){
+            if(err){
+                console.log(err);
+                res.json({error_code:1,err_desc:err});
+                return;
+            }
+            res.json({error_code:0,err_desc:null});
+        })
+    })
+    .delete( function (req, res) {
+        if(Array.isArray(req.body.file)){
+            var files = req.body.file;
+            deleteUnrequiredResources(files, './public/img/social/');
+        }else{
+            deleteFile(req.body.file);
+        }
+    });
+//-----------------------------------------------------------------------------------------------
 //expose the routes to our app with module.exports
 //-----------------------------------------------------------------------------------------------
 module.exports = router; 

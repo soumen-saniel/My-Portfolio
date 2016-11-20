@@ -35,7 +35,8 @@ define(function(){
 	        		data.push(reformatDate(val));
 	        	})
 	        	ctrl.experience = data;
-	        	deleteResourcesOnLoad(response.data);
+	        	if(response.data.length > 0)
+	        		deleteResourcesOnLoad(response.data);
 	        }, 
 	        function (err) {
 	        	alert("Error : Data get!");

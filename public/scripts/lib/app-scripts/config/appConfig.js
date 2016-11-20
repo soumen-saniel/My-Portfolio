@@ -129,11 +129,16 @@ define(function(){
 		    	.state('admin.contact',{
 		    		url:'/contact',
 		    		templateUrl : '/views/dashboardViews/contact.html',
-		    		authenticate: true
-		    	})
-		    	.state('admin.resources',{
-		    		url:'/resources',
-		    		templateUrl : '/views/dashboardViews/resources.html',
+		    		controller: 'contactController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/dashboardControllers/contactController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		},
 		    		authenticate: true
 		    	})
 		});

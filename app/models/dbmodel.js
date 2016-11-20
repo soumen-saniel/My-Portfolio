@@ -137,6 +137,39 @@ var experienceSchema = mongoose.Schema(
 );
 var experience = mongoose.model('timelineSection', experienceSchema);
 //-----------------------------------------------------------------------------------------------
+//Contact Schema
+//-----------------------------------------------------------------------------------------------
+var contactSchema = mongoose.Schema(
+	{
+		address : { type: String, required: true },
+		phone : { type: String, required: true },
+		email : { type: String, required: true }
+	},
+	{
+		timestamps : true
+	},
+	{
+		collection : "contactSection"
+	}
+);
+var contact = mongoose.model('contactSection', contactSchema);
+//-----------------------------------------------------------------------------------------------
+//Contact Schema
+//-----------------------------------------------------------------------------------------------
+var socialSchema = mongoose.Schema(
+	{
+		url : { type: String, required: true },
+		image : { type: String, required: true }
+	},
+	{
+		timestamps : true
+	},
+	{
+		collection : "socialSection"
+	}
+);
+var social = mongoose.model('socialSection', socialSchema);
+//-----------------------------------------------------------------------------------------------
 //Exports
 //-----------------------------------------------------------------------------------------------
 module.exports = {
@@ -146,5 +179,7 @@ module.exports = {
 	service : service,
 	about : about,
 	skill : skill,
-	experience : experience
+	experience : experience,
+	contact : contact,
+	social : social
 };
