@@ -8,8 +8,6 @@ var fs = require('fs-extra');
 //-----------------------------------------------------------------------------------------------
 function deleteFile(file){
     fs.stat('./public/'+file, function (err, stats) {
-        console.log(stats);//here we got all information of file in stats variable
-
         if (err) {
             return console.error(err);
         }
@@ -17,27 +15,30 @@ function deleteFile(file){
         fs.unlink('./public/'+file,function(err){
             if(err) 
                 return console.log(err);
-            console.log('file deleted successfully');
         });  
     });
 }
 function deleteUnrequiredResources(files, path){
-    fs.readdir(path, function (err, result){
-        newPath = path.split("./public");
-        newPath = newPath[1];
-        result.forEach(function (val, key){
-            var exists = false;
-            for(var i = 0; i < files.length; i++){
-                if(val.toUpperCase() === files[i].toUpperCase()){
-                    exists = true;
-                    break;
-                }
-            }
-            if(!exists){
-                deleteFile(newPath+val);
-            }
-        });
-    });
+	if(files.length > 0){
+	    fs.readdir(path, function (err, result){
+	        newPath = path.split("./public");
+	        newPath = newPath[1];
+	        if(result){
+	            result.forEach(function (val, key){
+	                var exists = false;
+	                for(var i = 0; i < files.length; i++){
+	                    if(val.toUpperCase() === files[i].toUpperCase()){
+	                        exists = true;
+	                        break;
+	                    }
+	                }
+	                if(!exists){
+	                    deleteFile(newPath+val);
+	                }
+	            });
+	        }
+	    });
+	}
 }
 function createDirectory (dir) {
     fs.stat('./public/img/project/'+dir, function (err, stats){
@@ -64,23 +65,25 @@ function deleteDirectory (dir) {
     });
 }
 function deleteUnrequiredFolders(files, path){
-    fs.readdir(path, function (err, result){
-        result.forEach(function (val, key){
-            var exists = false;
-            for(var i = 0; i < files.length; i++){
-                if(val.toUpperCase() === files[i].toUpperCase()){
-                    exists = true;
-                    break;
-                }
-            }
-            if(!exists){
-                fs.remove(path + val, function(err){
-                    if (err) return console.error(err);
-                    console.log("Directory removed successfully");
-                });
-            }
-        });
-    });
+	if(files.length > 0){
+	    fs.readdir(path, function (err, result){
+	        result.forEach(function (val, key){
+	            var exists = false;
+	            for(var i = 0; i < files.length; i++){
+	                if(val.toUpperCase() === files[i].toUpperCase()){
+	                    exists = true;
+	                    break;
+	                }
+	            }
+	            if(!exists){
+	                fs.remove(path + val, function(err){
+	                    if (err) return console.error(err);
+	                    console.log("Directory removed successfully");
+	                });
+	            }
+	        });
+	    });
+	}
 }
 function copy () {
     var readStream = fs.createReadStream(oldPath);
@@ -131,7 +134,6 @@ function move (oldPath, newPath, dir, callback) {
 //-----------------------------------------------------------------------------------------------
 router.route('/hero')
     .get(function(req, res) {
-        // use mongoose to get all portfolio details in the database
         model.hero.find(function (err, result) {
 
             if (err)
@@ -148,7 +150,6 @@ router.route('/hero')
             if (err)
                 res.send(err);
 
-            // get and return all the todos after you create another
             model.hero.find(function (err, result) {
                 if (err)
                     res.send(err);
@@ -167,15 +168,13 @@ router.route('/hero')
         }, function (err, result) {
             if (err)
                 res.send(err);
-
-            // get and return all the todos after you create another
             model.hero.find(function (err, result) {
                 if (err)
                     res.send(err);
                 
                 res.json(result);
             });
-        })
+        });
     })
     .delete(function (req, res) {
         model.hero.remove({
@@ -189,7 +188,7 @@ router.route('/hero')
                 
                 res.json(result);
             });
-        })
+        });
     });
 
 var storageHero = multer.diskStorage({ 
@@ -197,8 +196,6 @@ var storageHero = multer.diskStorage({
         cb(null, './public/img/landing')
     },
     filename: function (req, file, cb) {
-        var datetimestamp = Date.now();
-        // cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
         cb(null, file.originalname);
     }
 });
@@ -294,16 +291,23 @@ router.route('/portfolio/main')
         }, function (err, result) {
             if(err)
                 res.send(err);
-             model.portfolioMain.find(function (err, result) {
-                if (err)
+           
+            model.portfolioSub.remove({
+                key : req.body._id
+            }, function (err, result){
+                if(err)
                     res.send(err);
-                res.json(result);
+                 model.portfolioMain.find(function (err, result) {
+                    if (err)
+                        res.send(err);
+                    res.json(result);
+                 });
             });
         })
     });
+
 router.route('/portfolio/sub/:id')
     .get(function (req, res){
-        console.log(req.params.id);
         model.portfolioSub.find({'key' : req.params.id}, function (err, result) {
             if (err)
                 res.send(err);
@@ -388,15 +392,12 @@ router.route('/portfolio/img')
                 res.json({error_code:1,err_desc:err});
                 return;
             }
-            console.log(req.body);
             var oldPath = './public/img/temp/' + req.body.name,
                 newPath = './public/img/project/' +req.body.dir+'/'+ req.body.name,
                 dir = req.body.dir;
             move(oldPath, newPath, dir, function (err){
                 if(err){
                     console.log(err);
-                }else{
-                    console.log("successfully moved")
                 }
             });
             res.json({error_code:0,err_desc:null});
@@ -406,12 +407,345 @@ router.route('/portfolio/img')
         if(Array.isArray(req.body.file)){
             var files = req.body.file;
             var path = req.body.path;
-            if(req.body.folder){
-	            deleteUnrequiredFolders(files, path);
-	        }else{
-	        	console.log(path);
-	        	deleteUnrequiredResources(files, path);
-	        }
+            if(req.body.hasOwnProperty('folder')){
+                if(req.body.folder){
+    	            deleteUnrequiredFolders(files, path);
+    	        }else{
+    	        	deleteUnrequiredResources(files, path);
+    	        }
+            }
+        }else{
+            deleteFile(req.body.file);
+        }
+    });
+//-----------------------------------------------------------------------------------------------
+//Routes for service section
+//-----------------------------------------------------------------------------------------------
+router.route('/service')
+    .get(function (req, res){
+        model.service.find(function (err, result){
+            if (err)
+                res.send(err);
+            res.json(result);
+        })
+    })
+    .post(function (req, res){
+        model.service.create({
+            title : req.body.title,
+            image : req.body.image,
+            link : req.body.link
+        }, function (err, result) {
+            if (err)
+                res.send(err);
+            model.service.find(function (err, result) {
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .put(function (req, res){
+        var query = {_id : req.body._id};
+        model.service.update(query,{
+            title : req.body.title,
+            image : req.body.image,
+            link : req.body.link
+        },{
+            multi : false
+        }, function (err, result) {
+            if (err)
+                res.send(err);
+            model.service.find(function (err, result) {
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .delete(function (req, res){
+        model.service.remove({
+            _id : req.body._id
+        }, function (err, result) {
+            if(err)
+                res.send(err);
+             model.service.find(function (err, result) {
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        })
+    });
+var storageService = multer.diskStorage({ 
+    destination: function (req, file, cb) {
+        cb(null, './public/img/service')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+var uploadService = multer({ 
+    storage: storageService
+}).single('file');
+
+router.route('/service/img')
+    .post( function (req, res) {
+        uploadService(req,res,function (err){
+            if(err){
+                console.log(err);
+                res.json({error_code:1,err_desc:err});
+                return;
+            }
+            res.json({error_code:0,err_desc:null});
+        })
+    })
+    .delete( function (req, res) {
+        if(Array.isArray(req.body.file)){
+            var files = req.body.file;
+            deleteUnrequiredResources(files, './public/img/service/');
+        }else{
+            deleteFile(req.body.file);
+        }
+    });
+//-----------------------------------------------------------------------------------------------
+//Routes for about section
+//-----------------------------------------------------------------------------------------------
+router.route('/about')
+    .get(function (req, res){
+        model.about.find(function (err, result){
+            if (err)
+                res.send(err);
+            res.json(result);
+        })
+    })
+    .post(function (req, res){
+        model.about.create({
+            name : req.body.name,
+            description : req.body.description,
+            aboutImage : req.body.aboutImage,
+            dob : req.body.dob,
+            nationality : req.body.nationality,
+            languages : req.body.languages,
+            interestImage : req.body.interestImage,
+            interests : req.body.interests,
+            hobbyImage : req.body.hobbyImage,
+            hobbies : req.body.hobbies
+        }, function (err, result) {
+            if (err)
+                res.send(err);
+            model.about.find(function (err, result) {
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .put(function (req, res){
+        var query = {_id : req.body._id};
+        model.about.update(query,{
+            name : req.body.name,
+            description : req.body.description,
+            aboutImage : req.body.aboutImage,
+            dob : req.body.dob,
+            nationality : req.body.nationality,
+            languages : req.body.languages,
+            interestImage : req.body.interestImage,
+            interests : req.body.interests,
+            hobbyImage : req.body.hobbyImage,
+            hobbies : req.body.hobbies
+        },{
+            multi : false
+        }, function (err, result) {
+            if (err)
+                res.send(err);
+            model.about.find(function (err, result) {
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    });
+var storageAbout = multer.diskStorage({ 
+    destination: function (req, file, cb) {
+        cb(null, './public/img/about')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+var uploadAbout = multer({ 
+    storage: storageAbout
+}).single('file');
+
+router.route('/about/img')
+    .post( function (req, res) {
+        uploadAbout(req,res,function (err){
+            if(err){
+                console.log(err);
+                res.json({error_code:1,err_desc:err});
+                return;
+            }
+            res.json({error_code:0,err_desc:null});
+        })
+    })
+    .delete( function (req, res) {
+        if(Array.isArray(req.body.file)){
+            var files = req.body.file;
+            deleteUnrequiredResources(files, './public/img/about/');
+        }else{
+            deleteFile(req.body.file);
+        }
+    });
+//-----------------------------------------------------------------------------------------------
+//Routes for about section
+//-----------------------------------------------------------------------------------------------
+router.route('/skill')
+    .get(function (req, res){
+        model.skill.find(function (err, result){
+            if (err)
+                res.send(err);
+            res.json(result);
+        });
+    })
+    .post(function (req, res){
+        model.skill.create({
+            category : req.body.category,
+            name : req.body.name,
+            percentage : req.body.percentage
+        }, function (err, result){
+            if (err)
+                res.send(err);
+            model.skill.find(function (err, result){
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .put(function (req, res){
+        var query = { _id : req.body._id};
+        model.skill.update(query, {
+            category : req.body.category,
+            name : req.body.name,
+            percentage : req.body.percentage
+        }, {
+            multi : false
+        }, function (err, result){
+            if (err)
+                res.send(err);
+            model.skill.find(function (err, result){
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .delete(function (req, res){
+        model.skill.remove({
+            _id : req.body._id
+        }, function (err, result){
+            if (err)
+                res.send(err);
+            model.skill.find(function (err, result){
+                if (err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    });
+//-----------------------------------------------------------------------------------------------
+//Routes for experience section
+//-----------------------------------------------------------------------------------------------
+router.route('/experience')
+    .get(function (req, res){
+        model.experience.find(function (err, result){
+            if(err)
+                res.send(err);
+            res.json(result);
+        });
+    })
+    .post(function (req, res){
+        model.experience.create({
+            work : req.body.work,
+            image : req.body.image,
+            title : req.body.title,
+            organization : req.body.organization,
+            designation : req.body.designation,
+            description : req.body.description,
+            start : req.body.start,
+            end : req.body.end
+        }, function (err, result){
+            if(err)
+                res.send(err);
+            model.experience.find(function (err, result){
+                if(err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .put(function (req, res){
+        var query = { _id : req.body._id };
+        model.experience.update(query, {
+            work : req.body.work,
+            image : req.body.image,
+            title : req.body.title,
+            organization : req.body.organization,
+            designation : req.body.designation,
+            description : req.body.description,
+            start : req.body.start,
+            end : req.body.end
+        },{
+            multi : false
+        }, function (err, result){
+            if(err)
+                res.send(err);
+            model.experience.find(function (err, result){
+                if(err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+    .delete(function (err, result){
+        model.experience.remove({
+            _id : req.body._id
+        }, function (err, result){
+            if(err)
+                res.send(err);
+            model.experience.find(function (err, result){
+                if(err)
+                    res.send(err);
+                res.json(result);
+            });
+        });
+    })
+var storageExperience = multer.diskStorage({ 
+    destination: function (req, file, cb) {
+        cb(null, './public/img/experience')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+var uploadExperience = multer({ 
+    storage: storageExperience
+}).single('file');
+
+router.route('/experience/img')
+    .post( function (req, res) {
+        uploadExperience(req,res,function (err){
+            if(err){
+                console.log(err);
+                res.json({error_code:1,err_desc:err});
+                return;
+            }
+            res.json({error_code:0,err_desc:null});
+        })
+    })
+    .delete( function (req, res) {
+        if(Array.isArray(req.body.file)){
+            var files = req.body.file;
+            deleteUnrequiredResources(files, './public/img/experience/');
         }else{
             deleteFile(req.body.file);
         }

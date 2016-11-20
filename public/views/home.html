@@ -1,4 +1,4 @@
-<div class="wrapper fullWidth" data-magellan home-directive>
+<div class="wrapper fullWidth" data-magellan home-directive ng-cloak>
   <!--Navigation-->
   <div id="navigation" class="fullWidth navigation">
     <div class="row show-for-small-only">
@@ -76,8 +76,8 @@
       <div class="column large-3 medium-3 small-6 text-center" ng-repeat="service in main.servicesSection.services">
         <img ng-src="{{service.image}}"/>
         <h5 class="text-center font-light" data-equalizer-watch>{{service.title}}</h5>
-        <a href="{{service.link}}" class="button hide-for-small-only">Learn More</a>
-        <a href="{{service.link}}" class="button small show-for-small-only">Learn More</a>
+        <a ng-if="service.link" href="{{service.link}}" class="button hide-for-small-only">Learn More</a>
+        <a ng-if="service.link" href="{{service.link}}" class="button small show-for-small-only">Learn More</a>
       </div>
     </div>
   </div>
@@ -104,7 +104,7 @@
           <div class="tabs-panel" id="portfolio-all">
             <div class="row align-center portfolio-content">
               <!--Project over view-->
-              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | orderBy : 'date':true">
+              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | orderBy : 'createdAt':true">
                 <projectdetail-directive project="project"></projectdetail-directive>
                 <hr/ ng-show="!$last">
               </div>
@@ -115,7 +115,7 @@
           <div class="tabs-panel is-active" id="portfolio-latest">
             <div class="row align-center portfolio-content">
               <!--Project over view-->
-              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | filter : {complete : true} | orderBy : 'date':true | limitTo : 1">
+              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | filter : {complete : true} | orderBy : 'createdAt':true | limitTo : 1">
                 <projectdetail-directive project="project"></projectdetail-directive>
               </div>
             </div>
@@ -125,7 +125,7 @@
           <div class="tabs-panel" id="portfolio-on-going">
             <div class="row align-center portfolio-content">
               <!--Project over view-->
-              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | filter : {complete : false} | orderBy : 'date':true">
+              <div class="column small-12 medium-12 large-12" ng-repeat="project in main.portfolioSection.projects | filter : {complete : false} | orderBy : 'createdAt':true">
                 <projectdetail-directive project="project"></projectdetail-directive>
                 <hr/ ng-show="!$last">
               </div>
@@ -148,18 +148,53 @@
 
     <div class="row">
       <div class="column large-6 medium-6 small-12">
-        <p class="font-light">{{main.aboutSection.description}}</p>
+        <p class="font-light">{{main.aboutSection.data.description}}</p>
         <ul class="accordion about-accordian" data-accordion>
 
-          <li class="accordion-item" ng-class="{'is-active': $first}" ng-repeat="section in main.aboutSection.sections" data-accordion-item>
-            <a class="accordion-title">{{section.title}}</a>
+          <li class="accordion-item is-active" data-accordion-item>
+            <a class="accordion-title">About</a>
             <div class="accordion-content" data-tab-content>
               <table>
                 <tbody>
-                  <tr ng-repeat="component in section.components">
-                    <td ng-if="component.title">{{component.title}}</td>
-                    <td ng-if="component.title">:</td>
-                    <td>{{component.content}}</td>
+                  <tr>
+                    <td>Name : </td>
+                    <td>{{main.aboutSection.data.name}}.</td>
+                  </tr>
+                  <tr>
+                    <td>Date of birth : </td>
+                    <td>{{main.aboutSection.data.dob}}.</td>
+                  </tr>
+                  <tr>
+                    <td>Nationality : </td>
+                    <td>{{main.aboutSection.data.nationality}}.</td>
+                  </tr>
+                  <tr>
+                    <td>Language proficiency : </td>
+                    <td><span ng-repeat="language in main.aboutSection.data.languages  track by $index"><span ng-if="!$last">{{language}},&nbsp;</span><span ng-if="$last">and {{language}}.</span></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <a class="accordion-title">Interests</a>
+            <div class="accordion-content" data-tab-content>
+              <table>
+                <tbody>
+                  <tr ng-repeat="interest in main.aboutSection.data.interests track by $index">
+                    <td>{{interest}}.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li class="accordion-item" data-accordion-item>
+            <a class="accordion-title">Hobbies</a>
+            <div class="accordion-content" data-tab-content>
+              <table>
+                <tbody>
+                  <tr ng-repeat="hobby in main.aboutSection.data.hobbies  track by $index">
+                    <td>{{hobby}}.</td>
                   </tr>
                 </tbody>
               </table>
@@ -169,11 +204,17 @@
         </ul>
       </div>
 
-      <div class="column large-6 medium-6 hide-for-small-only">
+      <div class="column large-6 medium-6 hide-for-small-only align-middle ">
         <div class="about-flexslider">
           <ul class="slides">
-            <li ng-repeat="section in main.aboutSection.sections">
-              <img ng-src="{{section.image}}"/>
+            <li>
+              <img ng-src="{{main.aboutSection.data.aboutImage}}"/>
+            </li>
+            <li>
+              <img ng-src="{{main.aboutSection.data.interestImage}}"/>
+            </li>
+            <li>
+              <img ng-src="{{main.aboutSection.data.hobbyImage}}"/>
             </li>
           </ul>
         </div>
@@ -195,20 +236,20 @@
 
     <div class="row align-center">
       <div class="column large-12 small-12 text-center slider-buttons skills-flexslider-controls">
-        <div style="display:inline-block" ng-repeat="skills in main.skillsSection.skills"><a class="button hide-for-small-only" ng-class="{'button-active' : $first}">{{skills.category}}</a><a class="button small show-for-small-only" ng-class="{'button-active' : $first}">{{skills.category}}</a></div>
+        <div style="display:inline-block" ng-repeat="(key, skills) in main.skillsSection.skills | orderBy:'category' | groupBy:'category'"><a class="button hide-for-small-only" ng-class="{'button-active' : $first}">{{key}}</a><a class="button small show-for-small-only" ng-class="{'button-active' : $first}">{{key}}</a></div>
       </div>
       <div class="column large-12 small-12 text-center skills-flexslider">
         <ul class="slides" data-equalizer>
-          <li ng-repeat="skills in main.skillsSection.skills">
+          <li ng-repeat="(key, value) in main.skillsSection.skills | orderBy:'category' | groupBy:'category'">
             <div class="row align-center">
               <div class="column large-12 small-12 text-center">
-                <h5 class="display-inline text-center">{{skills.category}}</h5>
+                <h5 class="display-inline text-center">{{key}}</h5>
               </div>
-              <div class="column large-3 small-4 text-center" ng-repeat="skill in skills.skills">
+              <div class="column large-3 small-4 text-center" ng-repeat="skill in value | orderBy:'name'">
                 <div class="pie_progress" role="progressbar" data-goal="{{skill.percentage}}">
                   <div class="pie_progress__number">0%</div>
                 </div>
-                <h4 data-equalizer-watch><small class="font-dark">{{skill.title}}</small></h4>
+                <h4 data-equalizer-watch><small class="font-dark">{{skill.name}}</small></h4>
               </div>
             </div>
           </li>
@@ -222,16 +263,15 @@
     <div class="row align-center">
       <div class="columns text-center">
         <h1 class="display-inline">Experience</h1>
-        <p class="font-light text-justify">{{main.experienceSection.description}}</p>
       </div>
     </div>
     <div class="row align-center">
       <div class="columns text-center">
-        <h4 class="display-inline">Work Experience</h4>
+        <h4 class="display-inline font-light">Work Experience</h4>
       </div>
     </div>
     
-    <div class="row align-center section-experience" ng-repeat="experience in main.experienceSection.experiences">
+    <div class="row align-center section-experience" ng-repeat="experience in main.experienceSection.experiences | filter : {work : true}">
 
       <div class="column large-12 small-12 text-left medium-text-center" ng-if="$first">
         <h5 class="display-inline year" ng-if="experience.end">{{experience.end | date : "yyyy"}}</h5>
@@ -241,11 +281,11 @@
       <div class="column large-6 medium-6 small-12 timeline-col-left hide-for-small-only" ng-class-odd="'hide'"></div>
 
       <div class="column large-6 medium-6 small-12 " ng-class-odd="'timeline-col-left'" ng-class-even="'timeline-col-right'">
-        <div class="timeline-box">
+        <div class="timeline-box" style="background : url('{{experience.image}}') no-repeat; background-size : cover;">
           <div class="timeline-content">
-            <h5 class="font-light">{{experience.company}}</h5>
+            <h5 class="font-light">{{experience.organization}}</h5>
             <h6><span>{{experience.start | date : "MMMM yyyy"}}&nbsp;-&nbsp;</span><span ng-if="!experience.end">Present</span><span>{{experience.end | date : "MMMM yyyy"}}</span></h6>
-            <h5><small>Role : {{experience.role}}</small></h5>
+            <h5><small>Role : {{experience.designation}}</small></h5>
             <p class="text-left">{{experience.description}}</p>
           </div>
           <div class="arrow"></div>
@@ -254,7 +294,37 @@
       </div>
 
       <div class="column large-6 medium-6 small-12 timeline-col-right hide-for-small-only" ng-class-even="'hide'"></div>
+    </div>
 
+     <div class="row align-center">
+      <div class="columns text-center">
+        <h4 class="display-inline font-light">Academics</h4>
+      </div>
+    </div>
+    
+    <div class="row align-center section-experience" ng-repeat="experience in main.experienceSection.experiences | filter : {work : false}">
+
+      <div class="column large-12 small-12 text-left medium-text-center" ng-if="$first">
+        <h5 class="display-inline year" ng-if="experience.end">{{experience.end | date : "yyyy"}}</h5>
+        <h5 class="display-inline year" ng-if="!experience.end">{{experience.start | date : "yyyy"}}</h5>
+      </div>
+
+      <div class="column large-6 medium-6 small-12 timeline-col-left hide-for-small-only" ng-class-odd="'hide'"></div>
+
+      <div class="column large-6 medium-6 small-12 " ng-class-odd="'timeline-col-left'" ng-class-even="'timeline-col-right'">
+        <div class="timeline-box" style="background : url('{{experience.image}}') no-repeat; background-size : cover;">
+          <div class="timeline-content">
+            <h5 class="font-light">{{experience.organization}}</h5>
+            <h6><span>{{experience.start | date : "MMMM yyyy"}}&nbsp;-&nbsp;</span><span ng-if="!experience.end">Present</span><span>{{experience.end | date : "MMMM yyyy"}}</span></h6>
+            <h5><small>Role : {{experience.designation}}</small></h5>
+            <p class="text-left">{{experience.description}}</p>
+          </div>
+          <div class="arrow"></div>
+          <div class="pointer"></div>
+        </div>
+      </div>
+
+      <div class="column large-6 medium-6 small-12 timeline-col-right hide-for-small-only" ng-class-even="'hide'"></div>
     </div>
   </div>
 

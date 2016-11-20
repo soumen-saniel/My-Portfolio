@@ -5,8 +5,9 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 	return {
 		restrict: 'A',
 		link: function (scope, element, attrs) {
-			$timeout(function(){
-				angular.element(element).ready(function(){
+			angular.element(element).ready(function(){
+				$timeout(function(){
+				
 					var windowWidth = $(window).innerWidth();
 					var windowHeight = $(window).innerHeight();
 					var skillSlideParent = $("#skills .slides");
@@ -33,6 +34,19 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 							}
 						}
 					}
+					//-----------------------------------------------------------------------------------------------
+					//PieProgress init
+					//-----------------------------------------------------------------------------------------------
+					$.asPieProgress.setDefaults({
+						speed : 10,
+						barcolor: 'rgb(40,47,53)',
+						barsize: '8',
+						trackcolor: 'rgba(255,255,255,0.1)',
+					});
+					angular.element(element).find('.pie_progress').asPieProgress({
+				        namespace: 'pie_progress'
+					});
+					angular.element(element).find('.pie_progress').asPieProgress('start');
 					//-----------------------------------------------------------------------------------------------
 					//FlexScroll init
 					//-----------------------------------------------------------------------------------------------
@@ -204,7 +218,7 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 					//-----------------------------------------------------------------------------------------------
 					//Trigering about-flexslider
 					//-----------------------------------------------------------------------------------------------
-					for(var i = 0; i < aboutSliderControls.length; i++){
+					for(var i = 0; i < 3; i++){
 						$(aboutSliderControls[i]).click(function(){
 							if(windowWidth > 640){
 								var index = $(aboutSliderControlsParent).children(".is-active").index();
@@ -213,7 +227,7 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 						});
 					}
 					//-----------------------------------------------------------------------------------------------
-					//Plage scroll listner
+					//Page scroll listner
 					//-----------------------------------------------------------------------------------------------
 					$(window).scroll(function (event) {
 					    var scrollHeight = $(window).scrollTop();
@@ -229,19 +243,7 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 					setTimeout(function(){
 						$(".landing-text").removeClass("slide-in-text");
 					}, 500);
-					//-----------------------------------------------------------------------------------------------
-					//PieProgress init
-					//-----------------------------------------------------------------------------------------------
-					$.asPieProgress.setDefaults({
-						speed : 10,
-						barcolor: 'rgb(40,47,53)',
-						barsize: '8',
-						trackcolor: 'rgba(255,255,255,0.1)',
-					});
-					angular.element(element).find('.pie_progress').asPieProgress({
-				        namespace: 'pie_progress'
-					});
-					angular.element(element).find('.pie_progress').asPieProgress('start');
+					
 					//-----------------------------------------------------------------------------------------------
 					//Close open dropdown
 					//-----------------------------------------------------------------------------------------------

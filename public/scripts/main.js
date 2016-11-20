@@ -14,6 +14,7 @@ require.config({
 		'angular' : 'lib/angular/angular.min',
 		'angular-route' : 'lib/angular/angular-route.min',
 		'angular-ui-route' : 'lib/angular-ui-router.min',
+		'angular-filter' : 'lib/angular-filter.min',
 		'file-upload-shim' : 'lib/ng-file-upload-shim.min',
 		'file-upload' : 'lib/ng-file-upload.min',
 		'coreModule' : 'coreModule'
@@ -46,6 +47,9 @@ require.config({
 		'angular-ui-route' : {
 			deps : ['angular']
 		},
+		'angular-filter' : {
+			deps : ['angular']
+		},
 		'file-upload-shim' : {
 			deps : ['angular']
 		},
@@ -53,7 +57,7 @@ require.config({
 			deps : ['angular']
 		},
 		'coreModule' : {
-			deps : ['angular-route' , 'angular-ui-route', 'file-upload-shim', 'file-upload']
+			deps : ['angular-filter', 'angular-route' , 'angular-ui-route', 'file-upload-shim', 'file-upload']
 		}
 	}
 });

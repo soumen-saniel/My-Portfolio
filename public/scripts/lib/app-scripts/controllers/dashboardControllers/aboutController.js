@@ -1,38 +1,43 @@
 define(function(){
 	var app = angular.module("coreModule");
-	app.registerController("landingController", ["appService", "logService", landingController]);
-	function landingController(appService, logService){
+	app.registerController("aboutController",["appService", "logService", aboutController]);
+	function aboutController(appService, logService){
 		//-----------------------------------------------------------------------------------------------
 		//Veriables
 		//-----------------------------------------------------------------------------------------------
-
 		var ctrl = this;
-		ctrl.heroSection = {
-			slides : []
-		}
-		var dummyDocument = {
-			image : "/img/dummy.png",
-    		text : ""
+		ctrl.services = [];
+		ctrl.aboutData = {
+			name : "",
+			description : "",
+            aboutImage : "/img/dummy.png",
+            dob : "",
+            nationality : "",
+            languages : [],
+            interestImage : "/img/dummy.png",
+            interests : [],
+            hobbyImage : "/img/dummy.png",
+            hobbies : []
 		}
 		//-----------------------------------------------------------------------------------------------
 		//Configuration
 		//-----------------------------------------------------------------------------------------------
 		ctrl.url = {
-			db : '/api/hero',
-			fs : '/api/hero/img'
+			db : '/api/about',
+			fs : '/api/about/img'
 		}
-		ctrl.fsDir = '/img/landing/';
+		ctrl.fsDir = '/img/about/';
 		//-----------------------------------------------------------------------------------------------
 		//Inetial get
 		//-----------------------------------------------------------------------------------------------
 		appService.get(ctrl.url.db).then(
 	        function(response) {
-	        	ctrl.heroSection = {
-					slides : response.data
+	        	console.log(response.data);
+	        	if(response.data.length > 0){
+	        		ctrl.aboutData = {};
+		        	ctrl.aboutData = response.data[0];
+					deleteResourcesOnLoad(response.data[0]);
 				}
-				console.log(response.data);
-				console.log("Landing controller loaded");
-				deleteResourcesOnLoad(response.data);
 	        }, 
 	        function(err) {
 	        	alert("Error : Data get!");
@@ -42,10 +47,20 @@ define(function(){
 	    //-----------------------------------------------------------------------------------------------
 		//Helper functions
 		//-----------------------------------------------------------------------------------------------
+		function cleanArray(value){
+	    	var arr = [];
+	    	angular.forEach(value, function (val, key){
+	    		if(val && val.length > 0){
+	    			arr.push(val);
+	    		}
+	    	});
+	    	return arr;
+	    }
 		function deleteResourcesOnLoad(value){
 			var imgArr = [];
-            angular.forEach(value, function (val, key){
-            	val = val.image;
+			var file = [value.aboutImage, value.interestImage, value.hobbyImage];
+			file = cleanArray(file);
+			angular.forEach(file, function (val, key){
             	val = val.split("/");
             	val = val[val.length - 1];
             	imgArr.push(val);
@@ -58,27 +73,34 @@ define(function(){
 	    		}
     		);
 		}
-	    
 	    //-----------------------------------------------------------------------------------------------
 		//CRUD Operations
 		//-----------------------------------------------------------------------------------------------
-	    ctrl.addNew = function(){
-	    	ctrl.heroSection.slides.push({
-	    		image : "/img/dummy.png",
-	    		text : ""
-	    	});
+	    ctrl.addNewLanguage = function(){
+	    	ctrl.aboutData.languages.push("Add language");
+	    }
+	    ctrl.addNewInterest = function(){
+	    	ctrl.aboutData.interests.push("Add interest");
+	    }
+	    ctrl.addNewHobby = function(){
+	    	ctrl.aboutData.hobbies.push("Add hobby");
 	    }
 	    ctrl.save = function(data){
+	    	console.log(data);
+	    	data.languages = cleanArray(data.languages);
+	    	data.interests = cleanArray(data.interests);
+	    	data.hobbies = cleanArray(data.hobbies);
+	    	console.log(data);
 	    	if(data._id){
 	    		appService.put(ctrl.url.db, data).then(
 		    		function(response){
-		    			ctrl.heroSection = {
-							slides : response.data
-						}
-						alert("Data updated successfully");
-		    			//logService.success('appService.post()', response);
+		    			console.log(response);
+		    			ctrl.aboutData = {};
+		    			ctrl.aboutData = response.data[0];
+		    			alert("Data updated successfully.");
+		    			//logService.success('appService.put()', response);
 		    		},function(err){
-		    			alert("Error : Data update!");
+		    			alert("Error : Data updated!");
 		    			logService.failed('appService.put()', err);
 		    		}
 	    		);
@@ -86,10 +108,10 @@ define(function(){
 	    	}else{
 		    	appService.post(ctrl.url.db, data).then(
 		    		function(response){
-		    			ctrl.heroSection = {
-							slides : response.data
-						}
-						alert("Data saved successfully");
+		    			console.log(response);
+		    			ctrl.aboutData = {};
+		    			ctrl.aboutData = response.data[0];
+		    			alert("Data saved successfully.");
 		    			//logService.success('appService.post()', response);
 		    		},function(err){
 		    			alert("Error : Data save!");
@@ -97,25 +119,6 @@ define(function(){
 		    		}
 	    		);
 		    }
-	    }
-	    ctrl.remove = function(data){
-	    	if(data._id){
-	    		appService.delete(ctrl.url.db, data).then(
-		    		function(response){
-		    			ctrl.heroSection = {
-							slides : response.data
-						}
-						alert("Data deleted successfully");
-		    			//logService.success('appService.delete()', response);
-		    		},function(err){
-		    			alert("Error : Data delete!");
-		    			logService.failed('appService.delete()', err);
-		    		}
-	    		);
-	    	}else{
-	    		var index = ctrl.heroSection.slides.indexOf(data);
-	    		ctrl.heroSection.slides.splice(index, 1);
-	    	}
 	    }  
 	}
 });

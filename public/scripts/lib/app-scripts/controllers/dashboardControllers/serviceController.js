@@ -1,37 +1,31 @@
 define(function(){
 	var app = angular.module("coreModule");
-	app.registerController("landingController", ["appService", "logService", landingController]);
-	function landingController(appService, logService){
+	app.registerController("serviceController",["appService", "logService", serviceController]);
+	function serviceController(appService, logService){
 		//-----------------------------------------------------------------------------------------------
 		//Veriables
 		//-----------------------------------------------------------------------------------------------
-
 		var ctrl = this;
-		ctrl.heroSection = {
-			slides : []
-		}
+		ctrl.services = [];
 		var dummyDocument = {
+			title : "",
 			image : "/img/dummy.png",
-    		text : ""
+    		link : ""
 		}
 		//-----------------------------------------------------------------------------------------------
 		//Configuration
 		//-----------------------------------------------------------------------------------------------
 		ctrl.url = {
-			db : '/api/hero',
-			fs : '/api/hero/img'
+			db : '/api/service',
+			fs : '/api/service/img'
 		}
-		ctrl.fsDir = '/img/landing/';
+		ctrl.fsDir = '/img/service/';
 		//-----------------------------------------------------------------------------------------------
 		//Inetial get
 		//-----------------------------------------------------------------------------------------------
 		appService.get(ctrl.url.db).then(
 	        function(response) {
-	        	ctrl.heroSection = {
-					slides : response.data
-				}
-				console.log(response.data);
-				console.log("Landing controller loaded");
+	        	ctrl.services = response.data;
 				deleteResourcesOnLoad(response.data);
 	        }, 
 	        function(err) {
@@ -54,7 +48,8 @@ define(function(){
 	    		function(response){
 	    			//logService.success('appService.delete()', response);
 	    		},function(err){
-	    			//logService.failed('appService.delete()', err);
+	    			// alert("Error : Resources delete!");
+	    			// logService.failed('appService.delete()', err);
 	    		}
     		);
 		}
@@ -63,37 +58,30 @@ define(function(){
 		//CRUD Operations
 		//-----------------------------------------------------------------------------------------------
 	    ctrl.addNew = function(){
-	    	ctrl.heroSection.slides.push({
-	    		image : "/img/dummy.png",
-	    		text : ""
-	    	});
+	    	ctrl.services.push(angular.copy(dummyDocument));
 	    }
 	    ctrl.save = function(data){
 	    	if(data._id){
 	    		appService.put(ctrl.url.db, data).then(
 		    		function(response){
-		    			ctrl.heroSection = {
-							slides : response.data
-						}
-						alert("Data updated successfully");
+		    			ctrl.services = response.data;
+		    			alert("Data updated successfully.");
 		    			//logService.success('appService.post()', response);
 		    		},function(err){
-		    			alert("Error : Data update!");
-		    			logService.failed('appService.put()', err);
+		    			alert("Error : Data updated!");
+		    			logService.failed('appService.post()', err);
 		    		}
 	    		);
 
 	    	}else{
 		    	appService.post(ctrl.url.db, data).then(
 		    		function(response){
-		    			ctrl.heroSection = {
-							slides : response.data
-						}
-						alert("Data saved successfully");
-		    			//logService.success('appService.post()', response);
+		    			ctrl.services = response.data;
+		    			alert("Data saved successfully.");
+		    			//logService.success('appService.put()', response);
 		    		},function(err){
 		    			alert("Error : Data save!");
-		    			logService.failed('appService.post()', err);
+		    			logService.failed('appService.put()', err);
 		    		}
 	    		);
 		    }
@@ -102,19 +90,17 @@ define(function(){
 	    	if(data._id){
 	    		appService.delete(ctrl.url.db, data).then(
 		    		function(response){
-		    			ctrl.heroSection = {
-							slides : response.data
-						}
-						alert("Data deleted successfully");
+		    			ctrl.services = response.data;
+		    			alert("Data removed successfully.");
 		    			//logService.success('appService.delete()', response);
 		    		},function(err){
-		    			alert("Error : Data delete!");
+		    			alert("Error : Data remove!");
 		    			logService.failed('appService.delete()', err);
 		    		}
 	    		);
 	    	}else{
-	    		var index = ctrl.heroSection.slides.indexOf(data);
-	    		ctrl.heroSection.slides.splice(index, 1);
+	    		var index = ctrl.services.indexOf(data);
+	    		ctrl.services.splice(index, 1);
 	    	}
 	    }  
 	}

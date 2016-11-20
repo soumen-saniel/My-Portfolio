@@ -18,7 +18,11 @@ define(function(){
 			link : function (scope, element, attrs) {
 				angular.element(element).ready(function(){
 					scope.$watch('data', function(value){
-						scope.image = scope.data.image;
+						if(angular.isObject(scope.data)){
+							scope.image = scope.data.image;
+						}else{
+							scope.image = scope.data;
+						}
 					});
 					var dir = "";
 					if(scope.data.name){
@@ -65,7 +69,11 @@ define(function(){
 			                                ', Response: ' + JSON.stringify(resp.data) ;
 			                                scope.image = scope.path + resp.config.data.file.name;
 			                                //Assign new value to data
-			                                scope.data.image = scope.image;
+			                                if(angular.isObject(scope.data)){
+												scope.data.image = scope.image;
+											}else{
+												scope.data = scope.image;
+											}
 			                                //Add a flag to notify the image changed and is unsaved
 			                                scope.data.imgUnSaved = true;
 			                            });

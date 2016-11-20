@@ -1,6 +1,6 @@
 define(function(){
 	//Main module
-	var coreModule = angular.module("coreModule", ["ngRoute", "ngFileUpload", "ui.router"]);
+	var coreModule = angular.module("coreModule", ["angular.filter", "ngRoute", "ngFileUpload", "ui.router"]);
 	//Lazy loading of controllers
 	coreModule.config(['$controllerProvider', function($controllerProvider){
 		coreModule.registerController = $controllerProvider.register;

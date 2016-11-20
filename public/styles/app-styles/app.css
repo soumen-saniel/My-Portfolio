@@ -183,6 +183,17 @@ NAV
 .navigation .menu > li.is-dropdown-submenu-parent > a::after {
 	display: none;
 }
+.navigation .menu > li > span{
+	color: #6bd7ca;
+	padding: 0 10px;
+	cursor: pointer;
+}
+.navigation .menu > li > span:hover, span:focus{
+	color: #282f35;
+}
+.navigation .menu > li.is-dropdown-submenu-parent > span::after {
+	display: none;
+}
 .navigation .menu > li.opens-right > .is-dropdown-submenu {
 	width: 100vw;
 }
@@ -426,7 +437,8 @@ TIMELINE
 .timeline-content p{
 	padding: 2px;
 	background: rgba(107, 215, 202, 0.2);
-	margin-bottom: 2px;
+	margin-bottom: 0px;
+	font-size: 0.9em;
 }
 .pointer{
 	position: absolute;
@@ -442,6 +454,7 @@ TIMELINE
 }
 .timeline-col-right .timeline-content{
 	padding: 5px 10px 5px 30px;
+	background: rgba(27, 27, 27, 0.6);
 }
 .timeline-col-right .arrow:before,.timeline-col-right  .arrow:after {
 	left: 0;
@@ -465,6 +478,7 @@ TIMELINE
 }
 .timeline-col-left .timeline-content{
 	padding: 5px 30px 5px 10px;
+	background: rgba(27, 27, 27, 0.6);
 }
 .timeline-col-left .arrow{
 	right: 0;

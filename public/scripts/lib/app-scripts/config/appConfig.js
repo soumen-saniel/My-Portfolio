@@ -54,6 +54,16 @@ define(function(){
 		    	.state('admin.services',{
 		    		url:'/services',
 		    		templateUrl : '/views/dashboardViews/services.html',
+		    		controller: 'serviceController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/dashboardControllers/serviceController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		},
 		    		authenticate: true
 		    	})
 		    	.state('admin.portfolio',{
@@ -74,16 +84,46 @@ define(function(){
 		    	.state('admin.about',{
 		    		url:'/about',
 		    		templateUrl : '/views/dashboardViews/about.html',
+		    		controller: 'aboutController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/dashboardControllers/aboutController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		},
 		    		authenticate: true
 		    	})
 		    	.state('admin.skills',{
 		    		url:'/skills',
 		    		templateUrl : '/views/dashboardViews/skills.html',
+		    		controller: 'skillController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/dashboardControllers/skillController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		},
 		    		authenticate: true
 		    	})
 		    	.state('admin.experience',{
 		    		url:'/experience',
 		    		templateUrl : '/views/dashboardViews/experience.html',
+		    		controller: 'experienceController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/dashboardControllers/experienceController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		},
 		    		authenticate: true
 		    	})
 		    	.state('admin.contact',{
