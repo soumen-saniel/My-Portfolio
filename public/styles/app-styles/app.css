@@ -642,3 +642,179 @@ DASHBOARD PORTFOLIO
 	background: #6bd7ca;
 	border: 1px solid #fff;
 }
+
+/********************************************************************
+CURRICULUM VITAE
+********************************************************************/
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+}
+page[size="A4"][layout="portrait"] {
+  width: 29.7cm;
+  height: 21cm;  
+}
+@media print {
+  page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+.cvwrapper {
+	padding: 30px 0 0 0;
+}
+.cvwrapper p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+/*Header*/
+.cvwrapper .header,
+.cvwrapper .contact {
+	background: #282f35;
+	overflow: hidden;
+}
+.cvwrapper .headerName {
+	width: 222px;
+	background: #6bd7ca;
+}
+.cvwrapper .headerName > h5{
+	padding-top: 3px;
+	margin: 0px;
+}
+.cvwrapper .hearedArrow {
+    background: #6bd7ca;
+    height: 31px;
+    width: 31px;
+    border-top: 5px solid #fff;
+    border-right: 5px solid #fff;
+    transform: rotate(45deg);
+    margin-left: -20px;
+}
+.cvwrapper .intro{
+	
+}
+/*CV Photo*/
+.cvwrapper .cvPhoto > img {
+	width: 150px;
+	height: 130px;
+}
+/*Contact*/
+.cvwrapper .contact > .column {
+	padding-top: 10px;
+}
+.cvwrapper .contact > div > a {
+	border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+    padding: 2px 6px;
+    color : #6bd7ca;
+}
+.cvwrapper .contact > div > p {
+	padding-top: 10px;
+}
+/*Work experience*/
+.cvwrapper .work > .column:nth-child(2){
+	position: relative;
+	border-left: 1px solid #282f35;
+	overflow: visible;
+}
+.cvwrapper .bulletTop, 
+.cvwrapper .bulletBottom {
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	background: #282f35;
+	border-radius: 50%;
+	left : -3px;
+}
+.cvwrapper .bulletTop{
+	top : 0;
+}
+.cvwrapper .bulletBottom {
+	bottom : 0;
+}
+/*Skills*/
+.cvwrapper .skills {
+	min-height: 0px;
+}
+.cvwrapper .skills > div > div > p {
+	margin : 0;
+}
+.cvwrapper .slider {
+	margin: 2px 0 0 0;
+	background: #282f35;
+}
+.cvwrapper .slider > span:nth-child(1){
+	display: none;
+}
+.cvwrapper .slider > span:nth-child(2){
+	background: #6bd7ca;
+}
+/*Education*/
+.cvwrapper .education > .column {
+	position: relative;
+	padding-left: 0;
+	padding-right: 0;
+}
+.cvwrapper .education > .column hr {
+	position: absolute;
+    width: 100%;
+    top: -5px;
+    z-index: 1;
+    border-bottom-color: #282f35;
+}
+.cvwrapper .education > .column .bulletLeft {
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	background: #282f35;
+	border-radius: 50%;
+	top: 13px;
+    left: -3px;
+}
+.cvwrapper .education > .column .bulletRight {
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	background: #282f35;
+	border-radius: 50%;
+	top: 13px;
+	right: -2px;
+}
+.cvwrapper .polygon {
+	position: relative;
+	background: #282f35;
+	color: #fff;
+	padding: 6px;
+	font-size: 14px;
+	z-index: 2;
+}
+.cvwrapper .polygon:before{
+	content: "";
+    position: absolute;
+    top: 0;
+    left: -15px;
+    /* right: 0; */
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #282f35;
+    border-bottom: 15px solid transparent;
+}
+.cvwrapper .polygon:after{
+	content: "";
+    position: absolute;
+    top: 0;
+    right: -15px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #282f35;
+    border-bottom: 15px solid transparent;
+}

@@ -141,5 +141,20 @@ define(function(){
 		    		},
 		    		authenticate: true
 		    	})
+		    	.state('admin.cv',{
+		    		url:'/cv',
+		    		templateUrl : '/views/dashboardViews/cv.html',
+		    		controller: 'cvController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/dashboardControllers/cvController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		},
+		    		authenticate: true
+		    	})
 		});
 });
