@@ -794,7 +794,7 @@ page[size="A4"][layout="portrait"] {
 }
 .cvwrapper {
 	padding: 30px 0 0 0;
-	position: absolute;
+	position: relative;
 }
 .cvwrapper p {
 	font-family: Arial, Helvetica, sans-serif;
