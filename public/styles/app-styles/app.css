@@ -29,6 +29,14 @@ textarea {
 		line-height: 1.6;
 	}
 }
+.dropBox {
+	position: relative;
+}
+.dropBox .uploadProgress {
+	position: absolute;
+	top: 50%;
+    left: 48%;
+}
 /***********************Overwriting classes*************************/
 .column, .columns{
 	overflow: hidden;
@@ -233,7 +241,6 @@ HERO SECTION
 	width: 100%;
 	height: 100vh;
 }
-
 .landing-text{
 	background: rgba(0,0,0,0.4);
 }
@@ -250,7 +257,7 @@ HERO SECTION
 	transition: all 2.5s cubic-bezier(0, 0.01, 0, 0.96);
 }
 .landing-text h5{
-	transition: all 4s cubic-bezier(0, 0.01, 0, 0.96);
+	transition: all 2.5s cubic-bezier(0, 0.01, 0, 0.96);
 }
 .slide-in-text h1:nth-child(1){
 	opacity : 0;
@@ -266,9 +273,121 @@ HERO SECTION
 }
 .slide-in-text h5 {
 	opacity : 0;
-	-ms-transform: translate(-160%, 0); /* IE 9 */
-    -webkit-transform: translate(-160%, 0); /* Safari */
-    transform: translate(-500%, 0);
+	-ms-transform: translate(-140%, 0); /* IE 9 */
+    -webkit-transform: translate(-140%, 0); /* Safari */
+    transform: translate(-120%, 0);
+}
+/*Scroll animation*/
+@-webkit-keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
+@-moz-keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
+@keyframes ani-mouse {
+	0% {
+	opacity: 1;
+	top: 29%;
+	}
+	15% {
+	opacity: 1;
+	top: 50%;
+	}
+	50% {
+	opacity: 0;
+	top: 50%;
+	}
+	100% {
+	opacity: 0;
+	top: 29%;
+	}
+}
+ .scroll-btn {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	z-index: 3;
+}
+.scroll-btn > * {
+	display: inline-block;
+	line-height: 18px;
+	font-size: 13px;
+	font-weight: normal;
+	color: #7f8c8d;
+	color: #ffffff;
+	font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	letter-spacing: 2px;
+}
+.scroll-btn > *:hover,
+.scroll-btn > *:focus,
+.scroll-btn > *.active {
+	color: #ffffff;
+}
+.scroll-btn > *:hover,
+.scroll-btn > *:focus,
+.scroll-btn > *:active,
+.scroll-btn > *.active {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.scroll-btn .mouse {
+	position: relative;
+	display: block;
+	width: 35px;
+	height: 55px;
+	margin: 0 auto 20px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 3px solid white;
+	border-radius: 23px;
+}
+.scroll-btn .mouse > * {
+	position: absolute;
+	display: block;
+	top: 29%;
+	left: 50%;
+	width: 8px;
+	height: 8px;
+	margin: -4px 0 0 -4px;
+	background: white;
+	border-radius: 50%;
+	-webkit-animation: ani-mouse 2.5s linear infinite;
+	-moz-animation: ani-mouse 2.5s linear infinite;
+	animation: ani-mouse 2.5s linear infinite;
 }
 /* For mobile */
 @media (max-width: 639px) {
@@ -604,7 +723,14 @@ FOOTER
 .footer a:hover, .footer a:focus{
 	color: #6bd7ca;
 }
-
+/********************************************************************
+MODAL
+********************************************************************/
+.reveal {
+	background: #282f35;
+	border : none;
+	outline: none;
+}
 /*******************************************************************/
 /********************************************************************
 CONTROL BOARD EDIT PAGE
@@ -642,7 +768,6 @@ DASHBOARD PORTFOLIO
 	background: #6bd7ca;
 	border: 1px solid #fff;
 }
-
 /********************************************************************
 CURRICULUM VITAE
 ********************************************************************/
@@ -673,6 +798,7 @@ page[size="A4"][layout="portrait"] {
 .cvwrapper p {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
+	margin-bottom: 5px;
 }
 /*Header*/
 .cvwrapper .header,
@@ -719,7 +845,7 @@ page[size="A4"][layout="portrait"] {
 	padding-top: 10px;
 }
 /*Work experience*/
-.cvwrapper .work > .column:nth-child(2){
+.cvwrapper .work > .column-bulleted {
 	position: relative;
 	border-left: 1px solid #282f35;
 	overflow: visible;
@@ -743,7 +869,8 @@ page[size="A4"][layout="portrait"] {
 .cvwrapper .skills {
 	min-height: 0px;
 }
-.cvwrapper .skills > div > div > p {
+.cvwrapper .skills > div > div > p,
+.cvwrapper .skills > div > div > div > div > p {
 	margin : 0;
 }
 .cvwrapper .slider {
@@ -759,13 +886,13 @@ page[size="A4"][layout="portrait"] {
 /*Education*/
 .cvwrapper .education > .column {
 	position: relative;
-	padding-left: 0;
-	padding-right: 0;
+	overflow: visible;
 }
 .cvwrapper .education > .column hr {
 	position: absolute;
     width: 100%;
     top: -5px;
+    left: -1px;
     z-index: 1;
     border-bottom-color: #282f35;
 }

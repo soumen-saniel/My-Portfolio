@@ -30,8 +30,6 @@ define(function(){
 	        	ctrl.heroSection = {
 					slides : response.data
 				}
-				console.log(response.data);
-				console.log("Landing controller loaded");
 				deleteResourcesOnLoad(response.data);
 	        }, 
 	        function(err) {

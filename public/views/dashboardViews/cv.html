@@ -49,11 +49,11 @@
 			<h5 class="display-inline font-dark"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;</h5>
 			<h6 class="display-inline font-light"><b>WORK EXPERIENCE</b></h6>
 			<div class="row work">
-				<div class="column small-4 medium-4 large-4">
+				<div class="column small-4 medium-4 large-4 text-right">
 					<p class="font-dark"><b>WEB APPLICATION DEVELOPER</b></p>
 					<p class="font-dark">July 2015 - Present</p>
 				</div>
-				<div class="column small-8 medium-8 large-8">
+				<div class="column small-8 medium-8 large-8 column-bulleted">
 					<p class="font-dark"><b>ITC Infotech - Bangalore</b></p>
 					<p class="font-dark">Google map based interactive trip planner for airlines</p>
 					<p class="font-dark">Requirement gathering, Prototyping, UI design, Responsive web development, Angular development, Google Map API integration, Backend integration and Testing.</p>
@@ -69,30 +69,23 @@
 		<div class="column small-4 medium-4 large-4 skills">
 			<h5 class="display-inline font-dark"><i class="fa fa-terminal" aria-hidden="true"></i>&nbsp;</h5>
 			<h6 class="display-inline font-light"><b>TECHNICAL SKILLS</b></h6>
-			<div class="row" ng-repeat="skill in main.skills track by $index">
-				<div class="column small-6 medium-6 large-6">
-					<p class="font-dark"><b>{{skill.skill}}</b></p>
-				</div>
-				<div class="column small-6 medium-6 large-6">
-					<div class="slider" data-slider data-initial-start="{{skill.percentage}}">
-						<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
-						<span class="slider-fill" data-slider-fill></span>
+			<div class="row" ng-repeat="(key, skills) in main.skills | orderBy:'category' | groupBy:'category'">
+				<div class="column small-12 medium-12 large-12"><p class="font-light"><b>{{key}}</b></p></div>
+				<div class="column small-12 medium-12 large-12" ng-repeat="skill in skills | orderBy:'name'">
+					<div class="row">
+						<div class="column small-6 medium-6 large-6">
+							<p class="font-dark"><b>{{skill.name}}</b></p>
+						</div>
+						<div class="column small-6 medium-6 large-6">
+							<div class="slider" data-slider data-initial-start="{{skill.percentage}}">
+								<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+								<span class="slider-fill" data-slider-fill></span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<h5 class="display-inline font-dark"><i class="fi-graph-trend large"></i>&nbsp;</h5>
-			<h6 class="display-inline font-light"><b>TECHNICAL SKILLS</b></h6>
-			<div class="row" ng-repeat="skill in main.skills track by $index">
-				<div class="column small-6 medium-6 large-6">
-					<p class="font-dark"><b>{{skill.skill}}</b></p>
-				</div>
-				<div class="column small-6 medium-6 large-6">
-					<div class="slider" data-slider data-initial-start="{{skill.percentage}}">
-						<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
-						<span class="slider-fill" data-slider-fill></span>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 	<br/>
@@ -104,18 +97,106 @@
 		<div class="column small-6 medium-6 large-6 text-center">
 			<p class="polygon display-inline"><b>2008 - 2010</b></p>
 			<p class="font-dark"><b>HIGH SCHOOL</b></p>
-			<p class="font-dark">From St'Xavier's School Purulia, West Bengal.</p>
+			<p class="font-dark">From St'Xavier's School Purulia, West Bengal under ICSE board.</p>
 			<hr/>
 			<div class="bulletLeft"></div>
 			<div class="bulletRight"></div>
 		</div>
 		<div class="column small-6 medium-6 large-6 text-center">
-			<p class="polygon display-inline"><b>2008 - 2010</b></p>
-			<p class="font-dark"><b>HIGH SCHOOL</b></p>
-			<p class="font-dark">From St'Xavier's School Purulia, West Bengal.</p>
+			<p class="polygon display-inline"><b>2011 - 2015</b></p>
+			<p class="font-dark"><b>GRADUATION</b></p>
+			<p class="font-dark">B.Tech. in Electronics and Communication Engineering.</p>
+			<p class="font-dark">From Heritage Institute of Technology Kolkata under WBUT.</p>
 			<hr/>
 			<div class="bulletLeft"></div>
 			<div class="bulletRight"></div>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<!-- Hobbies and interests -->
+		<div class="column small-8 medium-8 large-8">
+			<h5 class="display-inline font-dark"><i class="fi-lightbulb"></i>&nbsp;</h5>
+			<h6 class="display-inline font-light"><b>HOBBIES & INTERESTS</b></h6>
+			<div class="row work">
+				<div class="column small-4 medium-4 large-4 text-right">
+					<p class="font-dark"><b>INTERESTS</b></p>
+				</div>
+				<div class="column small-8 medium-8 large-8 column-bulleted">
+					<p class="font-dark">Learning and implementing latest web technologies in pet projects.</p>
+					<p class="font-dark">Learning about Internet of things (IOT), its importance and possibilities of application.</p>
+					<p class="font-dark">I am an automobile enthusiast and love to peak in to the world of automobile designing when free.</p>
+					<div class="bulletTop"></div>
+				</div>
+				<div class="column small-4 medium-4 large-4 text-right">
+					<p class="font-dark"><b>HOBBIES</b></p>
+				</div>
+				<div class="column small-8 medium-8 large-8 column-bulleted">
+					<p class="font-dark">I love cooking new dishes in leisure time.</p>
+					<p class="font-dark">Playing guitar and listening to music.</p>
+					<div class="bulletTop"></div>
+					<div class="bulletBottom"></div>
+				</div>
+			</div>
+		</div>
+		<!-- Skills -->
+		<div class="column small-4 medium-4 large-4 skills">
+			<h5 class="display-inline font-dark"><i class="fi-torso"></i>&nbsp;</h5>
+			<h6 class="display-inline font-light"><b>PERSONAL DETAILS</b></h6>
+			<div class="row">
+				<div class="column small-6 medium-6 large-6">
+					<p class="font-dark"><b>Date of Birth</b></p>
+				</div>
+				<div class="column small-6 medium-6 large-6">
+					<p class="font-light"><b>19th June 1992</b></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column small-6 medium-6 large-6">
+					<p class="font-dark"><b>Nationality</b></p>
+				</div>
+				<div class="column small-6 medium-6 large-6">
+					<p class="font-light"><b>Indian</b></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column small-12 medium-12 large-12">
+					<p class="font-dark"><b>Language proficiency</b></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column small-6 medium-6 large-6">
+					<p class="font-light"><b>English</b></p>
+				</div>
+				<div class="column small-6 medium-6 large-6">
+					<div class="slider" data-slider data-initial-start="100">
+						<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+						<span class="slider-fill" data-slider-fill></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column small-6 medium-6 large-6">
+					<p class="font-light"><b>Bengali</b></p>
+				</div>
+				<div class="column small-6 medium-6 large-6">
+					<div class="slider" data-slider data-initial-start="80">
+						<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+						<span class="slider-fill" data-slider-fill></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column small-6 medium-6 large-6">
+					<p class="font-light"><b>Hindi</b></p>
+				</div>
+				<div class="column small-6 medium-6 large-6">
+					<div class="slider" data-slider data-initial-start="80">
+						<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+						<span class="slider-fill" data-slider-fill></span>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </page>

@@ -109,33 +109,58 @@ app.registerController("appController", ["appService", "logService", function (a
 	//Values for contact section
 	//-----------------------------------------------------------------------------------------------
 	ctrl.contactSection = {
-		contact : {
-			address : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-			phone : "+91 9876543212",
-			email : "patric.jane@xyz.com",
-			social : [
-				{
-					title : "facebook",
-					url : "",
-					image : "/img/icons/social/facebook.svg"
-				},
-				{
-					title : "github",
-					url : "",
-					image : "/img/icons/social/github.svg"
-				},
-				{
-					title : "linkedin",
-					url : "",
-					image : "/img/icons/social/linkedin.svg"
-				},
-				{
-					title : "skype",
-					url : "",
-					image : "/img/icons/social/skype.svg"
-				}
-			]
-		}
+		contact : [],
+		social : []
+	};
+	appService.get('/api/contact').then(
+        function(response) {
+        	if(response.data.length > 0)
+        		ctrl.contactSection.contact = response.data[0];
+        	logService.success('appService.get()', response);
+        }, 
+        function(err) {
+            logService.failed('appService.get()', err);
+        }
+    );
+    appService.get('/api/social').then(
+        function(response) {
+        	ctrl.contactSection.social = response.data;
+        	logService.success('appService.get()', response);
+        }, 
+        function(err) {
+            logService.failed('appService.get()', err);
+        }
+    );
+    //-----------------------------------------------------------------------------------------------
+	//Email section
+	//-----------------------------------------------------------------------------------------------
+	ctrl.emailData = {
+		name : "",
+		from_address : "",
+		text_body : ""
+	}
+	var modal = $('#appmodal');
+	ctrl.sendMail = function(){
+		appService.post('/api/email', ctrl.emailData).then(
+	        function(response) {
+	        	if(response.status === 200){
+	        		ctrl.emailData = {
+						name : "",
+						from_address : "",
+						text_body : ""
+					}
+					var message = "Thanks for your mail...";
+					modal.html("<p class='font-light text-center'>"+message+"</p>").foundation('open');
+					setTimeout(function(){
+						modal.foundation('close');
+					}, 2000);
+	        	}
+	        	logService.success('appService.get()', response);
+	        }, 
+	        function(err) {
+	            logService.failed('appService.get()', err);
+	        }
+	    );
 	}
 }]);
 

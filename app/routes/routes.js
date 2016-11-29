@@ -3,6 +3,9 @@ var multer = require('multer');
 var model = require('../models/dbmodel'); // load the portfolio model
 var router = express.Router();
 var fs = require('fs-extra');
+var credentials = require('../../config/credentials');
+var sendgrid = require("sendgrid")(credentials.sg_username, credentials.sg_password);
+var to_address = "";
 //-----------------------------------------------------------------------------------------------
 //Generic functions
 //-----------------------------------------------------------------------------------------------
@@ -759,6 +762,8 @@ router.route('/contact')
             if (err)
                 res.send(err);
             res.json(result);
+            if(result.length > 0)
+                to_address = result[0].email;
         });
     })
     .post( function (req, res){
@@ -836,7 +841,7 @@ router.route('/social')
             });
         });
     })
-    .delete(function (err, result){
+    .delete(function (req, res){
         model.social.remove({
             _id : req.body._id
         }, function (err, result){
@@ -878,6 +883,38 @@ router.route('/social/img')
             deleteUnrequiredResources(files, './public/img/social/');
         }else{
             deleteFile(req.body.file);
+        }
+    });
+//-----------------------------------------------------------------------------------------------
+//Routes for email section
+//-----------------------------------------------------------------------------------------------
+router.route('/email')
+    .post( function (req, res) {
+        var from_address = req.body.from_address;
+        // SUBJECT
+        var subject = "Email from "+ req.body.name;
+        // TEXT BODY
+        var text_body = req.body.text_body;
+        console.log({
+                to:         to_address,
+                from:       from_address,
+                subject:    subject,
+                text:       text_body
+            });
+        /* SEND THE MAIL */
+        try {
+            sendgrid.send({
+                to:         to_address,
+                from:       from_address,
+                subject:    subject,
+                text:       text_body
+            }, function(err, json) {
+                if (err)
+                    res.send(err);
+                res.send(json);
+            });
+        } catch(e) {
+            res.send(e);
         }
     });
 //-----------------------------------------------------------------------------------------------

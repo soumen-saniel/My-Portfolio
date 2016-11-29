@@ -15,13 +15,13 @@
             <li><a href="#footer">Resources</a></li>
           </ul>
         </li>
-        <li class="menu-text"><a href="#home">Site Title</a></li>
+        <li class="menu-text"><a href="#home"><b><span class="font-dark">SOUMEN</span><span class="font-light">SANIEL</span></b></a></li>
       </ul>
     </div>
     <!--To be shown only in large screen-->
     <div class="row hide-for-small-only">
       <ul class="menu">
-        <li class="menu-text"><a href="#home">Site Title</a></li>
+        <li class="menu-text"><a href="#home"><b><span class="font-dark">SOUMEN</span><span class="font-light">SANIEL</span></b></a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#about">About</a></li>
@@ -49,12 +49,12 @@
           <div class="column large-4 medium-4 small-12 text-left font-light landing-text slide-in-text">
             <div>
               <h1>Hello, I'm</h1>
-              <h1><b>Patric Jane</b></h1>
+              <h1><b>Soumen Saniel</b></h1>
               <h5 class="text-bordered display-inline">Web Application Design And Development Enthusiast</h5>
               <div class="hero-content-flexslider">
                 <ul class="slides">
                   <li ng-repeat="slide in main.heroSection.slides">
-                    <h1>{{slide.text}}</h1>
+                    <p>{{slide.text}}</p>
                   </li>
                 </ul>
               </div>
@@ -62,6 +62,14 @@
           </div>
         </div>
       </div>
+      <span class="scroll-btn">
+        <a href="#">
+          <span class="mouse">
+            <span>
+            </span>
+          </span>
+        </a>
+      </span>
     </div>
   </div>
 
@@ -240,12 +248,12 @@
       </div>
       <div class="column large-12 small-12 text-center skills-flexslider">
         <ul class="slides" data-equalizer>
-          <li ng-repeat="(key, value) in main.skillsSection.skills | orderBy:'category' | groupBy:'category'">
+          <li ng-repeat="(key, value) in main.skillsSection.skills | groupBy:'category'">
             <div class="row align-center">
               <div class="column large-12 small-12 text-center">
                 <h5 class="display-inline text-center">{{key}}</h5>
               </div>
-              <div class="column large-3 small-4 text-center" ng-repeat="skill in value | orderBy:'name'">
+              <div class="column large-3 small-4 text-center" ng-repeat="skill in value">
                 <div class="pie_progress" role="progressbar" data-goal="{{skill.percentage}}">
                   <div class="pie_progress__number">0%</div>
                 </div>
@@ -345,24 +353,26 @@
         <h5>{{main.contactSection.contact.email}}</h5>
       </div>
       <div class="column small-12 medium-6">
-        <div class="row align-center">
-          <div class="column large-6 medium-6 small-6">
-            <input id="sender_name" type="text" placeholder="Your name"/>
+        <form name="emailForm">
+          <div class="row align-center">
+            <div class="column large-6 medium-6 small-6">
+              <input class="form-control" id="sender_name" type="text" placeholder="Your name" ng-model="main.emailData.name" required/>
+            </div>
+            <div class="column large-6 medium-6 small-6">
+              <input class="form-control" id="sender_email" type="email" placeholder="Your email" ng-model="main.emailData.from_address" required/>
+            </div>
+            <div class="column large-12 medium-12 small-12">
+              <textarea class="form-control" data-autoresize id="mail_message" placeholder="Message:" rows="4" ng-model="main.emailData.text_body" required></textarea>
+            </div>
+            <div class="column large-12 medium-12 small-12 text-center">
+              <button class="button" ng-disabled="emailForm.$invalid" ng-click="main.sendMail()">Submit</button>
+            </div>
           </div>
-          <div class="column large-6 medium-6 small-6">
-            <input id="sender_email" type="text" placeholder="Your email"/>
-          </div>
-          <div class="column large-12 medium-12 small-12">
-            <textarea data-autoresize id="mail_message" placeholder="Message:" rows="4"></textarea>
-          </div>
-          <div class="column large-12 medium-12 small-12 text-center">
-            <a class="button">Submit</a>
-          </div>
-        </div>
+        </form>
       </div>
       <div class="column large-12 medium-12 small-12 text-center">
         <div>
-          <a ng-repeat="social in main.contactSection.contact.social" href="{{social.url}}"><span><img ng-src="{{social.image}}"></span></a>
+          <a ng-repeat="social in main.contactSection.social" href="{{social.url}}"><span><img ng-src="{{social.image}}"></span></a>
         </div>
       </div>
     </div>
@@ -378,14 +388,17 @@
 
       <div class="column small-6 medium-3 large-3">
         <h4 class="font-light">Frameworks</h4>
-        <a href="http://foundation.zurb.com/" target="_blank"><h5>CSS </h5>Zurb Foundation 6</a>
+        <a href="http://foundation.zurb.com/" target="_blank"><h5>CSS </h5>Zurb Foundation 6, </a>
+        <a href="http://zurb.com/playground/motion-ui" target="_blank">Motion UI</a>
         </br>
         <a href="https://angularjs.org/" target="_blank"><h5>JAVA SCRIPT </h5>Angular JS</a>
       </div>
 
       <div class="column small-6 medium-3 large-3">
         <h4 class="font-light">Libraries</h4>
-        <a href="https://jquery.com/" target="_blank"><h5>JAVA SCRIPT </h5>Jquery</a>
+        <a href="https://jquery.com/" target="_blank"><h5>JAVA SCRIPT </h5>Jquery,</a>
+        <a href="http://requirejs.org/" target="_blank" class="display-inline">Require JS, </a>
+        <a href="https://angular-file-upload.appspot.com/" target="_blank" class="display-inline">File Upload</a>
         </br>
         <a href="http://flexslider.woothemes.com/" target="_blank"><h5>SLIDER </h5>Flex Slider</a>
         </br>
@@ -415,4 +428,6 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="reveal text-center" id="appmodal" data-reveal data-close-on-click="true" data-animation-in="fade-in" data-animation-out="fade-out"></div>
 </div>

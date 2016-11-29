@@ -10,10 +10,11 @@ define(function(){
 				"path" : "@",
 			},
 
-			template : "<div ngf-drop ngf-select ng-model='files'"+
+			template : "<div class='dropBox' ngf-drop ngf-select ng-model='files'"+
             "ngf-drag-over-class='dragover' ngf-multiple='true' ngf-allow-dir='true'"+
             "accept={{accept}} ngf-pattern={{pattern}}><img ng-src={{image}}>"+
-            "<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div></div>",
+            "<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>"+
+            "<span class='uploadProgress' ng-show='showProgress'><h4 class='font-light'>{{progressPercentage}}%</h4></span></div>",
 
 			link : function (scope, element, attrs) {
 				angular.element(element).ready(function(){
@@ -32,6 +33,8 @@ define(function(){
 					scope.file = "";
 					scope.accept = "image/*,application/pdf";
 					scope.pattern = "'image/*,application/pdf'";
+					scope.progressPercentage = 0;
+					scope.showProgress = false;
 					scope.$watch(function () {
 			            return scope.files;
 			        }, function(value){
@@ -77,9 +80,17 @@ define(function(){
 			                                //Add a flag to notify the image changed and is unsaved
 			                                scope.data.imgUnSaved = true;
 			                            });
-			                        }, null, function (evt) {
-			                            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-			                            scope.log = 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name + '\n' + scope.log;
+			                        }, function (resp) {
+			                        	alert("File upload error : "+ resp.status);
+							            console.log('Error: ' + resp);
+							        }, function (evt) {
+			                            scope.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            							//console.log('progress: ' + scope.progressPercentage + '% ' + evt.config.data.file.name);
+            							if(scope.progressPercentage === 100){
+            								scope.showProgress = false;
+            							}else{
+            								scope.showProgress = true;
+            							}
 			                        });
 			                    }
 			                }
