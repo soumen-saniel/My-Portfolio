@@ -1,4 +1,4 @@
 module.exports = {
-    sg_username : "soumen.saniel@gmail.com",
-    sg_password : "12345arox!!"
+    sg_username : "",
+    sg_password : ""
 };
