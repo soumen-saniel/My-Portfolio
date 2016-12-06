@@ -3,8 +3,7 @@ var multer = require('multer');
 var model = require('../models/dbmodel'); // load the portfolio model
 var router = express.Router();
 var fs = require('fs-extra');
-var credentials = require('../../config/credentials');
-var sendgrid = require("sendgrid")(credentials.sg_username, credentials.sg_password);
+
 var to_address = "";
 //-----------------------------------------------------------------------------------------------
 //Generic functions
@@ -890,32 +889,121 @@ router.route('/social/img')
 //-----------------------------------------------------------------------------------------------
 router.route('/email')
     .post( function (req, res) {
-        var from_address = req.body.from_address;
-        // SUBJECT
-        var subject = "Email from "+ req.body.name;
-        // TEXT BODY
-        var text_body = req.body.text_body;
-        console.log({
-                to:         to_address,
-                from:       from_address,
-                subject:    subject,
-                text:       text_body
-            });
-        /* SEND THE MAIL */
-        try {
-            sendgrid.send({
-                to:         to_address,
-                from:       from_address,
-                subject:    subject,
-                text:       text_body
-            }, function(err, json) {
-                if (err)
+        var sg_username = '';
+        var sg_password = '';
+        model.credential.find(function (err, result){
+            if(err)
+                res.send(err);
+            if(result.length > 0){
+                sg_username = result[0].emailserviceusername;
+                sg_password = result[0].emailservicepassword;
+            }
+            var sendgrid = require("sendgrid")(sg_username, sg_password);
+            var from_address = req.body.from_address;
+            // SUBJECT
+            var subject = "Email from "+ req.body.name;
+            // TEXT BODY
+            var text_body = req.body.text_body;
+            console.log({
+                    to:         to_address,
+                    from:       from_address,
+                    subject:    subject,
+                    text:       text_body
+                });
+            /* SEND THE MAIL */
+            try {
+                sendgrid.send({
+                    to:         to_address,
+                    from:       from_address,
+                    subject:    subject,
+                    text:       text_body
+                }, function(err, json) {
+                    if (err)
+                        res.send(err);
+                    res.send(json);
+                });
+            } catch(e) {
+                res.send(e);
+            }
+        });
+    });
+//-----------------------------------------------------------------------------------------------
+//Routes for login section
+//-----------------------------------------------------------------------------------------------
+router.route('/login')
+    .post( function (req, res) {
+        model.credential.find( function (err, result){
+            if(err)
+                req.send(err);
+            if(result.length === 0){
+                model.credential.create({
+                    loginusername : "admin",
+                    loginpassword : "admin",
+                    emailserviceusername : "admin",
+                    emailservicepassword : "admin"
+                }, function (err, result){
+                    if(err)
+                        res.send(err);
+                    model.credential.find(function (err, result){
+                        if(err)
+                            res.send(err);
+                        if(req.body.username === result[0].loginusername){
+                            if(req.body.password === result[0].loginpassword){
+                                res.sendStatus(200);
+                            }else{
+                                res.sendStatus(500);
+                            }
+                        }else{
+                            res.sendStatus(500);
+                        }
+                    });
+                });
+            }else{
+                if(req.body.username === result[0].loginusername){
+                    if(req.body.password === result[0].loginpassword){
+                        res.sendStatus(200);
+                    }else{
+                        res.sendStatus(500);
+                    }
+                }else{
+                    res.sendStatus(500);
+                }
+            }
+        });
+    })
+    .put(function (req, res){
+        model.credential.find(function (err, result){
+            if(err)
+                res.send(err);
+            var query = { _id : req.body._id };
+            model.credential.update(query, {
+                loginusername : req.body.loginusername || result[0].loginusername,
+                loginpassword : req.body.loginpassword || result[0].loginpassword,
+                emailserviceusername : req.body.emailserviceusername || result[0].emailserviceusername,
+                emailservicepassword : req.body.emailservicepassword || result[0].emailservicepassword
+            },{
+                multi : false
+            }, function (err, result){
+                if(err)
                     res.send(err);
-                res.send(json);
+                model.credential.find(function (err, result){
+                    if(err)
+                        res.send(err);
+                    result[0].loginpassword = "";
+                    result[0].emailservicepassword = "";
+                    res.json(result);
+                });
             });
-        } catch(e) {
-            res.send(e);
-        }
+        });
+    })
+    .get(function (req, res){
+        model.credential.find(function (err, result){
+            if(err)
+                res.send(err);
+            result[0].loginpassword = "";
+            result[0].emailservicepassword = "";
+            res.json(result);
+        });
     });
 //-----------------------------------------------------------------------------------------------
 //expose the routes to our app with module.exports

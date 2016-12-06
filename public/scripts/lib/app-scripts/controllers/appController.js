@@ -2,7 +2,7 @@ define(function(){
 
 var app = angular.module("coreModule");
 
-app.registerController("appController", ["appService", "logService", function (appService, logService){
+app.registerController("appController", ["appService", "logService", "$state", function (appService, logService, $state){
 	//-----------------------------------------------------------------------------------------------
 	//Values for hero section
 	//-----------------------------------------------------------------------------------------------
@@ -67,6 +67,11 @@ app.registerController("appController", ["appService", "logService", function (a
             logService.failed('appService.get()', err);
         }
     );
+    ctrl.openCv = function(){
+    	var url = $state.href('cv');
+    	console.log(url);
+		window.open(url,'_blank');
+    }
 	//-----------------------------------------------------------------------------------------------
 	//Values for skills section
 	//-----------------------------------------------------------------------------------------------

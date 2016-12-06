@@ -32,7 +32,6 @@ define(function(){
 		//-----------------------------------------------------------------------------------------------
 		appService.get(ctrl.url.db).then(
 	        function(response) {
-	        	console.log(response.data);
 	        	if(response.data.length > 0){
 	        		ctrl.aboutData = {};
 		        	ctrl.aboutData = response.data[0];
@@ -86,7 +85,6 @@ define(function(){
 	    	ctrl.aboutData.hobbies.push("Add hobby");
 	    }
 	    ctrl.save = function(data){
-	    	console.log(data);
 	    	data.languages = cleanArray(data.languages);
 	    	data.interests = cleanArray(data.interests);
 	    	data.hobbies = cleanArray(data.hobbies);
@@ -94,7 +92,6 @@ define(function(){
 	    	if(data._id){
 	    		appService.put(ctrl.url.db, data).then(
 		    		function(response){
-		    			console.log(response);
 		    			ctrl.aboutData = {};
 		    			ctrl.aboutData = response.data[0];
 		    			alert("Data updated successfully.");
@@ -108,7 +105,6 @@ define(function(){
 	    	}else{
 		    	appService.post(ctrl.url.db, data).then(
 		    		function(response){
-		    			console.log(response);
 		    			ctrl.aboutData = {};
 		    			ctrl.aboutData = response.data[0];
 		    			alert("Data saved successfully.");

@@ -21,7 +21,13 @@
 <body>
 
   <!-- <div ng-view></div> -->
-  <div ui-view></div>
+  <div ui-view>
+    <div class="row fullWidth fullHeight align-center align-middle">
+      <div class="small-1 medium-1 large-1">
+        <img class="waitLoadingGif" src="/img/hourglass.gif"/>
+      </div>
+    </div>
+  </div>
   <!-- Require JS File/ Entry point for all the script files -->
   <script data-main="scripts/main" src="scripts/lib/require.min.js"></script>
 

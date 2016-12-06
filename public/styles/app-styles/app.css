@@ -114,6 +114,9 @@ html, body{
 	margin: 0;
 	background: #282f35;
 }
+.waitLoadingGif {
+	
+}
 .hide {
 	display: none;
 }

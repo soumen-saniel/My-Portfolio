@@ -21,10 +21,38 @@ define(function(){
 		    			}]
 		    		}
 		    	})
+		    	.state('login',{
+		    		url:'/login',
+		    		templateUrl : '/views/login.html',
+		    		controller: 'loginController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/loginController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		},
+		    	})
+		    	.state('cv',{
+		    		url:'/cv',
+		    		templateUrl : '/views/dashboardViews/cv.html',
+		    		controller: 'cvController as main',
+		    		resolve: {
+		    			load: ['$q', function($q){
+		    				var defered = $q.defer();
+		    				require(['lib/app-scripts/controllers/dashboardControllers/cvController'], function(){
+		    					defered.resolve();
+		    				});
+		    				return defered.promise;
+		    			}]
+		    		}
+		    	})
 		    	.state('admin',{
 		    		url:'/admin',
 		    		templateUrl : '/views/dashboard.html',
-		    		controller: 'dashboardController as dashboard',
+		    		controller: 'dashboardController as main',
 		    		resolve: {
 		    			load: ['$q', function($q){
 		    				var defered = $q.defer();

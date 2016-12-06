@@ -34,5 +34,45 @@
       </ul>
     </div>
   </div>
-  <div ui-view></div>
+  <div ui-view>
+
+    <div class="fullWidth row-padding">
+      <div class="row align-center">
+        <div class="columns text-center">
+          <h1 class="display-inline">WELLCOME TO DASHBOARD</h1>
+        </div>
+      </div>
+      <form name="loginCredentialsForm">
+        <div class="row">
+          <div class="small-12 medium-12 large-12">
+            <label><h6 class="font-light">* Login User Name : </h6><input class="form-control" placeholder="Login user name :" type="text" name="loginusername" ng-model="main.credentials.loginusername" ng-required="!main.credentials.loginpassword"></label>
+          </div>
+          <div class="small-12 medium-12 large-12">
+            <label><h6 class="font-light">* Login Password : </h6><input class="form-control" placeholder="Login password :" type="text" name="loginpassword" ng-model="main.credentials.loginpassword" ng-required="!main.credentials.loginusername"></label>
+          </div>
+          <div class="small-12 medium-12 large-12 text-center">
+            <hr/>
+            <button class="button" ng-disabled="loginCredentialsForm.$error.required" ng-click="main.updateCredentials()">Save</button>
+          </div>
+        </div>
+      </form>
+      <form name="emailCredentialsForm">
+        <div class="row">
+          <div class="small-12 medium-12 large-12">
+            <hr/>
+            <label><h6 class="font-light">* Email Service User Name : </h6><input class="form-control" placeholder="Email service user name :" type="text" name="emailserviceusername" ng-model="main.credentials.emailserviceusername" ng-required="!main.credentials.emailservicepassword"></label>
+          </div>
+          <div class="small-12 medium-12 large-12">
+            <label><h6 class="font-light">* Email Service Password : </h6><input class="form-control" placeholder="Email service password :" type="text" name="emailservicepassword" ng-model="main.credentials.emailservicepassword" ng-required="!main.credentials.emailserviceusername"></label>
+          </div>
+          <hr/>
+          <div class="small-12 medium-12 large-12 text-center">
+            <hr/>
+            <button class="button" ng-disabled="emailCredentialsForm.$error.required" ng-click="main.updateCredentials()">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
 </div>

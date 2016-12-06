@@ -1,33 +1,49 @@
 define(function(){
 	var app = angular.module("coreModule");
-	app.registerController('dashboardController', [dashboardController]);
-	function dashboardController(){
-		// var vm = this;
-
-		// vm.submit = function(){ //function to call on form submit
-  //           if (vm.upload_form.file.$valid && vm.file) { //check if from is valid
-  //               vm.upload(vm.file); //call upload function
-  //           }
-  //       }
-  //       vm.upload = function (file) {
-  //           Upload.upload({
-  //               url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
-  //               data:{file:file} //pass file as data, should be user ng-model
-  //           }).then(function (resp) { //upload function returns a promise
-  //               if(resp.data.error_code === 0){ //validate success
-  //                   $window.alert('Success ' + resp.config.data.file.name + 'uploaded. Response: ');
-  //               } else {
-  //                   $window.alert('an error occured');
-  //               }
-  //           }, function (resp) { //catch error
-  //               console.log('Error status: ' + resp.status);
-  //               $window.alert('Error status: ' + resp.status);
-  //           }, function (evt) { 
-  //               console.log(evt);
-  //               var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-  //               console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-  //               vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
-  //           });
-  //       };
+	app.registerController('dashboardController', ["appService", "logService", dashboardController]);
+	function dashboardController(appService, logService){
+    	//-----------------------------------------------------------------------------------------------
+		//Veriables
+		//-----------------------------------------------------------------------------------------------
+		var ctrl = this;
+		ctrl.credentials = {
+			loginusername : "",
+            loginpassword : "",
+            emailserviceusername : "",
+            emailservicepassword : ""
+		}
+		//-----------------------------------------------------------------------------------------------
+		//Configuration
+		//-----------------------------------------------------------------------------------------------
+		ctrl.url = {
+			db : '/api/login'
+		}
+		//-----------------------------------------------------------------------------------------------
+		//Inetial get
+		//-----------------------------------------------------------------------------------------------
+		appService.get(ctrl.url.db).then(
+	        function(response) {
+	        	ctrl.credentials = response.data[0];
+	        }, 
+	        function(err) {
+	        	alert("Error : Data get!");
+	            logService.failed('appService.get()', err);
+	        }
+	    );
+	    //-----------------------------------------------------------------------------------------------
+		//CRUD Operations
+		//-----------------------------------------------------------------------------------------------
+	    ctrl.updateCredentials = function(){
+	    	appService.put(ctrl.url.db, ctrl.credentials).then(
+	    		function(response){
+	    			ctrl.credentials = response.data[0];
+	    			alert("Data updated successfully.");
+	    			//logService.success('appService.put()', response);
+	    		},function(err){
+	    			alert("Error : Data updated!");
+	    			logService.failed('appService.put()', err);
+	    		}
+    		);
+	    }
 	}
 });

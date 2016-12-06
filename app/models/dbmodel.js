@@ -170,6 +170,24 @@ var socialSchema = mongoose.Schema(
 );
 var social = mongoose.model('socialSection', socialSchema);
 //-----------------------------------------------------------------------------------------------
+//Login Schema
+//-----------------------------------------------------------------------------------------------
+var credentialSchema = mongoose.Schema(
+	{
+		loginusername : { type: String, required: true },
+		loginpassword : { type: String, required: true },
+		emailserviceusername : { type: String, required: true },
+		emailservicepassword : { type: String, required: true }
+	},
+	{
+		timestamps : true
+	},
+	{
+		collection : "credentialSection"
+	}
+);
+var credential = mongoose.model('credentialSection', credentialSchema);
+//-----------------------------------------------------------------------------------------------
 //Exports
 //-----------------------------------------------------------------------------------------------
 module.exports = {
@@ -181,5 +199,6 @@ module.exports = {
 	skill : skill,
 	experience : experience,
 	contact : contact,
-	social : social
+	social : social,
+	credential : credential
 };
