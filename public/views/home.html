@@ -153,10 +153,13 @@
         <h1 class="display-inline">About</h1>
       </div>
     </div>
-
+    <div class="row">
+      <div class="small-12 medium-12 large-12">
+        <p class="font-light">{{main.aboutSection.data.description}}</p>
+      </div>
+    </div>
     <div class="row">
       <div class="column large-6 medium-6 small-12">
-        <p class="font-light">{{main.aboutSection.data.description}}</p>
         <ul class="accordion about-accordian" data-accordion>
 
           <li class="accordion-item is-active" data-accordion-item>
@@ -216,13 +219,19 @@
         <div class="about-flexslider">
           <ul class="slides">
             <li>
-              <img ng-src="{{main.aboutSection.data.aboutImage}}"/>
+              <div>
+                <img ng-if="main.aboutSection.data.aboutImage" ng-src="{{main.aboutSection.data.aboutImage}}"/>
+              </div>
             </li>
             <li>
-              <img ng-src="{{main.aboutSection.data.interestImage}}"/>
+              <div>
+                <img ng-if="main.aboutSection.data.interestImage" ng-src="{{main.aboutSection.data.interestImage}}"/>
+              </div>
             </li>
             <li>
-              <img ng-src="{{main.aboutSection.data.hobbyImage}}"/>
+              <div>
+                <img ng-if="main.aboutSection.data.hobbyImage" ng-src="{{main.aboutSection.data.hobbyImage}}"/>
+              </div>
             </li>
           </ul>
         </div>
