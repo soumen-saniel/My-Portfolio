@@ -228,8 +228,8 @@
         </div>
       </div>
       <div class="column large-12 small-12 text-center medium-text-left">
-        <a class="button hide-for-small-only" ng-click="main.openCv()">DOWNLOAD MY CV</a>
-        <a class="button small show-for-small-only" ng-click="main.openCv()">DOWNLOAD MY CV</a>
+        <a class="button hide-for-small-only" ng-click="main.openCv()">VIEW CV</a>
+        <a class="button small show-for-small-only" ng-click="main.openCv()">VIEW CV</a>
       </div>
     </div>
   </div>
@@ -244,7 +244,7 @@
 
     <div class="row align-center">
       <div class="column large-12 small-12 text-center slider-buttons skills-flexslider-controls">
-        <div style="display:inline-block" ng-repeat="(key, skills) in main.skillsSection.skills | orderBy:'category' | groupBy:'category'"><a class="button hide-for-small-only" ng-class="{'button-active' : $first}">{{key}}</a><a class="button small show-for-small-only" ng-class="{'button-active' : $first}">{{key}}</a></div>
+        <div style="display:inline-block" ng-repeat="(key, skills) in main.skillsSection.skills | groupBy:'category'"><a class="button hide-for-small-only" ng-class="{'button-active' : $first}">{{key}}</a><a class="button small show-for-small-only" ng-class="{'button-active' : $first}">{{key}}</a></div>
       </div>
       <div class="column large-12 small-12 text-center skills-flexslider">
         <ul class="slides" data-equalizer>
@@ -292,7 +292,7 @@
         <div class="timeline-box" style="background : url('{{experience.image}}') no-repeat; background-size : cover;">
           <div class="timeline-content">
             <h5 class="font-light">{{experience.organization}}</h5>
-            <h6><span>{{experience.start | date : "MMMM yyyy"}}&nbsp;-&nbsp;</span><span ng-if="!experience.end">Present</span><span>{{experience.end | date : "MMMM yyyy"}}</span></h6>
+            <h6><span>{{experience.start | date : "MMMM yyyy"}}&nbsp;-&nbsp;</span><span ng-if="$first">Present</span><span ng-if="!$first">{{experience.end | date : "MMMM yyyy"}}</span></h6>
             <h5><small>Role : {{experience.designation}}</small></h5>
             <p class="text-left">{{experience.description}}</p>
           </div>
@@ -324,7 +324,7 @@
           <div class="timeline-content">
             <h5 class="font-light">{{experience.organization}}</h5>
             <h6><span>{{experience.start | date : "MMMM yyyy"}}&nbsp;-&nbsp;</span><span ng-if="!experience.end">Present</span><span>{{experience.end | date : "MMMM yyyy"}}</span></h6>
-            <h5><small>Role : {{experience.designation}}</small></h5>
+            <h5><small>{{experience.designation}}</small></h5>
             <p class="text-left">{{experience.description}}</p>
           </div>
           <div class="arrow"></div>
@@ -372,7 +372,7 @@
       </div>
       <div class="column large-12 medium-12 small-12 text-center">
         <div>
-          <a ng-repeat="social in main.contactSection.social" href="{{social.url}}"><span><img ng-src="{{social.image}}"></span></a>
+          <a ng-repeat="social in main.contactSection.social" href="{{social.url}}" target="_blank"><span><img ng-src="{{social.image}}"></span></a>
         </div>
       </div>
     </div>
