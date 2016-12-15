@@ -225,7 +225,7 @@ HERO SECTION
 	max-width: 100vw;
 }
 .hero .row> .column{
-	height: 100%;
+	
 }
 .hero .row> .column:nth-child(1){
 	padding: 0;
@@ -238,47 +238,21 @@ HERO SECTION
 	padding: 0;
 }
 .hero .hero-content> .column{
-	height: 100%;
+	
 }
 .hero-img-flexslider div{
 	width: 100%;
 	height: 100vh;
 }
 .landing-text{
-	background: rgba(0,0,0,0.4);
+	
 }
-.landing-text h1:nth-child(1), .landing-text h1:nth-child(2), .landing-text h5{
+.landing-text h1:nth-child(1), .landing-text h5, .landing-text .hero-content-flexslider {
 	opacity : 1;
-	-ms-transform: translate(0, 0); /* IE 9 */
-    -webkit-transform: translate(0, 0); /* Safari */
-    transform: translate(0, 0);
+	transition: all 3s linear;
 }
-.landing-text h1:nth-child(1){
-	transition: all 1s cubic-bezier(0, 0.01, 0, 0.96);
-}
-.landing-text h1:nth-child(2){
-	transition: all 2.5s cubic-bezier(0, 0.01, 0, 0.96);
-}
-.landing-text h5{
-	transition: all 2.5s cubic-bezier(0, 0.01, 0, 0.96);
-}
-.slide-in-text h1:nth-child(1){
-	opacity : 0;
-	-ms-transform: translate(-120%, 0); /* IE 9 */
-    -webkit-transform: translate(-120%, 0); /* Safari */
-    transform: translate(-120%, 0);
-}
-.slide-in-text h1:nth-child(2) {
-	opacity : 0;
-	-ms-transform: translate(-140%, 0); /* IE 9 */
-    -webkit-transform: translate(-140%, 0); /* Safari */
-    transform: translate(-120%, 0);
-}
-.slide-in-text h5 {
-	opacity : 0;
-	-ms-transform: translate(-140%, 0); /* IE 9 */
-    -webkit-transform: translate(-140%, 0); /* Safari */
-    transform: translate(-120%, 0);
+.slide-in-text h1:nth-child(1), .slide-in-text h5, .slide-in-text .hero-content-flexslider {
+	opacity: 0;
 }
 /*Scroll animation*/
 @-webkit-keyframes ani-mouse {
@@ -391,19 +365,6 @@ HERO SECTION
 	-webkit-animation: ani-mouse 2.5s linear infinite;
 	-moz-animation: ani-mouse 2.5s linear infinite;
 	animation: ani-mouse 2.5s linear infinite;
-}
-/* For mobile */
-@media (max-width: 639px) {
-	.hero {
-		background: transparent;
-		background-size: auto;
-	}
-	.hero .hero-content{
-		height: auto !important;
-		top: 40%;
-	}
-	.hero .hero-content> .column{
-	}
 }
 
 /********************************************************************

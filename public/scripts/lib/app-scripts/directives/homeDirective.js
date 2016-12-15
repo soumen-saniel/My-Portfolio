@@ -120,8 +120,8 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 										smoothHeight: true,            //{NEW} Boolean: Allow height of the slider to animate smoothly in horizontal mode  
 										startAt: 0,                     //Integer: The slide that the slider should start on. Array notation (0 = first slide)
 										slideshow: true,                //Boolean: Animate slider automatically
-										slideshowSpeed: 4000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
-										animationSpeed: 1000,            //Integer: Set the speed of animations, in milliseconds
+										slideshowSpeed: 5000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
+										animationSpeed: 1500,            //Integer: Set the speed of animations, in milliseconds
 										initDelay: 0,                   //{NEW} Integer: Set an initialization delay, in milliseconds
 										randomize: false,               //Boolean: Randomize slide order
 
@@ -198,7 +198,7 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 										directionNav: false,             //Boolean: Create navigation for previous/next navigation? (true/false)
 									});
 									$('.hero-content-flexslider').flexslider({
-										animation: "slide",              //String: Select your animation type, "fade" or "slide"
+										animation: "fade",              //String: Select your animation type, "fade" or "slide"
 										easing: "swing",               //{NEW} String: Determines the easing method used in jQuery transitions. jQuery easing plugin is supported!
 										direction: "horizontal",        //String: Select the sliding direction, "horizontal" or "vertical"
 										reverse: true,                 //{NEW} Boolean: Reverse the animation direction
