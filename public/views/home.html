@@ -218,17 +218,17 @@
           <ul class="slides">
             <li>
               <div>
-                <img ng-if="main.aboutSection.data.aboutImage" ng-src="{{main.aboutSection.data.aboutImage}}"/>
+                <img ng-src="{{main.aboutSection.data.aboutImage}}"/>
               </div>
             </li>
             <li>
               <div>
-                <img ng-if="main.aboutSection.data.interestImage" ng-src="{{main.aboutSection.data.interestImage}}"/>
+                <img ng-src="{{main.aboutSection.data.interestImage}}"/>
               </div>
             </li>
             <li>
               <div>
-                <img ng-if="main.aboutSection.data.hobbyImage" ng-src="{{main.aboutSection.data.hobbyImage}}"/>
+                <img ng-src="{{main.aboutSection.data.hobbyImage}}"/>
               </div>
             </li>
           </ul>
@@ -255,7 +255,7 @@
       </div>
       <div class="column large-12 small-12 text-center skills-flexslider">
         <ul class="slides" data-equalizer>
-          <li ng-repeat="(key, value) in main.skillsSection.skills | groupBy:'category'">
+          <li ng-repeat="(key, value) in main.skillsSection.skills | groupBy:'category'" data-equalizer-watch>
             <div class="row align-center">
               <div class="column large-12 small-12 text-center">
                 <h5 class="display-inline text-center">{{key}}</h5>
@@ -264,7 +264,7 @@
                 <div class="pie_progress" role="progressbar" data-goal="{{skill.percentage}}">
                   <div class="pie_progress__number">0%</div>
                 </div>
-                <h4 data-equalizer-watch><small class="font-dark">{{skill.name}}</small></h4>
+                <h4 ><small class="font-dark">{{skill.name}}</small></h4>
               </div>
             </div>
           </li>
