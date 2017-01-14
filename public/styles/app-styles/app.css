@@ -238,7 +238,7 @@ HERO SECTION
 	padding: 0;
 }
 .hero .hero-content> .column{
-	
+	background: rgba(40, 47, 53, 0.81);
 }
 .hero-img-flexslider div{
 	width: 100%;
