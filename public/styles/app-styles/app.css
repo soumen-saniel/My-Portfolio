@@ -52,9 +52,7 @@ a:hover, a:focus{
 	color : rgba(255,255,255,0.7);
 }
 .button:hover, .button:active{
-	background: black;
-	border : 2px solid #000;
-	color : #fff;
+	
 }
 .button-active{
 	background: black;

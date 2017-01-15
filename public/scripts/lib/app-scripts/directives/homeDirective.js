@@ -120,7 +120,7 @@ app.directive('homeDirective', ['$timeout' , function ($timeout) {
 										smoothHeight: true,            //{NEW} Boolean: Allow height of the slider to animate smoothly in horizontal mode  
 										startAt: 0,                     //Integer: The slide that the slider should start on. Array notation (0 = first slide)
 										slideshow: true,                //Boolean: Animate slider automatically
-										slideshowSpeed: 5000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
+										slideshowSpeed: 3000,           //Integer: Set the speed of the slideshow cycling, in milliseconds
 										animationSpeed: 1500,            //Integer: Set the speed of animations, in milliseconds
 										initDelay: 0,                   //{NEW} Integer: Set an initialization delay, in milliseconds
 										randomize: false,               //Boolean: Randomize slide order
